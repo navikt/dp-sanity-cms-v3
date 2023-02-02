@@ -6,43 +6,28 @@ env:
   IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
 
 jobs:
-  build:
-    name: Build and push Docker container
+  build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-        if: steps.node_modules.outputs.cache-hit != 'true'
         with:
-          node-version: "16.x"
-          cache: "npm"
-          registry-url: "https://npm.pkg.github.com"
+          node-version: 18
       - run: npm ci --ignore-scripts
         if: steps.node_modules.outputs.cache-hit != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - run: npm run build
-      - uses: docker/login-action@v2
+      - uses: navikt/frontend/actions/spa-deploy/v1@main
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: ${{ env.IMAGE }}
-
-  deploy:
-    name: Deploy to NAIS
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-gcp
-          RESOURCE: nais.yaml
-          VAR: image=${{ env.IMAGE }}
+          app-name: dp-sanity-cms-v3
+          team-name: teamdagpenger
+          source: ./dist
+          ingress: https://dagpenger.intern.nav.no/sanity
+          environment: prod
+          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
