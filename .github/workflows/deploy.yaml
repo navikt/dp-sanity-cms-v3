@@ -11,6 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        if: steps.node_modules.outputs.cache-hit != 'true'
+        with:
+          node-version: "16.x"
+          cache: "npm"
+          registry-url: "https://npm.pkg.github.com"
+      - run: npm ci --ignore-scripts
+        if: steps.node_modules.outputs.cache-hit != 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+      - run: npm run build
       - uses: docker/login-action@v2
         with:
           registry: ghcr.io
@@ -21,7 +32,6 @@ jobs:
           context: .
           push: true
           tags: ${{ env.docker_image }}
-      - run: npm run build
 
   deploy:
     name: Deploy to NAIS
