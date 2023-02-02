@@ -1,12 +1,26 @@
-import { defineConfig, definePlugin } from 'sanity'
+import { AuthStoreOptions, createAuthStore, defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { withDocumentI18nPlugin } from '@sanity/document-internationalization'
 import { schemaTypes } from './schema/schema'
 
+const authConfig: AuthStoreOptions = {
+  dataset: 'production',
+  projectId: 'rt6o382n',
+  mode: 'replace',
+  redirectOnSingle: true,
+  providers: [
+    {
+      name: 'saml',
+      title: 'NAV SSO',
+      url: 'https://api.sanity.io/v2021-10-01/auth/saml/login/f3270b37',
+    },
+  ],
+}
+
 const sharedConfig = {
   projectId: 'rt6o382n',
-
+  auth: createAuthStore(authConfig),
   plugins: withDocumentI18nPlugin([deskTool(), visionTool()], {
     base: 'nb',
     languages: [
@@ -37,7 +51,7 @@ export default defineConfig([
     title: 'Produksjon',
     dataset: 'production',
     basePath: '/prod',
-    default: true,
+    // default: true,
   },
   {
     ...sharedConfig,
