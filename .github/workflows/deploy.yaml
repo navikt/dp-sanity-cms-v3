@@ -18,10 +18,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          registry-url: "https://npm.pkg.github.com"
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        id: node_modules
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
       - run: npm ci --ignore-scripts
-        if: steps.node_modules.outputs.cache-hit != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+
       - run: npm run build
       - uses: navikt/frontend/actions/spa-deploy/v1@main
         with:
