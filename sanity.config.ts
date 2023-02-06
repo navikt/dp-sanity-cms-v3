@@ -50,7 +50,7 @@ export default defineConfig([
     name: 'production',
     title: 'Produksjon',
     dataset: 'production',
-    basePath: 'sanity/prod',
+    basePath: '/sanity/prod',
     default: true,
   },
   {
@@ -58,6 +58,6 @@ export default defineConfig([
     name: 'development',
     title: 'Dev',
     dataset: 'development',
-    basePath: 'sanity/dev',
+    basePath: '/sanity/dev',
   },
 ])
