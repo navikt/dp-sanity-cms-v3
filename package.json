@@ -28,8 +28,9 @@
     ]
   },
   "dependencies": {
+    "@navikt/ds-css": "^2.1.7",
     "@navikt/ds-icons": "^2.1.5",
-    "@navikt/ds-react": "^2.1.5",
+    "@navikt/ds-react": "^2.1.7",
     "@sanity/document-internationalization": "^1.0.4",
     "@sanity/vision": "^3.2.6",
     "husky": "^8.0.3",
