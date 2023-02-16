@@ -6,7 +6,6 @@ export const dokumentkrav = defineType({
   name: 'dokumentkrav',
   title: 'Dokumentkrav',
   initialValue: {
-    // eslint-disable-next-line camelcase
     __i18n_lang: 'nb',
   },
   fields: [textIdField, titleTextField, descriptionTextField, helpTextField],

@@ -12,7 +12,6 @@ export const seksjon = defineType({
   title: 'Seksjon',
   i18n: true,
   initialValue: {
-    // eslint-disable-next-line camelcase
     __i18n_lang: 'nb',
   },
   fields: [textIdField, sectionTitleField, descriptionTextField, helpTextField],

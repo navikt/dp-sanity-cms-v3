@@ -3,6 +3,7 @@ import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { withDocumentI18nPlugin } from '@sanity/document-internationalization'
 import { schemaTypes } from './schema/schema'
+import { buildStructure } from './desk-structure'
 
 const authConfig: AuthStoreOptions = {
   dataset: 'production',
@@ -21,7 +22,7 @@ const authConfig: AuthStoreOptions = {
 const sharedConfig = {
   projectId: 'rt6o382n',
   auth: createAuthStore(authConfig),
-  plugins: withDocumentI18nPlugin([deskTool(), visionTool()], {
+  plugins: withDocumentI18nPlugin([deskTool({ structure: buildStructure }), visionTool()], {
     base: 'nb',
     languages: [
       {

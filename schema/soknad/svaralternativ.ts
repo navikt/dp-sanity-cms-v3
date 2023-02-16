@@ -7,7 +7,6 @@ export const svaralternativ = defineType({
   title: 'Svaralternativ',
   i18n: true,
   initialValue: {
-    // eslint-disable-next-line camelcase
     __i18n_lang: 'nb',
   },
   fields: [textIdField, answerTextField, alertTextField],
