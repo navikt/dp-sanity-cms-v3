@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          registry-url: "https://npm.pkg.github.com"
+          registry-url: 'https://npm.pkg.github.com'
 
       - name: Cache node_modules
         uses: actions/cache@v3
@@ -37,6 +37,6 @@ jobs:
           app-name: dp-sanity-cms-v3
           team-name: teamdagpenger
           source: ./dist
-          ingress: https://dagpenger.intern.nav.no/sanity
+          ingress: https://dagpenger.intern.nav.no/sanity, https://dagpenger.ekstern.nav.no/sanity
           environment: prod
           nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}

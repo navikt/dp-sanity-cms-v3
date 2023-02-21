@@ -8,8 +8,10 @@ import { navIconPicker, timeline, timelineElement } from './soknad/timeline'
 import { alertTextField, readMoreField } from './soknad/common-fields'
 import { dokumentkrav } from './soknad/dokumentkrav'
 import { dokumentkravSvar } from './soknad/dokumentkrav-svar'
+import { produktsideSchemas } from './produktside/schema'
 
 export const schemaTypes = [
+  ...produktsideSchemas,
   seksjon,
   faktum,
   svaralternativ,
