@@ -5,7 +5,7 @@ import { produktsideSectionRichText } from './produktsideSectionRichText'
 export const produktsideSection = defineType({
   name: 'produktsideSection',
   type: 'document',
-  title: 'Innholdsseksjoner',
+  title: 'Produktside innholdsseksjoner',
   i18n: true,
   initialValue: {
     __i18n_lang: 'nb',

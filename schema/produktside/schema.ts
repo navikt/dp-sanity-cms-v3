@@ -15,11 +15,13 @@ import { produktsideReadMore } from './produktside-component-schemas/produktside
 import { produktsideAccordion } from './produktside-component-schemas/produktsideAccordion'
 import { produktsideFilterSection } from './produktsideFilterSection'
 import { produktsideContactOptions } from './produtktsideContactOptions'
+import { produktsideCalculator } from './produktside-component-schemas/produktsideCalculator'
 
 const componentSchemas = [
   produktsideAccordion,
   produktsideAccordionWithRichText,
   produktsideButton,
+  produktsideCalculator,
   produktsideComponentRichText,
   produktsideFilteredContent,
   produktsideFilterMenu,
@@ -44,6 +46,7 @@ export {
   produktsideAccordion,
   produktsideAccordionWithRichText,
   produktsideButton,
+  produktsideCalculator,
   produktsideComponentRichText,
   produktsideContactOptions,
   produktsideFilterSection,

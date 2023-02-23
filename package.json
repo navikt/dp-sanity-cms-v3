@@ -11,7 +11,10 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "prepare": "husky install",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "backup": "sanity dataset export production production.tar.gz --overwrite",
+    "clearDevelopmentDataset": "sanity dataset delete development && sanity dataset create development --visibility public",
+    "copyProdDataToDevelopment": "npm run backup && npm run clearDevelopmentDataset && sanity dataset import production.tar.gz development --replace"
   },
   "keywords": [
     "sanity"

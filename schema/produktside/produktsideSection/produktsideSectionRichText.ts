@@ -1,13 +1,13 @@
-import { produktsideSectionReferenceName } from './produktsideSectionReference'
-import { produktsideFilteredContent } from '../produktside-component-schemas/produktsideFilteredContent'
-import { produktsideFilterMenu } from '../produktside-component-schemas/produktsideFilterMenu'
-import { produktsideButton } from '../schema'
-import { produktsideAccordionWithRichText } from '../produktside-component-schemas/produktsideAccordionWithRichText'
-import { produktsideReadMoreWithRichText } from '../produktside-component-schemas/produktsideReadMoreWithRichText'
-import { produktsideAccordion } from '../produktside-component-schemas/produktsideAccordion'
-import { produktsideReadMore } from '../produktside-component-schemas/produktsideReadMore'
 import { defineArrayMember, defineField } from 'sanity'
 import { produktsideCommonBlock } from '../produktside-block/produktside-block'
+import { produktsideAccordion } from '../produktside-component-schemas/produktsideAccordion'
+import { produktsideAccordionWithRichText } from '../produktside-component-schemas/produktsideAccordionWithRichText'
+import { produktsideButton } from '../produktside-component-schemas/produktsideButton'
+import { produktsideFilteredContent } from '../produktside-component-schemas/produktsideFilteredContent'
+import { produktsideFilterMenu } from '../produktside-component-schemas/produktsideFilterMenu'
+import { produktsideReadMore } from '../produktside-component-schemas/produktsideReadMore'
+import { produktsideReadMoreWithRichText } from '../produktside-component-schemas/produktsideReadMoreWithRichText'
+import { produktsideSectionReferenceName } from './produktsideSectionReference'
 
 export const produktsideSectionRichText = defineField({
   title: 'Innholdsseksjon Rich Text',
