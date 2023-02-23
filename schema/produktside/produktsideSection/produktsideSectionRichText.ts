@@ -3,6 +3,7 @@ import { produktsideCommonBlock } from '../produktside-block/produktside-block'
 import { produktsideAccordion } from '../produktside-component-schemas/produktsideAccordion'
 import { produktsideAccordionWithRichText } from '../produktside-component-schemas/produktsideAccordionWithRichText'
 import { produktsideButton } from '../produktside-component-schemas/produktsideButton'
+import { produktsideCalculator } from '../produktside-component-schemas/produktsideCalculator'
 import { produktsideFilteredContent } from '../produktside-component-schemas/produktsideFilteredContent'
 import { produktsideFilterMenu } from '../produktside-component-schemas/produktsideFilterMenu'
 import { produktsideReadMore } from '../produktside-component-schemas/produktsideReadMore'
@@ -19,6 +20,7 @@ export const produktsideSectionRichText = defineField({
     defineArrayMember({ type: produktsideAccordion.name }),
     defineArrayMember({ type: produktsideAccordionWithRichText.name }),
     defineArrayMember({ type: produktsideButton.name }),
+    defineArrayMember({ type: produktsideCalculator.name }),
     defineArrayMember({ type: produktsideReadMore.name }),
     defineArrayMember({ type: produktsideReadMoreWithRichText.name }),
     defineArrayMember({ type: produktsideFilteredContent.name }),
