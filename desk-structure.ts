@@ -15,6 +15,12 @@ import { dokumentkravSvar } from './schema/soknad/dokumentkrav-svar'
 import { innsynAppText } from './schema/mine-dagpenger/innsynAppText'
 import { innsynRichText } from './schema/mine-dagpenger/innsynRichText'
 import { innsynLink } from './schema/mine-dagpenger/innsynLink'
+import { ProduktsidePreview } from './schema/produktside/ProduktsidePreview/ProduktsidePreview'
+import { produktsideSettings } from './schema/produktside/produktsideSettings'
+import { produktsideKortFortalt } from './schema/produktside/produktsideKortFortalt'
+import { produktsideFilterSection } from './schema/produktside/produktsideFilterSection'
+import { produktsideContactOptions } from './schema/produktside/produtktsideContactOptions'
+import { produktsideGeneralText, produktsideSection } from './schema/produktside/schema'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -48,6 +54,25 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, innsynLink.name),
             ])
         ),
+
+      S.listItem()
+        .title('Produktside beta')
+        .child(
+          S.list()
+            .title('Produktside beta')
+            .items([
+              createSingletonListItemProduktside(S, produktsideSettings.name, 'Oppsett'),
+              createSingletonListItemProduktside(S, produktsideKortFortalt.name, 'Kort fortalt'),
+              createSingletonListItemProduktside(
+                S,
+                produktsideFilterSection.name,
+                'Filter seksjon'
+              ),
+              createSingletonListItemProduktside(S, produktsideContactOptions.name, 'Kontakt oss'),
+              createListItemProduktside(S, produktsideSection.name, 'Innholdsseksjoner'),
+              createListItemProduktside(S, produktsideGeneralText.name, 'Generelle tekster'),
+            ])
+        ),
     ])
 }
 
@@ -62,6 +87,67 @@ function createListItem(S: StructureBuilder, schemaName: string, title?: string)
         .schemaType(schemaName)
         .filter(`_type == "${schemaName}" && __i18n_lang == $baseLanguage`)
         .params({ baseLanguage: `nb` })
+    )
+}
+
+function createListItemProduktside(
+  S: StructureBuilder,
+  schemaName: string,
+  title?: string
+): ListItemBuilder {
+  const capitalizedTitle = camelCaseToSentenceCase(schemaName)
+  return S.listItem()
+    .title(title ?? capitalizedTitle)
+    .child(
+      // Only show the base language variant of each item in schema
+      S.documentList()
+        .title(`${title ?? capitalizedTitle}`)
+        .schemaType(schemaName)
+        .filter(`_type == "${schemaName}" && __i18n_lang == $baseLanguage`)
+        .params({ baseLanguage: `nb` })
+        .child(
+          S.editor()
+            .schemaType(schemaName)
+            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')])
+        )
+    )
+}
+
+/*
+  This is a known caveat for singleton documents that uses document-interalization plugin
+  READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
+*/
+function createSingletonListItemProduktside(
+  S: StructureBuilder,
+  schemaName: string,
+  title?: string
+): ListItemBuilder {
+  const capitalizedTitle = camelCaseToSentenceCase(schemaName)
+  return S.listItem()
+    .title(title ?? capitalizedTitle)
+    .child(
+      S.documentList()
+        .title(title ?? capitalizedTitle)
+        .id(schemaName)
+        .schemaType(schemaName)
+        .filter(`_id == "${schemaName}" && _type == "${schemaName}"`)
+        .menuItems([
+          {
+            title: 'Create new',
+            intent: {
+              type: 'create',
+              params: {
+                id: schemaName,
+                type: schemaName,
+              },
+            },
+          },
+        ])
+        .child(
+          S.editor()
+            .schemaType(schemaName)
+            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')])
+        )
     )
 }
 

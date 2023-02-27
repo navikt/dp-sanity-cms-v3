@@ -11,7 +11,10 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "prepare": "husky install",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "backup": "sanity dataset export production production.tar.gz --overwrite",
+    "clearDevelopmentDataset": "sanity dataset delete development && sanity dataset create development --visibility public",
+    "copyProdDataToDevelopment": "npm run backup && npm run clearDevelopmentDataset && sanity dataset import production.tar.gz development --replace"
   },
   "keywords": [
     "sanity"
@@ -38,6 +41,7 @@
     "react": "^18.2.0",
     "react-animate-height": "^3.1.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
     "react-is": "^18.2.0",
     "sanity": "^3.2.6",
     "styled-components": "^5.3.6"
