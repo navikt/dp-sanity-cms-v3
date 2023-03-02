@@ -9,7 +9,7 @@ export const produktsideCalculator = defineType({
       name: 'hiddenField',
       type: 'string',
       hidden: true,
-      initialValue: 'Produktside Kalkulator',
+      initialValue: 'Kalkulator',
     }),
   ],
   preview: {
