@@ -21,6 +21,7 @@ import { produktsideKortFortalt } from './schema/produktside/produktsideKortFort
 import { produktsideFilterSection } from './schema/produktside/produktsideFilterSection'
 import { produktsideContactOptions } from './schema/produktside/produtktsideContactOptions'
 import { produktsideGeneralText, produktsideSection } from './schema/produktside/schema'
+import { produktsideSEO } from './schema/produktside/produktsideSEO'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -69,6 +70,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                 'Filter seksjon'
               ),
               createSingletonListItemProduktside(S, produktsideContactOptions.name, 'Kontakt oss'),
+              createSingletonListItemProduktside(S, produktsideSEO.name, 'Søkemotoroptimalisering'),
               createListItemProduktside(S, produktsideSection.name, 'Innholdsseksjoner'),
               createListItemProduktside(S, produktsideGeneralText.name, 'Generelle tekster'),
             ])
