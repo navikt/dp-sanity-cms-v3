@@ -16,6 +16,7 @@ import { produktsideAccordion } from './produktside-component-schemas/produktsid
 import { produktsideFilterSection } from './produktsideFilterSection'
 import { produktsideContactOptions } from './produtktsideContactOptions'
 import { produktsideCalculator } from './produktside-component-schemas/produktsideCalculator'
+import { produktsideSEO } from './produktsideSEO'
 
 const componentSchemas = [
   produktsideAccordion,
@@ -40,6 +41,7 @@ export const produktsideSchemas = [
   produktsideSectionReference,
   produktsideSectionRichText,
   produktsideSettings,
+  produktsideSEO,
 ]
 
 export {
@@ -61,4 +63,5 @@ export {
   produktsideSectionReference,
   produktsideSectionRichText,
   produktsideSettings,
+  produktsideSEO,
 }
