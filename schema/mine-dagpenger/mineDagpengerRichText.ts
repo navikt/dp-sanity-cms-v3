@@ -3,10 +3,10 @@ import { timeline } from '../soknad/timeline'
 import { alertTextField, readMoreField } from '../soknad/common-fields'
 import { defineType } from 'sanity'
 
-export const innsynRichText = defineType({
+export const mineDagpengerRichText = defineType({
   type: 'document',
-  name: 'innsynRichText',
-  title: 'Innsyn rik tekster',
+  name: 'mineDagpengerRichText',
+  title: 'Mine dagpenger rik tekster',
   // icon: MdTextFields,
   i18n: true,
   initialValue: {
@@ -35,11 +35,6 @@ export const innsynRichText = defineType({
   preview: {
     select: {
       slug: 'slug.current',
-    },
-    prepare({ slug }: { slug: string }) {
-      return {
-        title: `${slug.charAt(0).toUpperCase()}${slug.slice(1)}`,
-      }
     },
   },
 })

@@ -2,11 +2,11 @@ import { textIdField, valueTextField } from '../soknad/common-fields'
 // import { MdTitle } from "react-icons/md";
 import { defineType } from 'sanity'
 
-export const innsynAppText = defineType({
+export const mineDagpengerAppText = defineType({
   type: 'document',
-  name: 'innsynAppText',
+  name: 'mineDagpengerAppText',
   // icon: MdTitle,
-  title: 'Innsyn generelle tekster',
+  title: 'Mine dagpenger generelle tekster',
   i18n: true,
   initialValue: {
     __i18n_lang: 'nb',

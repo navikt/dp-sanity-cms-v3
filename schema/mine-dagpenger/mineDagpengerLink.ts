@@ -26,10 +26,10 @@ const linkDescription = defineField({
   title: 'Lenke beskrivelse',
 })
 
-export const innsynLink = {
+export const mineDagpengerLink = {
   type: 'document',
-  name: 'innsynLink',
-  title: 'Innsyn lenker',
+  name: 'mineDagpengerLink',
+  title: 'Mine dagpenger lenker',
   // icon: MdLink,
   i18n: true,
   initialValue: {
