@@ -12,9 +12,9 @@ import { appText } from './schema/soknad/appText'
 import { infopage } from './schema/soknad/infopage'
 import { dokumentkrav } from './schema/soknad/dokumentkrav'
 import { dokumentkravSvar } from './schema/soknad/dokumentkrav-svar'
-import { innsynAppText } from './schema/mine-dagpenger/innsynAppText'
-import { innsynRichText } from './schema/mine-dagpenger/innsynRichText'
-import { innsynLink } from './schema/mine-dagpenger/innsynLink'
+import { mineDagpengerAppText } from './schema/mine-dagpenger/mineDagpengerAppText'
+import { mineDagpengerRichText } from './schema/mine-dagpenger/mineDagpengerRichText'
+import { mineDagpengerLink } from './schema/mine-dagpenger/mineDagpengerLink'
 import { ProduktsidePreview } from './schema/produktside/ProduktsidePreview/ProduktsidePreview'
 import { produktsideSettings } from './schema/produktside/produktsideSettings'
 import { produktsideKortFortalt } from './schema/produktside/produktsideKortFortalt'
@@ -50,9 +50,9 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
           S.list()
             .title('Mine dagpenger')
             .items([
-              createListItem(S, innsynAppText.name),
-              createListItem(S, innsynRichText.name),
-              createListItem(S, innsynLink.name),
+              createListItem(S, mineDagpengerAppText.name),
+              createListItem(S, mineDagpengerRichText.name),
+              createListItem(S, mineDagpengerLink.name),
             ])
         ),
 
