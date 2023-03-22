@@ -1,22 +1,23 @@
+import { produktsideAccordion } from './produktside-component-schemas/produktsideAccordion'
+import { produktsideAccordionWithRichText } from './produktside-component-schemas/produktsideAccordionWithRichText'
 import { produktsideButton } from './produktside-component-schemas/produktsideButton'
+import { produktsideCalculator } from './produktside-component-schemas/produktsideCalculator'
+import { produktsideComponentRichText } from './produktside-component-schemas/produktsideComponentRichText'
 import { produktsideFilteredContent } from './produktside-component-schemas/produktsideFilteredContent'
 import { produktsideFilterMenu } from './produktside-component-schemas/produktsideFilterMenu'
+import { produktsideMicroCards } from './produktside-component-schemas/produktsideMicroCards'
+import { produktsideReadMore } from './produktside-component-schemas/produktsideReadMore'
+import { produktsideReadMoreWithRichText } from './produktside-component-schemas/produktsideReadMoreWithRichText'
+import { produktsideFilterSection } from './produktsideFilterSection'
+import { produktsideGeneralText } from './produktsideGeneralText'
 import { produktsideKortFortalt } from './produktsideKortFortalt'
 import { produktsideRichText } from './produktsideRichText'
 import { produktsideSection } from './produktsideSection/produktsideSection'
 import { produktsideSectionReference } from './produktsideSection/produktsideSectionReference'
 import { produktsideSectionRichText } from './produktsideSection/produktsideSectionRichText'
-import { produktsideSettings } from './produktsideSettings'
-import { produktsideGeneralText } from './produktsideGeneralText'
-import { produktsideAccordionWithRichText } from './produktside-component-schemas/produktsideAccordionWithRichText'
-import { produktsideReadMoreWithRichText } from './produktside-component-schemas/produktsideReadMoreWithRichText'
-import { produktsideComponentRichText } from './produktside-component-schemas/produktsideComponentRichText'
-import { produktsideReadMore } from './produktside-component-schemas/produktsideReadMore'
-import { produktsideAccordion } from './produktside-component-schemas/produktsideAccordion'
-import { produktsideFilterSection } from './produktsideFilterSection'
-import { produktsideContactOptions } from './produtktsideContactOptions'
-import { produktsideCalculator } from './produktside-component-schemas/produktsideCalculator'
 import { produktsideSEO } from './produktsideSEO'
+import { produktsideSettings } from './produktsideSettings'
+import { produktsideContactOptions } from './produtktsideContactOptions'
 
 const componentSchemas = [
   produktsideAccordion,
@@ -26,6 +27,7 @@ const componentSchemas = [
   produktsideComponentRichText,
   produktsideFilteredContent,
   produktsideFilterMenu,
+  produktsideMicroCards,
   produktsideReadMore,
   produktsideReadMoreWithRichText,
 ]
@@ -56,6 +58,7 @@ export {
   produktsideFilterMenu,
   produktsideGeneralText,
   produktsideKortFortalt,
+  produktsideMicroCards,
   produktsideReadMore,
   produktsideReadMoreWithRichText,
   produktsideRichText,
