@@ -6,6 +6,7 @@ import { produktsideButton } from '../produktside-component-schemas/produktsideB
 import { produktsideCalculator } from '../produktside-component-schemas/produktsideCalculator'
 import { produktsideFilteredContent } from '../produktside-component-schemas/produktsideFilteredContent'
 import { produktsideFilterMenu } from '../produktside-component-schemas/produktsideFilterMenu'
+import { produktsideMicroCards } from '../produktside-component-schemas/produktsideMicroCards'
 import { produktsideReadMore } from '../produktside-component-schemas/produktsideReadMore'
 import { produktsideReadMoreWithRichText } from '../produktside-component-schemas/produktsideReadMoreWithRichText'
 import { produktsideSectionReferenceName } from './produktsideSectionReference'
@@ -25,5 +26,6 @@ export const produktsideSectionRichText = defineField({
     defineArrayMember({ type: produktsideReadMoreWithRichText.name }),
     defineArrayMember({ type: produktsideFilteredContent.name }),
     defineArrayMember({ type: produktsideFilterMenu.name }),
+    defineArrayMember({ type: produktsideMicroCards.name }),
   ],
 })
