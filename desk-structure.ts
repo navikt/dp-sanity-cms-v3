@@ -57,10 +57,10 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
         ),
 
       S.listItem()
-        .title('Produktside beta')
+        .title('Produktside dagpenger')
         .child(
           S.list()
-            .title('Produktside beta')
+            .title('Produktside dagpenger')
             .items([
               createSingletonListItemProduktside(S, produktsideSettings.name, 'Oppsett'),
               createSingletonListItemProduktside(S, produktsideKortFortalt.name, 'Kort fortalt'),
