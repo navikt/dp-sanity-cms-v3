@@ -2,10 +2,11 @@ import { defineArrayMember, defineField } from 'sanity'
 import { produktsideCommonBlock } from '../produktside-block/produktside-block'
 import { produktsideAccordion } from '../produktside-component-schemas/produktsideAccordion'
 import { produktsideAccordionWithRichText } from '../produktside-component-schemas/produktsideAccordionWithRichText'
+import { produktsideAlert } from '../produktside-component-schemas/produktsideAlert'
 import { produktsideButton } from '../produktside-component-schemas/produktsideButton'
 import { produktsideCalculator } from '../produktside-component-schemas/produktsideCalculator'
-import { produktsideFilteredContent } from '../produktside-component-schemas/produktsideFilteredContent'
 import { produktsideFilterMenu } from '../produktside-component-schemas/produktsideFilterMenu'
+import { produktsideFilteredContent } from '../produktside-component-schemas/produktsideFilteredContent'
 import { produktsideMicroCards } from '../produktside-component-schemas/produktsideMicroCards'
 import { produktsideReadMore } from '../produktside-component-schemas/produktsideReadMore'
 import { produktsideReadMoreWithRichText } from '../produktside-component-schemas/produktsideReadMoreWithRichText'
@@ -20,6 +21,7 @@ export const produktsideSectionRichText = defineField({
     defineArrayMember({ type: produktsideSectionReferenceName }),
     defineArrayMember({ type: produktsideAccordion.name }),
     defineArrayMember({ type: produktsideAccordionWithRichText.name }),
+    defineArrayMember({ type: produktsideAlert.name }),
     defineArrayMember({ type: produktsideButton.name }),
     defineArrayMember({ type: produktsideCalculator.name }),
     defineArrayMember({ type: produktsideReadMore.name }),

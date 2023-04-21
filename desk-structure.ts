@@ -16,12 +16,15 @@ import { mineDagpengerAppText } from './schema/mine-dagpenger/mineDagpengerAppTe
 import { mineDagpengerRichText } from './schema/mine-dagpenger/mineDagpengerRichText'
 import { mineDagpengerLink } from './schema/mine-dagpenger/mineDagpengerLink'
 import { ProduktsidePreview } from './schema/produktside/ProduktsidePreview/ProduktsidePreview'
-import { produktsideSettings } from './schema/produktside/produktsideSettings'
-import { produktsideKortFortalt } from './schema/produktside/produktsideKortFortalt'
-import { produktsideFilterSection } from './schema/produktside/produktsideFilterSection'
-import { produktsideContactOptions } from './schema/produktside/produtktsideContactOptions'
-import { produktsideGeneralText, produktsideSection } from './schema/produktside/schema'
-import { produktsideSEO } from './schema/produktside/produktsideSEO'
+import {
+  produktsideContactOptions,
+  produktsideFilterSection,
+  produktsideGeneralText,
+  produktsideKortFortalt,
+  produktsideSection,
+  produktsideSettings,
+  produktsideSEO,
+} from './schema/produktside/schema'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
