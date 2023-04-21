@@ -1,5 +1,6 @@
 import { produktsideAccordion } from './produktside-component-schemas/produktsideAccordion'
 import { produktsideAccordionWithRichText } from './produktside-component-schemas/produktsideAccordionWithRichText'
+import { produktsideAlert } from './produktside-component-schemas/produktsideAlert'
 import { produktsideButton } from './produktside-component-schemas/produktsideButton'
 import { produktsideCalculator } from './produktside-component-schemas/produktsideCalculator'
 import { produktsideComponentRichText } from './produktside-component-schemas/produktsideComponentRichText'
@@ -22,6 +23,7 @@ import { produktsideContactOptions } from './produtktsideContactOptions'
 const componentSchemas = [
   produktsideAccordion,
   produktsideAccordionWithRichText,
+  produktsideAlert,
   produktsideButton,
   produktsideCalculator,
   produktsideComponentRichText,
@@ -49,6 +51,7 @@ export const produktsideSchemas = [
 export {
   produktsideAccordion,
   produktsideAccordionWithRichText,
+  produktsideAlert,
   produktsideButton,
   produktsideCalculator,
   produktsideComponentRichText,
