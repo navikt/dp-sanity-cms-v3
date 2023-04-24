@@ -1,9 +1,7 @@
 import { defineArrayMember, defineField } from 'sanity'
 import { produktsideCommonBlock } from '../produktside-block/produktside-block'
-import { produktsideAccordion } from './produktsideAccordion'
 import { produktsideAccordionWithRichText } from './produktsideAccordionWithRichText'
 import { produktsideButton } from './produktsideButton'
-import { produktsideReadMore } from './produktsideReadMore'
 import { produktsideReadMoreWithRichText } from './produktsideReadMoreWithRichText'
 import { produktsideAlert } from './produktsideAlert'
 
@@ -13,11 +11,9 @@ export const produktsideComponentRichText = defineField({
   type: 'array',
   of: [
     produktsideCommonBlock,
-    defineArrayMember({ type: produktsideAccordion.name }),
     defineArrayMember({ type: produktsideAccordionWithRichText.name }),
     defineArrayMember({ type: produktsideAlert.name }),
     defineArrayMember({ type: produktsideButton.name }),
-    defineArrayMember({ type: produktsideReadMore.name }),
     defineArrayMember({ type: produktsideReadMoreWithRichText.name }),
   ],
 })
