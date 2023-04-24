@@ -1,4 +1,3 @@
-import { produktsideAccordion } from './produktside-component-schemas/produktsideAccordion'
 import { produktsideAccordionWithRichText } from './produktside-component-schemas/produktsideAccordionWithRichText'
 import { produktsideAlert } from './produktside-component-schemas/produktsideAlert'
 import { produktsideButton } from './produktside-component-schemas/produktsideButton'
@@ -7,7 +6,6 @@ import { produktsideComponentRichText } from './produktside-component-schemas/pr
 import { produktsideFilteredContent } from './produktside-component-schemas/produktsideFilteredContent'
 import { produktsideFilterMenu } from './produktside-component-schemas/produktsideFilterMenu'
 import { produktsideMicroCards } from './produktside-component-schemas/produktsideMicroCards'
-import { produktsideReadMore } from './produktside-component-schemas/produktsideReadMore'
 import { produktsideReadMoreWithRichText } from './produktside-component-schemas/produktsideReadMoreWithRichText'
 import { produktsideFilterSection } from './produktsideFilterSection'
 import { produktsideGeneralText } from './produktsideGeneralText'
@@ -21,7 +19,6 @@ import { produktsideSettings } from './produktsideSettings'
 import { produktsideContactOptions } from './produtktsideContactOptions'
 
 const componentSchemas = [
-  produktsideAccordion,
   produktsideAccordionWithRichText,
   produktsideAlert,
   produktsideButton,
@@ -30,7 +27,6 @@ const componentSchemas = [
   produktsideFilteredContent,
   produktsideFilterMenu,
   produktsideMicroCards,
-  produktsideReadMore,
   produktsideReadMoreWithRichText,
 ]
 
@@ -49,7 +45,6 @@ export const produktsideSchemas = [
 ]
 
 export {
-  produktsideAccordion,
   produktsideAccordionWithRichText,
   produktsideAlert,
   produktsideButton,
@@ -62,7 +57,6 @@ export {
   produktsideGeneralText,
   produktsideKortFortalt,
   produktsideMicroCards,
-  produktsideReadMore,
   produktsideReadMoreWithRichText,
   produktsideRichText,
   produktsideSection,
