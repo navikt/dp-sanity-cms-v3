@@ -22,8 +22,17 @@ const produktsideBlockStyles = [
   { title: 'H4', value: 'h4' },
   { title: 'H5', value: 'h5' },
   { title: 'H6', value: 'h6' },
+  { title: 'Normal M0', value: 'm0' },
   { title: 'Normal M1', value: 'm1' },
 ]
+
+export const produktsideBlockPlain = defineArrayMember({
+  type: 'block',
+  styles: [{ title: 'Normal', value: 'normal' }],
+  marks: {
+    decorators: produktsideBlockDecorators,
+  },
+})
 
 export const produktsideCommonBlock = defineArrayMember({
   type: 'block',

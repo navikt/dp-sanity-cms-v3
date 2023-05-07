@@ -1,5 +1,5 @@
 import { defineArrayMember, defineField } from 'sanity'
-import { produktsideSectionReferenceName } from './produktsideSection/produktsideSectionReference'
+import { produktsideSectionReferenceName } from './produktside-section/produktsideSectionReference'
 
 export const produktsideRichText = defineField({
   title: 'Produktside Rich Text',

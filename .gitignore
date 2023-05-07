@@ -27,3 +27,6 @@
 
 # IDE
 /.idea
+
+# Files genereated by running backup scripts
+production.tar.gz
