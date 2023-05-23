@@ -25,6 +25,7 @@ import {
   produktsideSettings,
   produktsideSEO,
 } from './schema/produktside/schema'
+import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -57,6 +58,14 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, mineDagpengerRichText.name),
               createListItem(S, mineDagpengerLink.name),
             ])
+        ),
+
+      S.listItem()
+        .title('Rapportering')
+        .child(
+          S.list()
+            .title('Rapportering')
+            .items([createListItem(S, rapporteringAppText.name)])
         ),
 
       S.listItem()

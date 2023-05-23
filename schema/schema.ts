@@ -10,10 +10,12 @@ import { dokumentkrav } from './soknad/dokumentkrav'
 import { dokumentkravSvar } from './soknad/dokumentkrav-svar'
 import { produktsideSchemas } from './produktside/schema'
 import { mineDagpengerSchemas } from './mine-dagpenger/schema'
+import { rapporteringSchemas } from './rapportering/schema'
 
 export const schemaTypes = [
   ...produktsideSchemas,
   ...mineDagpengerSchemas,
+  ...rapporteringSchemas,
   seksjon,
   faktum,
   svaralternativ,
