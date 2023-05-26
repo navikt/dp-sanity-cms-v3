@@ -1,5 +1,5 @@
-import { alertTextField, readMoreField, textIdField, valueTextField } from '../soknad/common-fields'
 import { defineField, defineType } from 'sanity'
+import { alertTextField, readMoreField } from '../soknad/common-fields'
 import { timeline } from '../soknad/timeline'
 
 export const saksbehandlingInfoSide = defineType({
@@ -32,8 +32,12 @@ export const saksbehandlingInfoSide = defineType({
   ],
   preview: {
     select: {
-      title: textIdField.name,
-      subtitle: valueTextField.name,
+      slug: 'slug.current',
+    },
+    prepare({ slug }: { slug?: string }) {
+      return {
+        title: `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`,
+      }
     },
   },
 })
