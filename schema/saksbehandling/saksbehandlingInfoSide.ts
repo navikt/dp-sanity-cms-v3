@@ -1,5 +1,6 @@
-import { textIdField, valueTextField } from '../soknad/common-fields'
-import { defineType } from 'sanity'
+import { alertTextField, readMoreField, textIdField, valueTextField } from '../soknad/common-fields'
+import { defineField, defineType } from 'sanity'
+import { timeline } from '../soknad/timeline'
 
 export const saksbehandlingInfoSide = defineType({
   type: 'document',
@@ -9,7 +10,26 @@ export const saksbehandlingInfoSide = defineType({
   initialValue: {
     __i18n_lang: 'nb',
   },
-  fields: [textIdField, valueTextField],
+  fields: [
+    defineField({
+      title: 'Sti',
+      name: 'slug',
+      type: 'slug',
+    }),
+    defineField({
+      type: 'array',
+      name: 'body',
+      title: 'Innhold',
+      of: [
+        {
+          type: 'block',
+        },
+        { type: timeline.name },
+        { type: alertTextField.name },
+        { type: readMoreField.name },
+      ],
+    }),
+  ],
   preview: {
     select: {
       title: textIdField.name,
