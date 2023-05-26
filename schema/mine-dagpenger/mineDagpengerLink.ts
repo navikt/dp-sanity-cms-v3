@@ -1,5 +1,3 @@
-// import { MdLink } from 'react-icons/md'
-
 import { defineField } from 'sanity'
 
 const linkId = defineField({
@@ -30,7 +28,6 @@ export const mineDagpengerLink = {
   type: 'document',
   name: 'mineDagpengerLink',
   title: 'Mine dagpenger lenker',
-  // icon: MdLink,
   i18n: true,
   initialValue: {
     __i18n_lang: 'nb',

@@ -68,8 +68,10 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
         .child(
           S.list()
             .title('Rapportering')
-            .items([createListItem(S, rapporteringAppText.name)])
-            .items([createListItem(S, rapporteringInfoSide.name)])
+            .items([
+              createListItem(S, rapporteringAppText.name),
+              createListItem(S, rapporteringInfoSide.name),
+            ])
         ),
 
       S.listItem()
@@ -77,8 +79,10 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
         .child(
           S.list()
             .title('Saksbehandling')
-            .items([createListItem(S, saksbehandlingAppText.name)])
-            .items([createListItem(S, saksbehandlingInfoSide.name)])
+            .items([
+              createListItem(S, saksbehandlingAppText.name),
+              createListItem(S, saksbehandlingInfoSide.name),
+            ])
         ),
 
       S.listItem()
