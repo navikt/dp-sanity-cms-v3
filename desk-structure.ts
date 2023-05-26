@@ -26,7 +26,7 @@ import {
   produktsideSEO,
 } from './schema/produktside/schema'
 import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
-import { rapporteringInfoText } from './schema/rapportering/rapporteringInfoText'
+import { rapporteringInfoSide } from './schema/rapportering/rapporteringInfoSide'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -67,7 +67,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
           S.list()
             .title('Rapportering')
             .items([createListItem(S, rapporteringAppText.name)])
-            .items([createListItem(S, rapporteringInfoText.name)])
+            .items([createListItem(S, rapporteringInfoSide.name)])
         ),
 
       S.listItem()

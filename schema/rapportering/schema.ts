@@ -1,4 +1,4 @@
 import { rapporteringAppText } from './rapporteringAppText'
-import { rapporteringInfoText } from './rapporteringInfoText'
+import { rapporteringInfoSide } from './rapporteringInfoSide'
 
-export const rapporteringSchemas = [rapporteringAppText, rapporteringInfoText]
+export const rapporteringSchemas = [rapporteringAppText, rapporteringInfoSide]
