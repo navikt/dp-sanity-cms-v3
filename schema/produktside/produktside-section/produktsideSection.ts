@@ -40,5 +40,6 @@ export const produktsideSection = defineType({
       name: 'content',
       type: produktsideSectionRichText.name,
     }),
+    
   ],
 })

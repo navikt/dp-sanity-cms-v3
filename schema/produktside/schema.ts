@@ -11,12 +11,15 @@ import { produktsideFilterSection } from './produktsideFilterSection'
 import { produktsideGeneralText } from './produktsideGeneralText'
 import { produktsideKortFortalt } from './produktsideKortFortalt'
 import { produktsideRichText } from './produktsideRichText'
-import { produktsideSection } from './produktsideSection/produktsideSection'
-import { produktsideSectionReference } from './produktsideSection/produktsideSectionReference'
-import { produktsideSectionRichText } from './produktsideSection/produktsideSectionRichText'
+import { produktsideSection } from './produktside-section/produktsideSection'
+import { produktsideSectionReference } from './produktside-section/produktsideSectionReference'
+import { produktsideSectionRichText } from './produktside-section/produktsideSectionRichText'
 import { produktsideSEO } from './produktsideSEO'
 import { produktsideSettings } from './produktsideSettings'
 import { produktsideContactOptions } from './produtktsideContactOptions'
+import { produktsideCalculatorSettings } from './produktside-calculator-settings/produktsideCalculatorSettings'
+import { produktsideCalculatorRichTextPlain } from './produktside-calculator-settings/produktsideCalculatorRichTextPlain'
+import { produktsideCalculatorText } from './produktside-calculator-settings/produktsideCalculatorText'
 
 const componentSchemas = [
   produktsideAccordionWithRichText,
@@ -32,6 +35,9 @@ const componentSchemas = [
 
 export const produktsideSchemas = [
   ...componentSchemas,
+  produktsideCalculatorText,
+  produktsideCalculatorSettings,
+  produktsideCalculatorRichTextPlain,
   produktsideContactOptions,
   produktsideFilterSection,
   produktsideKortFortalt,
@@ -49,6 +55,9 @@ export {
   produktsideAlert,
   produktsideButton,
   produktsideCalculator,
+  produktsideCalculatorText,
+  produktsideCalculatorRichTextPlain,
+  produktsideCalculatorSettings,
   produktsideComponentRichText,
   produktsideContactOptions,
   produktsideFilterSection,

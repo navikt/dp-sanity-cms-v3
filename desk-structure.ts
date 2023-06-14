@@ -15,7 +15,7 @@ import { dokumentkravSvar } from './schema/soknad/dokumentkrav-svar'
 import { mineDagpengerAppText } from './schema/mine-dagpenger/mineDagpengerAppText'
 import { mineDagpengerRichText } from './schema/mine-dagpenger/mineDagpengerRichText'
 import { mineDagpengerLink } from './schema/mine-dagpenger/mineDagpengerLink'
-import { ProduktsidePreview } from './schema/produktside/ProduktsidePreview/ProduktsidePreview'
+import { ProduktsidePreview } from './schema/produktside/produktside-preview/ProduktsidePreview'
 import {
   produktsideContactOptions,
   produktsideFilterSection,
@@ -24,6 +24,8 @@ import {
   produktsideSection,
   produktsideSettings,
   produktsideSEO,
+  produktsideCalculatorSettings,
+  produktsideCalculatorText,
 } from './schema/produktside/schema'
 import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
 import { rapporteringInfoSide } from './schema/rapportering/rapporteringInfoSide'
@@ -100,6 +102,24 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               ),
               createSingletonListItemProduktside(S, produktsideContactOptions.name, 'Kontakt oss'),
               createSingletonListItemProduktside(S, produktsideSEO.name, 'Søkemotoroptimalisering'),
+              S.listItem()
+                .title('Kalkulator')
+                .child(
+                  S.list()
+                    .title('Kalkulator')
+                    .items([
+                      createSingletonListItemProduktside(
+                        S,
+                        produktsideCalculatorSettings.name,
+                        'Kalkulator'
+                      ),
+                      createListItemProduktside(
+                        S,
+                        produktsideCalculatorText.name,
+                        'Kalkulator tekst'
+                      ),
+                    ])
+                ),
               createListItemProduktside(S, produktsideSection.name, 'Innholdsseksjoner'),
               createListItemProduktside(S, produktsideGeneralText.name, 'Generelle tekster'),
             ])

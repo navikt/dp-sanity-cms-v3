@@ -1,6 +1,6 @@
 import { MdContactSupport } from 'react-icons/md'
 import { defineField, defineType } from 'sanity'
-import { produktsideSectionRichText } from './produktsideSection/produktsideSectionRichText'
+import { produktsideSectionRichText } from './produktside-section/produktsideSectionRichText'
 
 export const produktsideContactOptions = defineType({
   name: 'produktsideContactOptions',
