@@ -20,6 +20,7 @@ import { produktsideContactOptions } from './produtktsideContactOptions'
 import { produktsideCalculatorSettings } from './produktside-calculator-settings/produktsideCalculatorSettings'
 import { produktsideCalculatorRichTextPlain } from './produktside-calculator-settings/produktsideCalculatorRichTextPlain'
 import { produktsideCalculatorText } from './produktside-calculator-settings/produktsideCalculatorText'
+import { produktsideTopContent } from './produktsideTopContent'
 
 const componentSchemas = [
   produktsideAccordionWithRichText,
@@ -48,6 +49,7 @@ export const produktsideSchemas = [
   produktsideSectionRichText,
   produktsideSettings,
   produktsideSEO,
+  produktsideTopContent,
 ]
 
 export {
@@ -73,4 +75,5 @@ export {
   produktsideSectionRichText,
   produktsideSettings,
   produktsideSEO,
+  produktsideTopContent,
 }
