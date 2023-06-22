@@ -27,6 +27,7 @@ import {
   produktsideCalculatorSettings,
   produktsideCalculatorText,
   produktsideTopContent,
+  produktsideHeader,
 } from './schema/produktside/schema'
 import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
 import { rapporteringInfoSide } from './schema/rapportering/rapporteringInfoSide'
@@ -95,7 +96,8 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
             .title('Produktside dagpenger')
             .items([
               createSingletonListItemProduktside(S, produktsideTopContent.name, 'Øverste innhold'),
-              createSingletonListItemProduktside(S, produktsideSettings.name, 'Oppsett'),
+              createSingletonListItemProduktside(S, produktsideHeader.name, 'Header'),
+              createSingletonListItemProduktside(S, produktsideSettings.name, 'Venstremeny'),
               createSingletonListItemProduktside(S, produktsideKortFortalt.name, 'Kort fortalt'),
               createSingletonListItemProduktside(
                 S,

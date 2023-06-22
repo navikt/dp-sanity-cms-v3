@@ -3,7 +3,7 @@ import { produktsideRichText } from './produktsideRichText'
 
 export const produktsideSettings = defineType({
   name: 'produktsideSettings',
-  title: 'Oppsett for Produktside Dagpenger',
+  title: 'Venstremeny for Produktside Dagpenger',
   type: 'document',
   i18n: true,
   initialValue: {
@@ -21,9 +21,14 @@ export const produktsideSettings = defineType({
       title: 'Innhold',
     }),
     defineField({
+      name: 'supportLinksTitle',
+      type: 'string',
+      title: 'Tittel for støttelenker',
+    }),
+    defineField({
       name: 'supportLinks',
       type: 'array',
-      title: 'Nyttig å vite',
+      title: 'Innhold for støttelenker',
       description:
         'Lenker til andre sider med støtteinformasjon, for eksempel inngang til lovtekst om produktet eller sentral klageinformasjon. Lenkemenyen kan brukes til å lenke til denne typen tilleggsinformasjon som ikke er dekket på produktsiden.',
       of: [
