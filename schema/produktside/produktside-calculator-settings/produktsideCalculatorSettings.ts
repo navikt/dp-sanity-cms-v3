@@ -6,7 +6,6 @@ import {
   produktsideCalculatorQuestionNumberOfChildren,
 } from './produktsideCalculatorQuestions'
 
-
 export const produktsideCalculatorSettings = defineType({
   name: 'produktsideCalculatorSettings',
   title: 'Kalkulator',
@@ -77,16 +76,18 @@ export const produktsideCalculatorSettings = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: 'Informasjonsboks når bruker har rett til dagpenger',
+      title:
+        '(IKKE I BRUK, GAMMEL DESIGN AV KALKULATOR) Informasjonsboks når bruker har rett til dagpenger',
       name: 'bottomContentOnSufficientIncome',
       type: produktsideComponentRichText.name,
-      validation: (Rule) => Rule.required(),
+      hidden: true,
     }),
     defineField({
-      title: 'Informasjonsboks når bruker IKKE har rett til dagpenger',
+      title:
+        '(IKKE I BRUK, GAMMEL DESIGN AV KALKULATOR) Informasjonsboks når bruker IKKE har rett til dagpenger',
       name: 'bottomContentOnInsufficientIncome',
       type: produktsideComponentRichText.name,
-      validation: (Rule) => Rule.required(),
+      hidden: true,
     }),
   ],
 })
