@@ -4,6 +4,7 @@ import { produktsideAccordionWithRichText } from './produktsideAccordionWithRich
 import { produktsideButton } from './produktsideButton'
 import { produktsideReadMoreWithRichText } from './produktsideReadMoreWithRichText'
 import { produktsideAlert } from './produktsideAlert'
+import { produktsideAccordionList } from './produktsideAccordionList'
 
 export const produktsideComponentRichText = defineField({
   title: 'Komponent Rich Text',
@@ -11,6 +12,7 @@ export const produktsideComponentRichText = defineField({
   type: 'array',
   of: [
     produktsideCommonBlock,
+    defineArrayMember({ type: produktsideAccordionList.name }),
     defineArrayMember({ type: produktsideAccordionWithRichText.name }),
     defineArrayMember({ type: produktsideAlert.name }),
     defineArrayMember({ type: produktsideButton.name }),

@@ -9,6 +9,7 @@ import { produktsideFilteredContent } from '../produktside-component-schemas/pro
 import { produktsideMicroCards } from '../produktside-component-schemas/produktsideMicroCards'
 import { produktsideReadMoreWithRichText } from '../produktside-component-schemas/produktsideReadMoreWithRichText'
 import { produktsideSectionReferenceName } from './produktsideSectionReference'
+import { produktsideAccordionList } from '../schema'
 
 export const produktsideSectionRichText = defineField({
   title: 'Innholdsseksjon Rich Text',
@@ -17,6 +18,7 @@ export const produktsideSectionRichText = defineField({
   of: [
     produktsideCommonBlock,
     defineArrayMember({ type: produktsideSectionReferenceName }),
+    defineArrayMember({ type: produktsideAccordionList.name }),
     defineArrayMember({ type: produktsideAccordionWithRichText.name }),
     defineArrayMember({ type: produktsideAlert.name }),
     defineArrayMember({ type: produktsideButton.name }),
