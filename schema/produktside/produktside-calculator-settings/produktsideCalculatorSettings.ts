@@ -3,6 +3,7 @@ import { produktsideComponentRichText } from '../produktside-component-schemas/p
 import {
   produktsideCalculatorQuestionHasChildren,
   produktsideCalculatorQuestionIncome,
+  produktsideCalculatorQuestionIncome36Months,
   produktsideCalculatorQuestionNumberOfChildren,
 } from './produktsideCalculatorQuestions'
 
@@ -27,6 +28,7 @@ export const produktsideCalculatorSettings = defineType({
       title: 'Spørsmål i kalkulatoren',
       of: [
         produktsideCalculatorQuestionIncome,
+        produktsideCalculatorQuestionIncome36Months,
         produktsideCalculatorQuestionHasChildren,
         produktsideCalculatorQuestionNumberOfChildren,
       ],
@@ -35,16 +37,17 @@ export const produktsideCalculatorSettings = defineType({
       },
       validation: (Rule) =>
         Rule.required()
-          .length(3)
+          .length(4)
           .custom((questions?: PortableTextObject[]) => {
             if (
               !(
                 questions?.find(({ _type }) => _type === 'incomeQuestion') &&
+                questions?.find(({ _type }) => _type === 'income36MonthsQuestion') &&
                 questions?.find(({ _type }) => _type === 'hasChildrenQuestion') &&
                 questions?.find(({ _type }) => _type === 'numberOfChildrenQuestion')
               )
             ) {
-              return 'Lista må inneholde 3 unike spørsmål'
+              return 'Lista må inneholde 4 unike spørsmål'
             }
 
             return true

@@ -27,6 +27,20 @@ export const produktsideCalculatorQuestionIncome = defineArrayMember({
   ],
 })
 
+export const produktsideCalculatorQuestionIncome36Months = defineArrayMember({
+  title: 'Spørsmål om inntekt de siste 36 månedene',
+  name: 'income36MonthsQuestion',
+  type: 'object',
+  fields: [
+    defineField({
+      title: 'Label',
+      name: 'label',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+})
+
 export const produktsideCalculatorQuestionHasChildren = defineArrayMember({
   title: 'Spørsmål om man forsørger barn',
   name: 'hasChildrenQuestion',
