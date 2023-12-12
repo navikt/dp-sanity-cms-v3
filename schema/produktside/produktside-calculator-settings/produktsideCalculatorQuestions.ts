@@ -24,6 +24,12 @@ export const produktsideCalculatorQuestionIncome = defineArrayMember({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      title: 'ID',
+      name: 'id',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 })
 
@@ -79,6 +85,50 @@ export const produktsideCalculatorQuestionNumberOfChildren = defineArrayMember({
     defineField({
       title: 'Hjelpetekst',
       name: 'firstOption',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Feilmelding',
+      name: 'errorMessage',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+})
+
+export const produktsideCalculatorQuestionIncomePeriod = defineArrayMember({
+  title: 'Spørsmål om inntektsperiode',
+  name: 'incomePeriodQuestion',
+  type: 'object',
+  fields: [
+    defineField({
+      title: 'Label',
+      name: 'label',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Hjelpetekst "hvilken inntektsperiode"',
+      name: 'description1',
+      type: produktsideComponentRichText.name,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Hjelpetekst "disse inntektene avgjør"',
+      name: 'description2',
+      type: produktsideComponentRichText.name,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Label for første radioknapp',
+      name: 'radioButtonLabel1',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Label for andre radioknapp',
+      name: 'radioButtonLabel2',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
