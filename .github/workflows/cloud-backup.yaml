@@ -1,4 +1,4 @@
-name: Backup Routine
+name: Sanity Cloud Backup Routine
 on:
   schedule:
     # Runs at 04:00 UTC every thursday
