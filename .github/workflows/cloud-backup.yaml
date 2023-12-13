@@ -18,5 +18,5 @@ jobs:
         run: npm install @sanity/cli
       - name: Copy production dataset to cloud backup
         env:
-          SANITY_AUTH_TOKEN: ${{ SANITY_CLOUD_BACKUP_TOKEN }}
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_CLOUD_BACKUP_TOKEN }}
         run: npx sanity dataset copy production prod-backup
