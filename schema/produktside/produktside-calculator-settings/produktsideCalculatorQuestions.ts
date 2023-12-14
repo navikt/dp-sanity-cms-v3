@@ -24,12 +24,6 @@ export const produktsideCalculatorQuestionIncome = defineArrayMember({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      title: 'ID',
-      name: 'id',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
   ],
 })
 
