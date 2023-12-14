@@ -1,8 +1,8 @@
 name: Sanity Cloud Backup Routine
 on:
-  schedule:
+  #schedule:
     # Runs at 04:00 UTC every thursday
-    - cron: "0 4 * * 4"
+    #- cron: "0 4 * * 4"
   workflow_dispatch:
 
 jobs:
