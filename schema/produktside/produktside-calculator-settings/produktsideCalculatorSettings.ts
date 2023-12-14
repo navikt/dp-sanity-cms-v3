@@ -37,7 +37,7 @@ export const produktsideCalculatorSettings = defineType({
       },
       validation: (Rule) =>
         Rule.required()
-          .length(4)
+          .min(3)
           .custom((questions?: PortableTextObject[]) => {
             if (
               !(
@@ -47,7 +47,7 @@ export const produktsideCalculatorSettings = defineType({
                 questions?.find(({ _type }) => _type === 'incomePeriodQuestion')
               )
             ) {
-              return 'Lista må inneholde 4 unike spørsmål'
+              return 'Lista må inneholde minst 3 unike spørsmål'
             }
 
             return true
