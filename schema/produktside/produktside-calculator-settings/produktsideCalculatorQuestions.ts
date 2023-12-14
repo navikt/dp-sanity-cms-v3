@@ -121,8 +121,20 @@ export const produktsideCalculatorQuestionIncomePeriod = defineArrayMember({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      title: 'Tittel for første radioknapp',
+      name: 'option1title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       title: 'Label for andre radioknapp',
       name: 'radioButtonLabel2',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Tittel for andre radioknapp',
+      name: 'option2title',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
