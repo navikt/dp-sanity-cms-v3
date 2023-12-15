@@ -4,6 +4,7 @@ import {
   produktsideCalculatorQuestionHasChildren,
   produktsideCalculatorQuestionIncome,
   produktsideCalculatorQuestionNumberOfChildren,
+  produktsideCalculatorQuestionIncomePeriod,
 } from './produktsideCalculatorQuestions'
 
 export const produktsideCalculatorSettings = defineType({
@@ -29,22 +30,24 @@ export const produktsideCalculatorSettings = defineType({
         produktsideCalculatorQuestionIncome,
         produktsideCalculatorQuestionHasChildren,
         produktsideCalculatorQuestionNumberOfChildren,
+        produktsideCalculatorQuestionIncomePeriod,
       ],
       options: {
         sortable: false,
       },
       validation: (Rule) =>
         Rule.required()
-          .length(3)
+          .min(3)
           .custom((questions?: PortableTextObject[]) => {
             if (
               !(
                 questions?.find(({ _type }) => _type === 'incomeQuestion') &&
                 questions?.find(({ _type }) => _type === 'hasChildrenQuestion') &&
-                questions?.find(({ _type }) => _type === 'numberOfChildrenQuestion')
+                questions?.find(({ _type }) => _type === 'numberOfChildrenQuestion') &&
+                questions?.find(({ _type }) => _type === 'incomePeriodQuestion')
               )
             ) {
-              return 'Lista må inneholde 3 unike spørsmål'
+              return 'Lista må inneholde minst 3 unike spørsmål'
             }
 
             return true

@@ -90,3 +90,59 @@ export const produktsideCalculatorQuestionNumberOfChildren = defineArrayMember({
     }),
   ],
 })
+
+export const produktsideCalculatorQuestionIncomePeriod = defineArrayMember({
+  title: 'Spørsmål om inntektsperiode',
+  name: 'incomePeriodQuestion',
+  type: 'object',
+  fields: [
+    defineField({
+      title: 'Label',
+      name: 'label',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Hjelpetekst "hvilken inntektsperiode"',
+      name: 'description1',
+      type: produktsideComponentRichText.name,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Hjelpetekst "disse inntektene avgjør"',
+      name: 'description2',
+      type: produktsideComponentRichText.name,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Label for første radioknapp',
+      name: 'radioButtonLabel1',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Tittel for første radioknapp',
+      name: 'option1title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Label for andre radioknapp',
+      name: 'radioButtonLabel2',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Tittel for andre radioknapp',
+      name: 'option2title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Feilmelding',
+      name: 'errorMessage',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+})
