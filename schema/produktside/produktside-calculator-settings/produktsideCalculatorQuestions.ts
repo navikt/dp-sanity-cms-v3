@@ -144,5 +144,17 @@ export const produktsideCalculatorQuestionIncomePeriod = defineArrayMember({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      title: 'Inntektsperiode fra label',
+      name: 'IncomePeriodFromLabel',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Inntektsperiode til label',
+      name: 'IncomePeriodToLabel',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 })
