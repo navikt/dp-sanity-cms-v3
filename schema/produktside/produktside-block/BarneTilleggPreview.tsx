@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
-import { FaMoneyBill } from 'react-icons/fa'
+import { FaChild } from 'react-icons/fa'
 import classNames from 'classnames'
 // @ts-ignore
 import styles from './styles.module.css'
@@ -8,7 +8,7 @@ interface Props {
   children: ReactNode
 }
 
-export function GtoNOKPreview(props: Props) {
+export function BarneTilleggPreview(props: Props) {
   const [content, setContent] = useState<undefined | string>(undefined)
   const notNumeric = isNaN(Number(content))
   const ref = useRef<HTMLSpanElement>(null)
@@ -21,14 +21,14 @@ export function GtoNOKPreview(props: Props) {
 
   return (
     <>
-      <span className={styles.icon}>
-        <FaMoneyBill />
+      <span className={styles.faChild}>
+        <FaChild style={{ marginRight: '1px' }} />
       </span>
       <span ref={ref} className={colorClassName}>
         {props.children}
       </span>
       <span className={classNames(colorClassName, styles.feedback)}>
-        {notNumeric ? 'Ikke ett tall!' : 'G'}
+        {notNumeric ? 'Ikke ett tall!' : ' barnetillegg beløp'}
       </span>
     </>
   )
