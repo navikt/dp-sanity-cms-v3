@@ -1,7 +1,8 @@
 import React from 'react'
 import { GtoNOKPreview } from './GtoNOKPreview'
-import { FaMoneyBill } from 'react-icons/fa'
+import { FaMoneyBill, FaChild } from 'react-icons/fa'
 import { defineArrayMember } from 'sanity'
+import { BarneTilleggPreview } from './BarneTilleggPreview'
 
 const GtoNOKDecorator = {
   title: 'Grunnbeløp til NOK',
@@ -10,10 +11,18 @@ const GtoNOKDecorator = {
   component: GtoNOKPreview,
 }
 
+const BarneTilleggDecorator = {
+  title: 'Barnetillegg',
+  value: 'Barnetilegg',
+  icon: () => <FaChild size={16} style={{ paddingTop: '-2px' }} />,
+  component: BarneTilleggPreview,
+}
+
 const produktsideBlockDecorators = [
   { title: 'Strong', value: 'strong' },
   { title: 'Emphasis', value: 'em' },
   GtoNOKDecorator,
+  BarneTilleggDecorator,
 ]
 
 const produktsideBlockStyles = [
