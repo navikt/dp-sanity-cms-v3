@@ -1,6 +1,6 @@
 import React from 'react'
 import { GtoNOKPreview } from './GtoNOKPreview'
-import { FaMoneyBill, FaChild } from 'react-icons/fa'
+import { FaMoneyBill, FaChild, FaAnchor } from 'react-icons/fa'
 import { defineArrayMember } from 'sanity'
 import { BarneTilleggPreview } from './BarneTilleggPreview'
 
@@ -48,5 +48,20 @@ export const produktsideCommonBlock = defineArrayMember({
   styles: produktsideBlockStyles,
   marks: {
     decorators: produktsideBlockDecorators,
+    annotations: [
+      {
+        name: 'anchor',
+        title: 'Ankerlenke',
+        type: 'object',
+        icon: FaAnchor,
+        fields: [
+          {
+            name: 'slug',
+            type: 'slug',
+            title: 'Ankerlenke',
+          },
+        ],
+      },
+    ],
   },
 })
