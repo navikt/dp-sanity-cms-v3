@@ -50,6 +50,17 @@ export const produktsideCommonBlock = defineArrayMember({
     decorators: produktsideBlockDecorators,
     annotations: [
       {
+        name: 'link',
+        type: 'object',
+        title: 'link',
+        fields: [
+          {
+            name: 'url',
+            type: 'url',
+          },
+        ],
+      },
+      {
         name: 'anchor',
         title: 'Ankerlenke',
         type: 'object',
