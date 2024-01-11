@@ -55,8 +55,8 @@ export const produktsideCommonBlock = defineArrayMember({
         title: 'link',
         fields: [
           {
-            name: 'url',
-            type: 'url',
+            name: 'href',
+            type: 'string',
           },
         ],
       },
