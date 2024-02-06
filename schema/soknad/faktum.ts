@@ -5,6 +5,7 @@ import {
   errorMessageTextField,
   textIdField,
   unitField,
+  alertTextField,
 } from './common-fields'
 import { defineType } from 'sanity'
 
@@ -23,6 +24,7 @@ export const faktum = defineType({
     errorMessageTextField,
     helpTextField,
     unitField,
+    alertTextField,
   ],
   preview: {
     select: {
