@@ -34,11 +34,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - run: npm run build
-      - uses: navikt/frontend/actions/spa-deploy/v1@main
+      - uses: navikt/frontend/actions/spa-deploy/v2@main
         with:
-          app-name: dp-sanity-cms-v3
-          team-name: teamdagpenger
+          app: dp-sanity-cms-v3
+          team: teamdagpenger
           source: ./dist
           ingress: https://dagpenger.ekstern.dev.nav.no
           environment: dev
-          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
