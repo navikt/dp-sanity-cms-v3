@@ -27,9 +27,7 @@ export const produktsideSection = defineType({
       name: 'key',
       type: 'string',
       title: 'Seksjonsnøkkel',
-      validation: (Rule) => Rule.required().error('Key er påkrevd.'),
-      description: 'Velg en god seksjonsnøkkel, den kan ikke endres i ettertid!',
-      readOnly: true,
+      hidden: true,
     }),
     defineField({
       name: 'slug',
