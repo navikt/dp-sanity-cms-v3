@@ -28,6 +28,7 @@ export const produktsideSection = defineType({
       type: 'string',
       title: 'Seksjonsnøkkel',
       hidden: true,
+      readOnly: true,
     }),
     defineField({
       name: 'slug',
