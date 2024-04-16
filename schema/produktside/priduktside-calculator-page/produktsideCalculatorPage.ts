@@ -14,20 +14,70 @@ export const produktsideCalculatorPage = defineType({
   fields: [
     defineField({
       name: 'title',
-      type: 'string',
       title: 'Tittel',
+      type: 'string',
       validation: (Rule) => Rule.required().error('Tittel er påkrevd.'),
     }),
     defineField({
       name: 'subtitle',
-      type: 'string',
       title: 'Undertittel',
+      type: 'string',
       validation: (Rule) => Rule.required().error('Undertittel er påkrevd.'),
     }),
     defineField({
-      title: 'Innhold',
       name: 'content',
+      title: 'Innhold',
       type: produktsideSectionRichText.name,
+    }),
+    defineField({
+      name: 'seo',
+      title: 'Søkemotoroptimalisering',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Tittel',
+          type: 'string',
+        },
+        {
+          name: 'description',
+          title: 'Beskrivelse',
+          type: 'string',
+        },
+        {
+          name: 'image',
+          type: 'image',
+          title: 'Bilde',
+          fields: [
+            {
+              name: 'imageAltText',
+              type: 'string',
+              title: 'Alternativ tekst',
+              description: 'Teksten bør beskrive bildet hvis det inneholder informasjon.',
+              options: {
+                isHighlighted: true,
+              },
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'dagpengerLink',
+      title: 'Dagpenger lenke',
+      type: 'object',
+      fields: [
+        {
+          name: 'text',
+          title: 'Lenke teskt',
+          type: 'string',
+        },
+        {
+          name: 'link',
+          title: 'Lenke',
+          type: 'string',
+        },
+      ],
     }),
   ],
 })
