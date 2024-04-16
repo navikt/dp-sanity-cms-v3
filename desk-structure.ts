@@ -125,7 +125,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                       ),
                     ])
                 ),
-              createListItemProduktside(S, produktsideCalculatorPage.name, 'Kalkulator side'),
+              createListItemProduktside(S, produktsideCalculatorPage.name, 'Kalkulatorside'),
               createListItemProduktside(S, produktsideSection.name, 'Innholdsseksjoner'),
               createListItemProduktside(S, produktsideGeneralText.name, 'Generelle tekster'),
             ])
