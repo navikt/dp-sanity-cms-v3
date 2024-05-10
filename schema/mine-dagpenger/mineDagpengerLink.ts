@@ -9,7 +9,7 @@ const linkId = defineField({
 const linkText = defineField({
   type: 'string',
   name: 'linkText',
-  title: 'Lenketeskt',
+  title: 'Lenketekst',
 })
 
 const linkUrl = defineField({

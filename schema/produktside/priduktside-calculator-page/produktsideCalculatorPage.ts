@@ -69,7 +69,12 @@ export const produktsideCalculatorPage = defineType({
       fields: [
         {
           name: 'text',
-          title: 'Lenke teskt',
+          title: 'Lenketekst',
+          type: 'string',
+        },
+        {
+          name: 'description',
+          title: 'Beskrivelse',
           type: 'string',
         },
         {
