@@ -31,9 +31,10 @@ import {
   produktsideHeader,
 } from './schema/produktside/schema'
 import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
-import { rapporteringInfoSide } from './schema/rapportering/rapporteringInfoSide'
+import { rapporteringRichText } from './schema/rapportering/rapporteringRichText'
 import { saksbehandlingAppText } from './schema/saksbehandling/saksbehandlingAppText'
 import { saksbehandlingInfoSide } from './schema/saksbehandling/saksbehandlingInfoSide'
+import { rapporteringLink } from './schema/rapportering/rapporteringLink'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -75,7 +76,8 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
             .title('Rapportering')
             .items([
               createListItem(S, rapporteringAppText.name),
-              createListItem(S, rapporteringInfoSide.name),
+              createListItem(S, rapporteringRichText.name),
+              createListItem(S, rapporteringLink.name),
             ])
         ),
 
