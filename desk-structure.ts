@@ -15,6 +15,7 @@ import { dokumentkravSvar } from './schema/soknad/dokumentkrav-svar'
 import { mineDagpengerAppText } from './schema/mine-dagpenger/mineDagpengerAppText'
 import { mineDagpengerRichText } from './schema/mine-dagpenger/mineDagpengerRichText'
 import { mineDagpengerLink } from './schema/mine-dagpenger/mineDagpengerLink'
+import { mineDagpengerSetting } from './schema/mine-dagpenger/mineDagpengerSetting'
 import { ProduktsidePreview } from './schema/produktside/produktside-preview/ProduktsidePreview'
 import {
   produktsideContactOptions,
@@ -66,6 +67,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, mineDagpengerAppText.name),
               createListItem(S, mineDagpengerRichText.name),
               createListItem(S, mineDagpengerLink.name),
+              createListItem(S, mineDagpengerSetting.name),
             ])
         ),
 
