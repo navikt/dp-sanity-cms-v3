@@ -1,10 +1,10 @@
 import { AuthStoreOptions, createAuthStore, defineConfig, SingleWorkspace } from 'sanity'
-import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { withDocumentI18nPlugin } from '@sanity/document-internationalization'
 import { schemaTypes } from './schema/schema'
 import { buildStructure } from './desk-structure'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
+import { structureTool } from 'sanity/structure'
 
 function getAuthConfig(dataset: 'development' | 'production'): AuthStoreOptions {
   return {
@@ -24,7 +24,7 @@ function getAuthConfig(dataset: 'development' | 'production'): AuthStoreOptions 
 
 const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema'> = {
   projectId: 'rt6o382n',
-  plugins: withDocumentI18nPlugin([deskTool({ structure: buildStructure }), visionTool()], {
+  plugins: withDocumentI18nPlugin([structureTool({ structure: buildStructure }), visionTool()], {
     base: 'nb',
     languages: [
       {
