@@ -1,6 +1,7 @@
-import { defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 import { textIdField, titleTextField } from '../soknad/common-fields'
 import { behandlingOpplysning } from './behandling-opplysning'
+import { BulbOutlineIcon, TextIcon } from '@sanity/icons'
 
 export const brevBlokk = defineType({
   type: 'document',
@@ -20,29 +21,30 @@ export const brevBlokk = defineType({
       of: [
         {
           type: 'block',
-          marks: {
-            annotations: [
-              {
-                name: 'behandlingOpplysningReference',
-                type: 'object',
-                title: 'Behandling Opplysning Reference',
-                fields: [
-                  {
-                    name: 'reference',
-                    type: 'reference',
-                    to: [{ type: behandlingOpplysning.name }],
-                    title: 'Reference',
-                  },
-                  {
-                    name: 'text',
-                    type: 'string',
-                    title: 'Display Text',
-                  },
-                ],
-              },
-            ],
-          },
+          of: [
+            defineField({
+              name: 'opplysningReference',
+              type: 'reference',
+              to: [{ type: behandlingOpplysning.name }],
+              icon: BulbOutlineIcon,
+              title: 'Opplysning',
+            }),
+          ],
         },
+        defineField({
+          name: 'fritekst',
+          type: 'object',
+          title: 'Fritekst',
+          icon: TextIcon,
+          fields: [
+            defineField({
+              name: 'placeholderValue',
+              type: 'string',
+              readOnly: true,
+              initialValue: 'FRITEKST',
+            }),
+          ],
+        }),
       ],
     },
   ],
