@@ -54,9 +54,6 @@ export const produktsideCalculatorPage = defineType({
               type: 'string',
               title: 'Alternativ tekst',
               description: 'Teksten bør beskrive bildet hvis det inneholder informasjon.',
-              options: {
-                isHighlighted: true,
-              },
             },
           ],
         },
