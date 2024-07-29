@@ -1,7 +1,6 @@
 import { textIdField, valueTextField } from '../soknad/common-fields'
-import { defineType } from 'sanity'
 
-export const rapporteringAppText = defineType({
+export const rapporteringAppText = {
   type: 'document',
   name: 'rapporteringAppText',
   title: 'Rapportering generelle tekster',
@@ -16,4 +15,4 @@ export const rapporteringAppText = defineType({
       subtitle: valueTextField.name,
     },
   },
-})
+}

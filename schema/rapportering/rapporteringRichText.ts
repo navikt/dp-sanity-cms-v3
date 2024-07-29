@@ -1,22 +1,21 @@
-import { defineField, defineType } from 'sanity'
 import { alertTextField, readMoreField } from '../soknad/common-fields'
 import { timeline } from '../soknad/timeline'
 
-export const rapporteringInfoSide = defineType({
+export const rapporteringRichText = {
   type: 'document',
-  name: 'rapporteringInfoSide',
-  title: 'Rapportering infoside',
+  name: 'rapporteringRichText',
+  title: 'Rik tekst',
   i18n: true,
   initialValue: {
     __i18n_lang: 'nb',
   },
   fields: [
-    defineField({
-      title: 'Sti',
+    {
+      title: 'Rich tekst nøkkel',
       name: 'slug',
       type: 'slug',
-    }),
-    defineField({
+    },
+    {
       type: 'array',
       name: 'body',
       title: 'Innhold',
@@ -28,7 +27,7 @@ export const rapporteringInfoSide = defineType({
         { type: alertTextField.name },
         { type: readMoreField.name },
       ],
-    }),
+    },
   ],
   preview: {
     select: {
@@ -40,4 +39,4 @@ export const rapporteringInfoSide = defineType({
       }
     },
   },
-})
+}
