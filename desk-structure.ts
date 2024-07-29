@@ -1,9 +1,5 @@
 // note: context includes `currentUser` and the client
-import {
-  ListItemBuilder,
-  StructureBuilder,
-  StructureResolverContext,
-} from 'sanity/lib/exports/desk'
+
 import { seksjon } from './schema/soknad/seksjon'
 import { faktum } from './schema/soknad/faktum'
 import { svaralternativ } from './schema/soknad/svaralternativ'
@@ -15,24 +11,31 @@ import { dokumentkravSvar } from './schema/soknad/dokumentkrav-svar'
 import { mineDagpengerAppText } from './schema/mine-dagpenger/mineDagpengerAppText'
 import { mineDagpengerRichText } from './schema/mine-dagpenger/mineDagpengerRichText'
 import { mineDagpengerLink } from './schema/mine-dagpenger/mineDagpengerLink'
+import { mineDagpengerSetting } from './schema/mine-dagpenger/mineDagpengerSetting'
 import { ProduktsidePreview } from './schema/produktside/produktside-preview/ProduktsidePreview'
 import {
+  produktsideCalculatorPage,
+  produktsideCalculatorSettings,
+  produktsideCalculatorText,
   produktsideContactOptions,
   produktsideFilterSection,
   produktsideGeneralText,
+  produktsideHeader,
   produktsideKortFortalt,
   produktsideSection,
-  produktsideSettings,
   produktsideSEO,
-  produktsideCalculatorSettings,
-  produktsideCalculatorText,
+  produktsideSettings,
   produktsideTopContent,
-  produktsideHeader,
 } from './schema/produktside/schema'
 import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
-import { rapporteringInfoSide } from './schema/rapportering/rapporteringInfoSide'
+import { rapporteringRichText } from './schema/rapportering/rapporteringRichText'
 import { saksbehandlingAppText } from './schema/saksbehandling/saksbehandlingAppText'
 import { saksbehandlingInfoSide } from './schema/saksbehandling/saksbehandlingInfoSide'
+import { rapporteringLink } from './schema/rapportering/rapporteringLink'
+import { brevBlokk } from './schema/saksbehandling/brev-blokk'
+import { brevMal } from './schema/saksbehandling/brev-mal'
+import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
+import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -52,7 +55,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, infopage.name),
               createListItem(S, dokumentkrav.name),
               createListItem(S, dokumentkravSvar.name),
-            ])
+            ]),
         ),
 
       S.listItem()
@@ -64,7 +67,8 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, mineDagpengerAppText.name),
               createListItem(S, mineDagpengerRichText.name),
               createListItem(S, mineDagpengerLink.name),
-            ])
+              createListItem(S, mineDagpengerSetting.name),
+            ]),
         ),
 
       S.listItem()
@@ -74,8 +78,9 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
             .title('Rapportering')
             .items([
               createListItem(S, rapporteringAppText.name),
-              createListItem(S, rapporteringInfoSide.name),
-            ])
+              createListItem(S, rapporteringRichText.name),
+              createListItem(S, rapporteringLink.name),
+            ]),
         ),
 
       S.listItem()
@@ -86,7 +91,10 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
             .items([
               createListItem(S, saksbehandlingAppText.name),
               createListItem(S, saksbehandlingInfoSide.name),
-            ])
+              createListItem(S, brevMal.name),
+              createListItem(S, brevBlokk.name),
+              createListItem(S, behandlingOpplysning.name),
+            ]),
         ),
 
       S.listItem()
@@ -102,7 +110,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createSingletonListItemProduktside(
                 S,
                 produktsideFilterSection.name,
-                'Filter seksjon'
+                'Filter seksjon',
               ),
               createSingletonListItemProduktside(S, produktsideContactOptions.name, 'Kontakt oss'),
               createSingletonListItemProduktside(S, produktsideSEO.name, 'Søkemotoroptimalisering'),
@@ -115,18 +123,19 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                       createSingletonListItemProduktside(
                         S,
                         produktsideCalculatorSettings.name,
-                        'Kalkulator'
+                        'Kalkulator',
                       ),
                       createListItemProduktside(
                         S,
                         produktsideCalculatorText.name,
-                        'Kalkulator tekst'
+                        'Kalkulator tekst',
                       ),
-                    ])
+                    ]),
                 ),
+              createListItemProduktside(S, produktsideCalculatorPage.name, 'Kalkulatorside'),
               createListItemProduktside(S, produktsideSection.name, 'Innholdsseksjoner'),
               createListItemProduktside(S, produktsideGeneralText.name, 'Generelle tekster'),
-            ])
+            ]),
         ),
     ])
 }
@@ -141,14 +150,14 @@ function createListItem(S: StructureBuilder, schemaName: string, title?: string)
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
         .filter(`_type == "${schemaName}" && __i18n_lang == $baseLanguage`)
-        .params({ baseLanguage: `nb` })
+        .params({ baseLanguage: `nb` }),
     )
 }
 
 function createListItemProduktside(
   S: StructureBuilder,
   schemaName: string,
-  title?: string
+  title?: string,
 ): ListItemBuilder {
   const capitalizedTitle = camelCaseToSentenceCase(schemaName)
   return S.listItem()
@@ -163,8 +172,8 @@ function createListItemProduktside(
         .child(
           S.editor()
             .schemaType(schemaName)
-            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')])
-        )
+            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')]),
+        ),
     )
 }
 
@@ -175,7 +184,7 @@ function createListItemProduktside(
 function createSingletonListItemProduktside(
   S: StructureBuilder,
   schemaName: string,
-  title?: string
+  title?: string,
 ): ListItemBuilder {
   const capitalizedTitle = camelCaseToSentenceCase(schemaName)
   return S.listItem()
@@ -201,8 +210,8 @@ function createSingletonListItemProduktside(
         .child(
           S.editor()
             .schemaType(schemaName)
-            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')])
-        )
+            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')]),
+        ),
     )
 }
 

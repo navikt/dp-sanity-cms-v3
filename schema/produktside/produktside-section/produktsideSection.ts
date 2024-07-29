@@ -24,6 +24,13 @@ export const produktsideSection = defineType({
       validation: (Rule) => Rule.required().error('Tittel er påkrevd.'),
     }),
     defineField({
+      name: 'key',
+      type: 'string',
+      title: 'Seksjonsnøkkel',
+      hidden: true,
+      readOnly: true,
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
       title: 'Ankerlenke for innholdsseksjonen',
@@ -40,6 +47,5 @@ export const produktsideSection = defineType({
       name: 'content',
       type: produktsideSectionRichText.name,
     }),
-    
   ],
 })

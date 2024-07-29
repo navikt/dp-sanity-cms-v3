@@ -12,6 +12,7 @@ import { produktsideFilteredContent } from './produktside-component-schemas/prod
 import { produktsideMicroCards } from './produktside-component-schemas/produktsideMicroCards'
 import { produktsideReadMoreWithRichText } from './produktside-component-schemas/produktsideReadMoreWithRichText'
 import { produktsideSection } from './produktside-section/produktsideSection'
+import { produktsideCalculatorPage } from './priduktside-calculator-page/produktsideCalculatorPage'
 import { produktsideSectionReference } from './produktside-section/produktsideSectionReference'
 import { produktsideSectionRichText } from './produktside-section/produktsideSectionRichText'
 import { produktsideFilterSection } from './produktsideFilterSection'
@@ -49,6 +50,7 @@ export const produktsideSchemas = [
   produktsideHeader,
   produktsideRichText,
   produktsideSection,
+  produktsideCalculatorPage,
   produktsideSectionReference,
   produktsideSectionRichText,
   produktsideSettings,
@@ -77,6 +79,7 @@ export {
   produktsideReadMoreWithRichText,
   produktsideRichText,
   produktsideSection,
+  produktsideCalculatorPage,
   produktsideSectionReference,
   produktsideSectionRichText,
   produktsideSettings,
