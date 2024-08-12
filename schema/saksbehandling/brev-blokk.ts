@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 import { textIdField, titleTextField } from '../soknad/common-fields'
 import { behandlingOpplysning } from './behandling-opplysning'
-import { BulbOutlineIcon, TextIcon } from '@sanity/icons'
+import { BulbOutlineIcon } from '@sanity/icons'
 
 export const brevBlokk = defineType({
   type: 'document',
@@ -14,6 +14,12 @@ export const brevBlokk = defineType({
   fields: [
     textIdField,
     titleTextField,
+    {
+      type: 'boolean',
+      name: 'utvidetBeskrivelse',
+      title: 'Utvidet beskrivelse',
+      initialValue: false,
+    },
     {
       title: 'Innhold',
       name: 'innhold',
@@ -31,20 +37,6 @@ export const brevBlokk = defineType({
             }),
           ],
         },
-        defineField({
-          name: 'fritekst',
-          type: 'object',
-          title: 'Fritekst',
-          icon: TextIcon,
-          fields: [
-            defineField({
-              name: 'placeholderValue',
-              type: 'string',
-              readOnly: true,
-              initialValue: 'FRITEKST',
-            }),
-          ],
-        }),
       ],
     },
   ],
