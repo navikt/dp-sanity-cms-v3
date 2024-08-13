@@ -1,5 +1,5 @@
 import { defineType } from 'sanity'
-import { textIdField, unitField } from '../soknad/common-fields'
+import { textIdField } from '../soknad/common-fields'
 
 export const behandlingOpplysning = defineType({
   type: 'document',
@@ -9,7 +9,23 @@ export const behandlingOpplysning = defineType({
   initialValue: {
     __i18n_lang: 'nb',
   },
-  fields: [textIdField, unitField],
+  fields: [
+    textIdField,
+    {
+      type: 'string',
+      name: 'type',
+      title: 'Datatype',
+      options: {
+        list: [
+          { title: 'Penger', value: 'penger' },
+          { title: 'Dato', value: 'dato' },
+          { title: 'Heltall', value: 'heltall' },
+          { title: 'Desimaltall', value: 'desimaltall' },
+          { title: 'Grunnbeløp', value: 'grunnbelop' },
+        ],
+      },
+    },
+  ],
   preview: {
     select: {
       title: textIdField.name,
