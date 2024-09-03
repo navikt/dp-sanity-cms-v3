@@ -1,5 +1,7 @@
 import { alertTextField, readMoreField } from '../soknad/common-fields'
+import { dynamicField } from './common-fields'
 import { timeline } from '../soknad/timeline'
+import { BulbOutlineIcon } from '@sanity/icons'
 
 export const rapporteringRichText = {
   type: 'document',
@@ -22,6 +24,15 @@ export const rapporteringRichText = {
       of: [
         {
           type: 'block',
+          of: [
+            {
+              name: 'dynamicFieldReference',
+              type: 'reference',
+              to: [{ type: dynamicField.name }],
+              icon: BulbOutlineIcon,
+              title: 'Dynamisk felt',
+            },
+          ],
         },
         { type: timeline.name },
         { type: alertTextField.name },
