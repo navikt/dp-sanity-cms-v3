@@ -2,16 +2,17 @@ import { alertTextField, readMoreField } from '../soknad/common-fields'
 import { dynamicField } from './common-fields'
 import { timeline } from '../soknad/timeline'
 import { BulbOutlineIcon } from '@sanity/icons'
+import { languageField } from '../common-fields'
 
 export const rapporteringRichText = {
   type: 'document',
   name: 'rapporteringRichText',
   title: 'Rik tekst',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     {
       title: 'Rich tekst nøkkel',
       name: 'slug',

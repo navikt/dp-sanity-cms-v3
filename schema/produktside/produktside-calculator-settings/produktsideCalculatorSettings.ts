@@ -1,21 +1,22 @@
-import { PortableTextObject, defineArrayMember, defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType, PortableTextObject } from 'sanity'
 import { produktsideComponentRichText } from '../produktside-component-schemas/produktsideComponentRichText'
 import {
   produktsideCalculatorQuestionHasChildren,
   produktsideCalculatorQuestionIncome,
-  produktsideCalculatorQuestionNumberOfChildren,
   produktsideCalculatorQuestionIncomePeriod,
+  produktsideCalculatorQuestionNumberOfChildren,
 } from './produktsideCalculatorQuestions'
+import { languageField } from '../../common-fields'
 
 export const produktsideCalculatorSettings = defineType({
   name: 'produktsideCalculatorSettings',
   title: 'Kalkulator',
   type: 'document',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       title: 'Tittel',
       name: 'title',

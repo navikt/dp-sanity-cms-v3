@@ -1,15 +1,15 @@
 import { alertTextField, answerTextField, textIdField } from './common-fields'
 import { defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const svaralternativ = defineType({
   type: 'document',
   name: 'svaralternativ',
   title: 'Svaralternativ',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [textIdField, answerTextField, alertTextField],
+  fields: [languageField, textIdField, answerTextField, alertTextField],
   preview: {
     select: {
       title: answerTextField.name,

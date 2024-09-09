@@ -1,16 +1,17 @@
 import { timeline } from './timeline'
 import { alertTextField, readMoreField } from './common-fields'
 import { defineField, defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const infopage = defineType({
   type: 'document',
   name: 'infopage',
   title: 'Infoside',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       title: 'Sti',
       name: 'slug',

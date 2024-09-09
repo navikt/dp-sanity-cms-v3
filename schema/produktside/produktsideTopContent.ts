@@ -1,15 +1,16 @@
 import { defineField, defineType } from 'sanity'
 import { produktsideSectionRichText } from './produktside-section/produktsideSectionRichText'
+import { languageField } from '../common-fields'
 
 export const produktsideTopContent = defineType({
   name: 'produktsideTopContent',
   type: 'document',
   title: 'Produktside øverste innhold',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       name: 'content',
       title: 'Innhold',

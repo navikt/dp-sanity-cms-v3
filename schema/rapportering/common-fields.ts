@@ -1,15 +1,16 @@
 import { defineType } from 'sanity'
 import { textIdField } from '../soknad/common-fields'
+import { languageField } from '../common-fields'
 
 export const dynamicField = defineType({
   type: 'document',
   name: 'dynamicField',
   title: 'Dynamisk felt',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     textIdField,
     {
       type: 'string',

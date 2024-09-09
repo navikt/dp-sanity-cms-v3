@@ -1,16 +1,17 @@
 import { defineField, defineType } from 'sanity'
 import { alertTextField, readMoreField } from '../soknad/common-fields'
 import { timeline } from '../soknad/timeline'
+import { languageField } from '../common-fields'
 
 export const saksbehandlingInfoSide = defineType({
   type: 'document',
   name: 'saksbehandlingInfoSide',
   title: 'Saksbehandling infoside',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       title: 'Sti',
       name: 'slug',

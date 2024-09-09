@@ -149,7 +149,7 @@ function createListItem(S: StructureBuilder, schemaName: string, title?: string)
       S.documentList()
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
-        .filter(`_type == "${schemaName}" && __i18n_lang == $baseLanguage`)
+        .filter(`_type == "${schemaName}" && language == $baseLanguage`)
         .params({ baseLanguage: `nb` }),
     )
 }
@@ -167,7 +167,7 @@ function createListItemProduktside(
       S.documentList()
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
-        .filter(`_type == "${schemaName}" && __i18n_lang == $baseLanguage`)
+        .filter(`_type == "${schemaName}" && language == $baseLanguage`)
         .params({ baseLanguage: `nb` })
         .child(
           S.editor()

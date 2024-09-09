@@ -5,16 +5,16 @@ import {
   textIdField,
 } from './common-fields'
 import { defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const seksjon = defineType({
   type: 'document',
   name: 'seksjon',
   title: 'Seksjon',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [textIdField, sectionTitleField, descriptionTextField, helpTextField],
+  fields: [languageField, textIdField, sectionTitleField, descriptionTextField, helpTextField],
   preview: {
     select: {
       title: sectionTitleField.name,

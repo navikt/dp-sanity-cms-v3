@@ -1,14 +1,15 @@
 import { descriptionTextField, helpTextField, textIdField, titleTextField } from './common-fields'
 import { defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const dokumentkrav = defineType({
   type: 'document',
   name: 'dokumentkrav',
   title: 'Dokumentkrav',
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [textIdField, titleTextField, descriptionTextField, helpTextField],
+  fields: [languageField, textIdField, titleTextField, descriptionTextField, helpTextField],
   preview: {
     select: {
       title: titleTextField.name,

@@ -1,16 +1,17 @@
 import { timeline } from '../soknad/timeline'
 import { alertTextField, readMoreField } from '../soknad/common-fields'
 import { defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const mineDagpengerRichText = defineType({
   type: 'document',
   name: 'mineDagpengerRichText',
   title: 'Mine dagpenger rik tekster',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     {
       title: 'Rich tekst nøkkel',
       name: 'slug',
