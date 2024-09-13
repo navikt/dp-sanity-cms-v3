@@ -1,5 +1,5 @@
 import { timeline } from './timeline'
-import { alertTextField, readMoreField } from './common-fields'
+import { alertTextField, readMoreField, textIdField } from './common-fields'
 import { defineField, defineType } from 'sanity'
 import { languageField } from '../common-fields'
 
@@ -12,11 +12,7 @@ export const infopage = defineType({
   },
   fields: [
     languageField,
-    defineField({
-      title: 'Sti',
-      name: 'slug',
-      type: 'slug',
-    }),
+    textIdField,
     defineField({
       type: 'array',
       name: 'body',
@@ -33,12 +29,7 @@ export const infopage = defineType({
   ],
   preview: {
     select: {
-      slug: 'slug.current',
-    },
-    prepare({ slug }: { slug?: string }) {
-      return {
-        title: `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`,
-      }
+      title: textIdField.name,
     },
   },
 })
