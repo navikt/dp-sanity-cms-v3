@@ -1,4 +1,4 @@
-import { alertTextField, readMoreField } from '../soknad/common-fields'
+import { alertTextField, readMoreField, textIdField } from '../soknad/common-fields'
 import { dynamicField } from './common-fields'
 import { timeline } from '../soknad/timeline'
 import { BulbOutlineIcon } from '@sanity/icons'
@@ -13,11 +13,7 @@ export const rapporteringRichText = {
   },
   fields: [
     languageField,
-    {
-      title: 'Rich tekst nøkkel',
-      name: 'slug',
-      type: 'slug',
-    },
+    textIdField,
     {
       type: 'array',
       name: 'body',
@@ -43,12 +39,7 @@ export const rapporteringRichText = {
   ],
   preview: {
     select: {
-      slug: 'slug.current',
-    },
-    prepare({ slug }: { slug?: string }) {
-      return {
-        title: `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`,
-      }
+      title: textIdField.name,
     },
   },
 }
