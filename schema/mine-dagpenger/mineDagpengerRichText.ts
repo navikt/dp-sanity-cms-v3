@@ -1,5 +1,5 @@
 import { timeline } from '../soknad/timeline'
-import { alertTextField, readMoreField } from '../soknad/common-fields'
+import { alertTextField, readMoreField, textIdField } from '../soknad/common-fields'
 import { defineType } from 'sanity'
 import { languageField } from '../common-fields'
 
@@ -12,11 +12,7 @@ export const mineDagpengerRichText = defineType({
   },
   fields: [
     languageField,
-    {
-      title: 'Rich tekst nøkkel',
-      name: 'slug',
-      type: 'slug',
-    },
+    textIdField,
     {
       type: 'array',
       name: 'body',
@@ -33,12 +29,7 @@ export const mineDagpengerRichText = defineType({
   ],
   preview: {
     select: {
-      slug: 'slug.current',
-    },
-    prepare({ slug }: { slug?: string }) {
-      return {
-        title: `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`,
-      }
+      title: textIdField.name,
     },
   },
 })
