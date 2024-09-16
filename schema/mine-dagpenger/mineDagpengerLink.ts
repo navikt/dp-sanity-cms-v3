@@ -1,4 +1,5 @@
 import { defineField } from 'sanity'
+import { languageField } from '../common-fields'
 
 const linkId = defineField({
   type: 'string',
@@ -28,11 +29,10 @@ export const mineDagpengerLink = {
   type: 'document',
   name: 'mineDagpengerLink',
   title: 'Mine dagpenger lenker',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [linkId, linkText, linkUrl, linkDescription],
+  fields: [languageField, linkId, linkText, linkUrl, linkDescription],
   preview: {
     select: {
       title: linkId.name,

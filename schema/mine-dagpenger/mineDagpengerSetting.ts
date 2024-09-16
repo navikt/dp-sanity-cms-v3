@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const settingIdField = defineField({
   type: 'string',
@@ -18,11 +19,10 @@ export const mineDagpengerSetting = defineType({
   type: 'document',
   name: 'mineDagpengerSetting',
   title: 'Mine dagpenger settings',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [settingIdField, settingValueField],
+  fields: [languageField, settingIdField, settingValueField],
   preview: {
     select: {
       title: settingIdField.name,

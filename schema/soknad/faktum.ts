@@ -1,23 +1,24 @@
 import {
+  alertTextField,
   descriptionTextField,
+  errorMessageTextField,
   helpTextField,
   questionTextField,
-  errorMessageTextField,
   textIdField,
   unitField,
-  alertTextField,
 } from './common-fields'
 import { defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const faktum = defineType({
   type: 'document',
   name: 'faktum',
   title: 'Spørsmål',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     textIdField,
     questionTextField,
     descriptionTextField,

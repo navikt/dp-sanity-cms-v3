@@ -2,16 +2,17 @@ import { defineField, defineType } from 'sanity'
 import { textIdField, titleTextField } from '../soknad/common-fields'
 import { behandlingOpplysning } from './behandling-opplysning'
 import { BulbOutlineIcon } from '@sanity/icons'
+import { languageField } from '../common-fields'
 
 export const brevBlokk = defineType({
   type: 'document',
   name: 'brevBlokk',
   title: 'Brev Blokk',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     textIdField,
     titleTextField,
     {

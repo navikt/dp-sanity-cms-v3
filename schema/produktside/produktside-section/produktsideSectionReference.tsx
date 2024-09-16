@@ -27,10 +27,10 @@ export const produktsideSectionReference = defineType({
 
           return {
             filter:
-              '!(_id in path("drafts.**")) && !(_id in $usedReferences) && (__i18n_lang == $baseLanguage)',
+              '!(_id in path("drafts.**")) && !(_id in $usedReferences) && (language == $baseLanguage)',
             params: {
               usedReferences,
-              baseLanguage: document?.__i18n_lang,
+              baseLanguage: document?.language,
             },
           }
         },
