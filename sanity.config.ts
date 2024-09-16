@@ -6,7 +6,7 @@ import { structureTool } from 'sanity/structure'
 import { documentInternationalization } from '@sanity/document-internationalization'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
 
-function getAuthConfig(dataset: 'development' | 'production' | 'migrering-test'): AuthStoreOptions {
+function getAuthConfig(dataset: 'development' | 'production' | 'kopi-av-prod'): AuthStoreOptions {
   return {
     dataset,
     projectId: 'rt6o382n',
@@ -67,10 +67,10 @@ export default defineConfig([
   },
   {
     ...sharedConfig,
-    auth: createAuthStore(getAuthConfig('migrering-test')),
-    name: 'migrering-test',
-    title: 'Migering TEST',
-    dataset: 'migrering-test',
-    basePath: '/sanity/migrering',
+    auth: createAuthStore(getAuthConfig('kopi-av-prod')),
+    name: 'copy-production',
+    title: 'Prod kopi',
+    dataset: 'copy-production',
+    basePath: '/sanity/prod-kopi',
   },
 ])

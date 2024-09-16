@@ -147,6 +147,7 @@ function createListItem(S: StructureBuilder, schemaName: string, title?: string)
     .child(
       // Only show the base language variant of each item in schema
       S.documentList()
+        .apiVersion('v2022-03-07')
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
         .filter(`_type == "${schemaName}" && language == $baseLanguage`)
@@ -165,6 +166,7 @@ function createListItemProduktside(
     .child(
       // Only show the base language variant of each item in schema
       S.documentList()
+        .apiVersion('v2022-03-07')
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
         .filter(`_type == "${schemaName}" && language == $baseLanguage`)
@@ -191,6 +193,7 @@ function createSingletonListItemProduktside(
     .title(title ?? capitalizedTitle)
     .child(
       S.documentList()
+        .apiVersion('v2022-03-07')
         .title(title ?? capitalizedTitle)
         .id(schemaName)
         .schemaType(schemaName)
