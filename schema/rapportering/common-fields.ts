@@ -17,7 +17,13 @@ export const dynamicField = defineType({
       name: 'type',
       title: 'Datatype',
       options: {
-        list: [{ title: 'Dato', value: 'dato' }],
+        list: [
+          { title: 'Penger', value: 'penger' },
+          { title: 'Dato', value: 'dato' },
+          { title: 'Heltall', value: 'heltall' },
+          { title: 'Desimaltall', value: 'desimaltall' },
+          { title: 'Grunnbeløp', value: 'grunnbelop' },
+        ],
       },
     },
   ],
