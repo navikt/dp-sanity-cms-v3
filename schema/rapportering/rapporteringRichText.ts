@@ -21,6 +21,27 @@ export const rapporteringRichText = {
       of: [
         {
           type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Lenke',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL',
+                  },
+                  {
+                    title: 'Åpne i ny fane',
+                    name: 'blank',
+                    type: 'boolean',
+                  },
+                ],
+              },
+            ],
+          },
           of: [
             {
               name: 'dynamicFieldReference',
