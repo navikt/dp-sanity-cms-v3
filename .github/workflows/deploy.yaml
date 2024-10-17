@@ -43,7 +43,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - run: npm run build
-      - uses: navikt/frontend/actions/spa-deploy/v2@main
+      - uses: nais/deploy/actions/spa-deploy/v2@master
         with:
           app: dp-sanity-cms-v3
           team: teamdagpenger
