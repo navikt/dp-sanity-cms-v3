@@ -36,6 +36,7 @@ import { brevBlokk } from './schema/saksbehandling/brev-blokk'
 import { brevMal } from './schema/saksbehandling/brev-mal'
 import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
+import { rapporteringMessage } from './schema/rapportering/rapporteringMessage'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -80,6 +81,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, rapporteringAppText.name),
               createListItem(S, rapporteringRichText.name),
               createListItem(S, rapporteringLink.name),
+              createListItem(S, rapporteringMessage.name),
             ]),
         ),
 
