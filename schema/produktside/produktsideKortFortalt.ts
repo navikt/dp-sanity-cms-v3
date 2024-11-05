@@ -1,17 +1,18 @@
 import { MdWeb } from 'react-icons/md'
 import { defineField, defineType } from 'sanity'
 import { produktsideSectionRichText } from './produktside-section/produktsideSectionRichText'
+import { languageField } from '../common-fields'
 
 export const produktsideKortFortalt = defineType({
   name: 'produktsideKortFortalt',
   type: 'document',
   title: 'Kort Fortalt',
-  i18n: true,
-  initialValue: {
-    __i18n_lang: 'nb',
-  },
   icon: MdWeb,
+  initialValue: {
+    language: 'nb',
+  },
   fields: [
+    languageField,
     defineField({
       name: 'title',
       type: 'string',

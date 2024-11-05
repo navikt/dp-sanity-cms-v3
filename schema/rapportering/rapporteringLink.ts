@@ -22,13 +22,13 @@ const linkUrl = defineField({
 const linkDescription = defineField({
   type: 'string',
   name: 'linkDescription',
-  title: 'Lenke beskrivelse',
+  title: 'Beskrivelse',
 })
 
-export const mineDagpengerLink = {
+export const rapporteringLink = {
   type: 'document',
-  name: 'mineDagpengerLink',
-  title: 'Mine dagpenger lenker',
+  name: 'rapporteringLink',
+  title: 'Lenker',
   initialValue: {
     language: 'nb',
   },

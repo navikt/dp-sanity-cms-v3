@@ -1,17 +1,18 @@
 import { MdFilter } from 'react-icons/md'
 import { defineField, defineType } from 'sanity'
 import { produktsideSectionRichText } from './produktside-section/produktsideSectionRichText'
+import { languageField } from '../common-fields'
 
 export const produktsideFilterSection = defineType({
   name: 'produktsideFilterSection',
   type: 'document',
   title: 'Produktside filter seksjon',
-  i18n: true,
-  initialValue: {
-    __i18n_lang: 'nb',
-  },
   icon: MdFilter,
+  initialValue: {
+    language: 'nb',
+  },
   fields: [
+    languageField,
     defineField({
       name: 'title',
       type: 'string',

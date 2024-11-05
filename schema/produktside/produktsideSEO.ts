@@ -1,14 +1,15 @@
 import { defineField, defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const produktsideSEO = defineType({
   name: 'produktsideSEO',
   title: 'Produktside søkemotoroptimalisering',
   type: 'document',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       name: 'title',
       type: 'string',
@@ -29,9 +30,6 @@ export const produktsideSEO = defineType({
           type: 'string',
           title: 'Alternativ tekst',
           description: 'Teksten bør beskrive bildet hvis det inneholder informasjon.',
-          options: {
-            isHighlighted: true,
-          },
         },
       ],
     }),

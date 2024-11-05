@@ -1,17 +1,18 @@
 import { MdWeb } from 'react-icons/md'
 import { defineField, defineType } from 'sanity'
 import { produktsideSectionRichText } from './produktsideSectionRichText'
+import { languageField } from '../../common-fields'
 
 export const produktsideSection = defineType({
   name: 'produktsideSection',
   type: 'document',
   title: 'Produktside innholdsseksjoner',
-  i18n: true,
-  initialValue: {
-    __i18n_lang: 'nb',
-  },
   icon: MdWeb,
+  initialValue: {
+    language: 'nb',
+  },
   fields: [
+    languageField,
     defineField({
       type: 'navIconPicker',
       name: 'iconName',
@@ -22,6 +23,13 @@ export const produktsideSection = defineType({
       type: 'string',
       title: 'Tittel',
       validation: (Rule) => Rule.required().error('Tittel er påkrevd.'),
+    }),
+    defineField({
+      name: 'key',
+      type: 'string',
+      title: 'Seksjonsnøkkel',
+      hidden: true,
+      readOnly: true,
     }),
     defineField({
       name: 'slug',
@@ -40,6 +48,5 @@ export const produktsideSection = defineType({
       name: 'content',
       type: produktsideSectionRichText.name,
     }),
-    
   ],
 })

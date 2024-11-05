@@ -1,15 +1,16 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { produktsideRichText } from './produktsideRichText'
+import { languageField } from '../common-fields'
 
 export const produktsideSettings = defineType({
   name: 'produktsideSettings',
   title: 'Venstremeny for Produktside Dagpenger',
   type: 'document',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       name: 'title',
       type: 'string',

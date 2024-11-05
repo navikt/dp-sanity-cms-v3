@@ -1,14 +1,15 @@
 import { defineField, defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const produktsideHeader = defineType({
   name: 'produktsideHeader',
   title: 'Header for Produktside Dagpenger',
   type: 'document',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       name: 'title',
       title: 'Tittel',

@@ -1,19 +1,18 @@
 import { textIdField, valueTextField } from '../soknad/common-fields'
-import { defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
-export const rapporteringAppText = defineType({
+export const rapporteringAppText = {
   type: 'document',
   name: 'rapporteringAppText',
   title: 'Rapportering generelle tekster',
-  i18n: true,
+  fields: [languageField, textIdField, valueTextField],
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [textIdField, valueTextField],
   preview: {
     select: {
       title: textIdField.name,
       subtitle: valueTextField.name,
     },
   },
-})
+}

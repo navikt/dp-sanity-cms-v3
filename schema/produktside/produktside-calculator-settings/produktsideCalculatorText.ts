@@ -1,14 +1,15 @@
 import { defineField, defineType } from 'sanity'
+import { languageField } from '../../common-fields'
 
 export const produktsideCalculatorText = defineType({
   type: 'document',
   name: 'produktsideCalculatorText',
   title: 'Kalkulator tekster',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     defineField({
       type: 'string',
       name: 'textId',
