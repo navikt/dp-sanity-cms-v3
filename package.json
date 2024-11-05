@@ -15,7 +15,8 @@
     "backup": "sanity dataset export production production.tar.gz --overwrite",
     "clearDevelopmentDataset": "sanity dataset delete development && sanity dataset create development --visibility public",
     "copyProdDataToDevelopment": "npm run backup && npm run clearDevelopmentDataset && sanity dataset import production.tar.gz development --replace",
-    "check-updates": "ncu -i --format group"
+    "check-updates": "ncu -i --format group",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "sanity"
