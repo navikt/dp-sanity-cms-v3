@@ -36,6 +36,7 @@ import { brevBlokk } from './schema/saksbehandling/brev-blokk'
 import { brevMal } from './schema/saksbehandling/brev-mal'
 import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
+import { rapporteringMessage } from './schema/rapportering/rapporteringMessage'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -80,6 +81,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, rapporteringAppText.name),
               createListItem(S, rapporteringRichText.name),
               createListItem(S, rapporteringLink.name),
+              createListItem(S, rapporteringMessage.name),
             ]),
         ),
 
@@ -147,9 +149,10 @@ function createListItem(S: StructureBuilder, schemaName: string, title?: string)
     .child(
       // Only show the base language variant of each item in schema
       S.documentList()
+        .apiVersion('v2022-03-07')
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
-        .filter(`_type == "${schemaName}" && __i18n_lang == $baseLanguage`)
+        .filter(`_type == "${schemaName}" && language == $baseLanguage`)
         .params({ baseLanguage: `nb` }),
     )
 }
@@ -165,9 +168,10 @@ function createListItemProduktside(
     .child(
       // Only show the base language variant of each item in schema
       S.documentList()
+        .apiVersion('v2022-03-07')
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
-        .filter(`_type == "${schemaName}" && __i18n_lang == $baseLanguage`)
+        .filter(`_type == "${schemaName}" && language == $baseLanguage`)
         .params({ baseLanguage: `nb` })
         .child(
           S.editor()
@@ -191,6 +195,7 @@ function createSingletonListItemProduktside(
     .title(title ?? capitalizedTitle)
     .child(
       S.documentList()
+        .apiVersion('v2022-03-07')
         .title(title ?? capitalizedTitle)
         .id(schemaName)
         .schemaType(schemaName)

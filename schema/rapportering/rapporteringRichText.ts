@@ -1,42 +1,18 @@
-import { alertTextField, readMoreField } from '../soknad/common-fields'
-import { timeline } from '../soknad/timeline'
+import { textIdField } from '../soknad/common-fields'
+import { richTextField } from './common-fields'
+import { languageField } from '../common-fields'
 
 export const rapporteringRichText = {
   type: 'document',
   name: 'rapporteringRichText',
   title: 'Rik tekst',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [
-    {
-      title: 'Rich tekst nøkkel',
-      name: 'slug',
-      type: 'slug',
-    },
-    {
-      type: 'array',
-      name: 'body',
-      title: 'Innhold',
-      of: [
-        {
-          type: 'block',
-        },
-        { type: timeline.name },
-        { type: alertTextField.name },
-        { type: readMoreField.name },
-      ],
-    },
-  ],
+  fields: [languageField, textIdField, richTextField],
   preview: {
     select: {
-      slug: 'slug.current',
-    },
-    prepare({ slug }: { slug?: string }) {
-      return {
-        title: `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`,
-      }
+      title: textIdField.name,
     },
   },
 }

@@ -1,15 +1,15 @@
 import { alertTextField, textIdField } from './common-fields'
 import { defineType } from 'sanity'
+import { languageField } from '../common-fields'
 
 export const landgruppe = defineType({
   type: 'document',
   name: 'landgruppe',
   title: 'Landgruppe',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
-  fields: [textIdField, alertTextField],
+  fields: [languageField, textIdField, alertTextField],
   preview: {
     select: {
       title: alertTextField.title || 'Untitled',

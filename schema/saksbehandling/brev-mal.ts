@@ -1,16 +1,17 @@
 import { defineType } from 'sanity'
 import { textIdField } from '../soknad/common-fields'
 import { brevBlokk } from './brev-blokk'
+import { languageField } from '../common-fields'
 
 export const brevMal = defineType({
   type: 'document',
   name: 'brevMal',
   title: 'Brev Mal',
-  i18n: true,
   initialValue: {
-    __i18n_lang: 'nb',
+    language: 'nb',
   },
   fields: [
+    languageField,
     textIdField,
     {
       name: 'brevBlokker',

@@ -1,17 +1,18 @@
 import { MdContactSupport } from 'react-icons/md'
 import { defineField, defineType } from 'sanity'
 import { produktsideSectionRichText } from './produktside-section/produktsideSectionRichText'
+import { languageField } from '../common-fields'
 
 export const produktsideContactOptions = defineType({
   name: 'produktsideContactOptions',
   type: 'document',
   title: 'Produktside kontaktalternativer',
-  i18n: true,
-  initialValue: {
-    __i18n_lang: 'nb',
-  },
   icon: MdContactSupport,
+  initialValue: {
+    language: 'nb',
+  },
   fields: [
+    languageField,
     defineField({
       name: 'title',
       type: 'string',
