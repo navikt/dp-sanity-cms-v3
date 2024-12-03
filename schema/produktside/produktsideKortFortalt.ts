@@ -4,6 +4,7 @@ import { produktsideSectionRichText } from './produktside-section/produktsideSec
 import { languageField } from '../common-fields'
 
 export const produktsideKortFortalt = defineType({
+  readOnly: true,
   name: 'produktsideKortFortalt',
   type: 'document',
   title: 'Kort Fortalt',

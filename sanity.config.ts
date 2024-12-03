@@ -65,12 +65,4 @@ export default defineConfig([
     dataset: 'development',
     basePath: '/sanity/dev',
   },
-  {
-    ...sharedConfig,
-    auth: createAuthStore(getAuthConfig('kopi-av-prod')),
-    name: 'copy-production',
-    title: 'Prod kopi',
-    dataset: 'copy-production',
-    basePath: '/sanity/prod-kopi',
-  },
 ])

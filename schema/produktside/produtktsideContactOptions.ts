@@ -4,6 +4,7 @@ import { produktsideSectionRichText } from './produktside-section/produktsideSec
 import { languageField } from '../common-fields'
 
 export const produktsideContactOptions = defineType({
+  readOnly: true,
   name: 'produktsideContactOptions',
   type: 'document',
   title: 'Produktside kontaktalternativer',

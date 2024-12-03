@@ -7,6 +7,7 @@ import { produktsideAlert } from './produktsideAlert'
 import { produktsideAccordionList } from './produktsideAccordionList'
 
 export const produktsideComponentRichText = defineField({
+  readOnly: true,
   title: 'Komponent Rich Text',
   name: 'produktsideComponentRichText',
   type: 'array',

@@ -2,6 +2,7 @@ import { defineField, defineType } from 'sanity'
 import { languageField } from '../common-fields'
 
 export const produktsideHeader = defineType({
+  readOnly: true,
   name: 'produktsideHeader',
   title: 'Header for Produktside Dagpenger',
   type: 'document',

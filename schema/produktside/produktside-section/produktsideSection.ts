@@ -4,6 +4,7 @@ import { produktsideSectionRichText } from './produktsideSectionRichText'
 import { languageField } from '../../common-fields'
 
 export const produktsideSection = defineType({
+  readOnly: true,
   name: 'produktsideSection',
   type: 'document',
   title: 'Produktside innholdsseksjoner',
