@@ -3,7 +3,6 @@ import { produktsideRichText } from './produktsideRichText'
 import { languageField } from '../common-fields'
 
 export const produktsideSettings = defineType({
-  readOnly: true,
   name: 'produktsideSettings',
   title: 'Venstremeny for Produktside Dagpenger',
   type: 'document',

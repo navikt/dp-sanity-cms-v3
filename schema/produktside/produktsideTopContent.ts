@@ -3,7 +3,6 @@ import { produktsideSectionRichText } from './produktside-section/produktsideSec
 import { languageField } from '../common-fields'
 
 export const produktsideTopContent = defineType({
-  readOnly: true,
   name: 'produktsideTopContent',
   type: 'document',
   title: 'Produktside øverste innhold',

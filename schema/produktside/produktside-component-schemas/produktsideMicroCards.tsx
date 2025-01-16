@@ -1,7 +1,6 @@
 import { defineField, defineType, defineArrayMember } from 'sanity'
 
 export const produktsideMicroCards = defineType({
-  readOnly: true,
   name: 'produktsideMicroCards',
   title: 'Mikrokort',
   type: 'object',

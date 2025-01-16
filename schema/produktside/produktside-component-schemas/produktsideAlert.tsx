@@ -1,7 +1,6 @@
 import { defineField, defineType } from 'sanity'
 
 export const produktsideAlert = defineType({
-  readOnly: true,
   name: 'produktsideAlert',
   title: 'Alert',
   type: 'object',

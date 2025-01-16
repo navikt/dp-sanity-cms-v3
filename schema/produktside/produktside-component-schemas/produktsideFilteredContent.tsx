@@ -6,7 +6,6 @@ export const produktsideFilters = [
 ]
 
 export const produktsideFilteredContent = defineType({
-  readOnly: true,
   name: 'produktsideFilteredContent',
   title: 'FilteredContent',
   type: 'object',

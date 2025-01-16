@@ -1,7 +1,6 @@
 import { defineField, defineType } from 'sanity'
 
 export const produktsideAccordionList = defineType({
-  readOnly: true,
   name: 'produktsideAccordionList',
   title: 'AccordionList',
   type: 'object',

@@ -1,7 +1,6 @@
 import { defineField, defineType } from 'sanity'
 
 export const produktsideButton = defineType({
-  readOnly: true,
   name: 'produktsideButton',
   title: 'Button',
   type: 'object',
