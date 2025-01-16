@@ -1,7 +1,6 @@
 import { defineField, defineType } from 'sanity'
 
 export const produktsideReadMoreWithRichText = defineType({
-  readOnly: true,
   name: 'produktsideReadMoreWithRichText',
   title: 'ReadMore NY',
   type: 'object',
