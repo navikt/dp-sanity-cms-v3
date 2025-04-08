@@ -28,14 +28,13 @@ jobs:
       - uses: actions/setup-node@v4
         if: steps.node_modules.outputs.cache-hit != 'true'
         with:
-          node-version: "20.x"
-          cache: "npm"
-          registry-url: "https://npm.pkg.github.com"
+          node-version: '20.x'
+          cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
 
       - run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
-
 
       - run: npm ci
         if: steps.node_modules.outputs.cache-hit != 'true'
@@ -45,10 +44,8 @@ jobs:
       - run: npm run build
       - uses: nais/deploy/actions/spa-deploy/v2@master
         with:
-          app: dp-sanity-cms-v3
+          destination: dp-sanity-cms-v3/dev
           team: teamdagpenger
           source: ./dist
-          ingress: https://dagpenger.ansatt.nav.no
-          environment: dev
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
