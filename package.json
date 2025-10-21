@@ -13,8 +13,8 @@
     "prepare": "husky",
     "type-check": "tsc",
     "backup": "sanity dataset export production production.tar.gz --overwrite",
-    "clearDevelopmentDataset": "sanity dataset delete development && sanity dataset create development --visibility public",
-    "copyProdDataToDevelopment": "npm run backup && npm run clearDevelopmentDataset && sanity dataset import production.tar.gz development --replace",
+    "clearDevelopmentDataset": "sanity dataset delete dev && sanity dataset create dev --visibility public",
+    "copyProdDataToDevelopment": "npm run backup && npm run clearDevelopmentDataset && sanity dataset import production.tar.gz dev --replace",
     "check-updates": "ncu -i --format group"
   },
   "keywords": [
