@@ -1,3 +1,4 @@
+import { brukerdialogSchemas } from './brukerdialog/schema'
 import { mineDagpengerSchemas } from './mine-dagpenger/schema'
 import { produktsideSchemas } from './produktside/schema'
 import { rapporteringSchemas } from './rapportering/schema'
@@ -10,4 +11,5 @@ export const schemaTypes = [
   ...rapporteringSchemas,
   ...saksbehandlingSchemas,
   ...soknadSchemas,
+  ...brukerdialogSchemas,
 ]

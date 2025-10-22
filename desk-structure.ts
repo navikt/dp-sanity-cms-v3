@@ -37,10 +37,11 @@ import { brevMal } from './schema/saksbehandling/brev-mal'
 import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
 import { rapporteringMessage } from './schema/rapportering/rapporteringMessage'
+import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
-    .title('Innhold')
+    .title('Applikasjoner')
     .items([
       S.listItem()
         .title('Dagpengersøknad')
@@ -57,6 +58,14 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, dokumentkrav.name),
               createListItem(S, dokumentkravSvar.name),
             ]),
+        ),
+
+      S.listItem()
+        .title('Brukerdialog')
+        .child(
+          S.list()
+            .title('Innhold')
+            .items([createListItem(S, brukerdialogInfoside.name)]),
         ),
 
       S.listItem()
