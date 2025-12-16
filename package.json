@@ -2,10 +2,11 @@
   "name": "dp-sanity-cms",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "main": "package.json",
   "license": "UNLICENSED",
   "engines": {
-    "node": ">=22.0.0",
+    "node": ">=24.0.0",
     "npm": ">=10.0.0"
   },
   "scripts": {
@@ -51,10 +52,10 @@
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^4.0.0",
+    "@sanity/eslint-config-studio": "^5.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
-    "eslint": "^8.57.1",
+    "eslint": "^9.0.0",
     "prettier": "^3.6.2",
     "typescript": "^5.9.3"
   }

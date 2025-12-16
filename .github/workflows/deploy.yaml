@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-node@v4
         if: steps.node_modules.outputs.cache-hit != 'true'
         with:
-          node-version: '22.x'
+          node-version: '24.x'
           cache: 'npm'
           registry-url: 'https://npm.pkg.github.com'
 
