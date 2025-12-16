@@ -11,7 +11,7 @@ Dette er et sentralisert CMS som håndterer innhold for:
 - **Meldekort** - Meldekort for brukere og saksbehandlere
 - **Saksbehandling** - Brevmaler og behandlingsinformasjon
 - **Produktside dagpenger** - Offentlig informasjon om dagpenger
-- **Brukerdialog** - Support og kommunikasjonsinnhold
+- **Brukerdialog** - Ny dagpengesøknad
 
 ### Hovedfunksjoner
 
