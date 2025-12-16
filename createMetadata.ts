@@ -1,4 +1,3 @@
-/* eslint-disable */
 // @ts-nocheck
 import { Reference, SanityDocumentLike } from 'sanity'
 import { getCliClient } from 'sanity/cli'
@@ -37,7 +36,6 @@ const LANGUAGE_FIELD = `__i18n_lang`
 // Operation will be scoped to just this one document type
 // const SCHEMA_TYPE = `produktsideHeader`
 
-// eslint-disable-next-line no-console
 console.log(
   `Finding documents with translation references in a "${UNSET_REFS_FIELD}" field to create "translation.metadata" documents.`,
 )
@@ -119,16 +117,14 @@ const migrateNextBatch = async () => {
   const patches = buildPatches(documents)
 
   if (patches.length === 0) {
-    // eslint-disable-next-line no-console
     console.debug('No more documents to create or patch!')
-    // eslint-disable-next-line no-console
+
     console.debug(
       'Be sure to migrate your "language" field using the "renameLanguageField.ts" script or update your plugin configuration\'s "Langage Field" setting',
     )
     return null
   }
 
-  // eslint-disable-next-line no-console
   console.debug(
     `Checking batch:\n %s`,
     patches.map((patch) => `${patch.id} => ${JSON.stringify(patch.patch)}`).join('\n'),
@@ -141,6 +137,6 @@ const migrateNextBatch = async () => {
 
 migrateNextBatch().catch((err) => {
   console.error(err)
-  // eslint-disable-next-line no-process-exit
+
   process.exit(1)
 })

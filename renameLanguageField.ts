@@ -1,4 +1,3 @@
-/* eslint-disable */
 // @ts-nocheck
 import { SanityDocumentLike } from 'sanity'
 import { getCliClient } from 'sanity/cli'
@@ -61,11 +60,10 @@ const migrateNextBatch = async () => {
   const documents = await fetchDocuments()
   const patches = buildPatches(documents)
   if (patches.length === 0) {
-    // eslint-disable-next-line no-console
     console.debug('No more documents to migrate!')
     return null
   }
-  // eslint-disable-next-line no-console
+
   console.debug(
     `Migrating batch:\n %s`,
     patches.map((patch) => `${patch.id} => ${JSON.stringify(patch.patch)}`).join('\n'),
@@ -77,6 +75,6 @@ const migrateNextBatch = async () => {
 
 migrateNextBatch().catch((err) => {
   console.error(err)
-  // eslint-disable-next-line no-process-exit
+
   process.exit(1)
 })
