@@ -37,18 +37,16 @@
     ]
   },
   "dependencies": {
-    "@navikt/ds-css": "^6.17.0",
-    "@navikt/ds-icons": "^3.4.3",
-    "@navikt/ds-react": "^6.17.0",
+    "@navikt/aksel-icons": "^7.35.2",
     "@portabletext/react": "^3.1.0",
-    "@sanity/document-internationalization": "^3.1.0",
-    "@sanity/vision": "^3.62.3",
+    "@sanity/document-internationalization": "^4.1.0",
+    "@sanity/vision": "^4.21.1",
     "react": "^19.2.3",
     "react-animate-height": "^3.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
     "react-is": "^19.2.3",
-    "sanity": "^3.62.3",
+    "sanity": "^4.21.1",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
@@ -58,5 +56,8 @@
     "eslint": "^9.0.0",
     "prettier": "^3.6.2",
     "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "prismjs": ">=1.30.0"
   }
 }
