@@ -4,6 +4,7 @@ import { schemaTypes } from './schema/schema'
 import { buildStructure } from './desk-structure'
 import { structureTool } from 'sanity/structure'
 import { documentInternationalization } from '@sanity/document-internationalization'
+import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
 
 function getAuthConfig(dataset: 'development' | 'production' | 'kopi-av-prod'): AuthStoreOptions {
@@ -33,6 +34,15 @@ const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema'> = 
         { title: 'Nynorsk', id: 'nn' },
       ],
       schemaTypes: schemaTypes.map((schema) => schema.name),
+    }),
+    internationalizedArray({
+      languages: [
+        { id: 'nb', title: 'Bokmål' },
+        { id: 'nn', title: 'Nynorsk' },
+        { id: 'en', title: 'Engelsk' },
+      ],
+      defaultLanguages: ['nb'],
+      fieldTypes: ['string', 'text', 'blockContent'],
     }),
   ],
 
