@@ -1,6 +1,6 @@
 import { defineField } from 'sanity'
-import { languageField } from '../common-fields'
-import { textIdField } from '../soknad/common-fields'
+import { languageField } from '../../common-fields'
+import { textIdField } from '../../soknad/common-fields'
 import { richTextField } from './common-fields'
 
 const titleField = defineField({

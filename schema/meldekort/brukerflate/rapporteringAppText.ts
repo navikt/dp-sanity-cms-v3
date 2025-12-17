@@ -1,5 +1,5 @@
-import { textIdField, valueTextField } from '../soknad/common-fields'
-import { languageField } from '../common-fields'
+import { textIdField, valueTextField } from '../../soknad/common-fields'
+import { languageField } from '../../common-fields'
 
 export const rapporteringAppText = {
   type: 'document',

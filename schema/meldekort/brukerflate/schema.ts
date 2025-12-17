@@ -4,7 +4,7 @@ import { rapporteringLink } from './rapporteringLink'
 import { dynamicField } from './common-fields'
 import { rapporteringMessage } from './rapporteringMessage'
 
-export const rapporteringSchemas = [
+export const brukerflateSchemas = [
   rapporteringAppText,
   rapporteringRichText,
   rapporteringLink,
