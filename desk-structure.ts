@@ -105,7 +105,13 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                 .child(
                   S.list()
                     .title('Saksbehandlerflate')
-                    .items([createSingletonListItem(S, meldekortForside.name, 'Forside')]),
+                    .items([
+                      S.listItem().title('Sider').child(S.list().title('Sider').items([createSingletonListItem(S, meldekortForside.name, 'Forside')])),
+                      S.listItem().title('Modaler').child(S.list().title('Modaler').items([])),
+                      S.listItem()
+                        .title('Felles komponenter')
+                        .child(S.list().title('Felles komponenter').items([])),
+                    ]),
                 ),
             ]),
         ),
