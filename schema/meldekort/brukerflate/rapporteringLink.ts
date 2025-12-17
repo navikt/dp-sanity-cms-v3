@@ -1,5 +1,5 @@
 import { defineField } from 'sanity'
-import { languageField } from '../common-fields'
+import { languageField } from '../../common-fields'
 
 const linkId = defineField({
   type: 'string',

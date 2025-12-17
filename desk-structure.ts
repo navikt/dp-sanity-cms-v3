@@ -27,16 +27,16 @@ import {
   produktsideSettings,
   produktsideTopContent,
 } from './schema/produktside/schema'
-import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
-import { rapporteringRichText } from './schema/rapportering/rapporteringRichText'
+import { rapporteringAppText } from './schema/meldekort/brukerflate/rapporteringAppText'
+import { rapporteringRichText } from './schema/meldekort/brukerflate/rapporteringRichText'
 import { saksbehandlingAppText } from './schema/saksbehandling/saksbehandlingAppText'
 import { saksbehandlingInfoSide } from './schema/saksbehandling/saksbehandlingInfoSide'
-import { rapporteringLink } from './schema/rapportering/rapporteringLink'
+import { rapporteringLink } from './schema/meldekort/brukerflate/rapporteringLink'
 import { brevBlokk } from './schema/saksbehandling/brev-blokk'
 import { brevMal } from './schema/saksbehandling/brev-mal'
 import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
-import { rapporteringMessage } from './schema/rapportering/rapporteringMessage'
+import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
 import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {

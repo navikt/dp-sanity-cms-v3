@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
-import { alertTextField, readMoreField, textIdField } from '../soknad/common-fields'
-import { languageField } from '../common-fields'
-import { timeline } from '../soknad/timeline'
+import { alertTextField, readMoreField, textIdField } from '../../soknad/common-fields'
+import { languageField } from '../../common-fields'
+import { timeline } from '../../soknad/timeline'
 import { BulbOutlineIcon } from '@sanity/icons'
 
 export const dynamicField = defineType({
