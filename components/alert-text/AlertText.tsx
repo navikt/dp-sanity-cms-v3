@@ -1,6 +1,11 @@
 import React from 'react'
 import { PortableText } from '@portabletext/react'
-import { ErrorColored, InformationColored, SuccessColored, WarningColored } from '@navikt/ds-icons'
+import {
+  XMarkOctagonFillIcon,
+  InformationSquareFillIcon,
+  CheckmarkCircleFillIcon,
+  ExclamationmarkTriangleFillIcon,
+} from '@navikt/aksel-icons'
 import classNames from 'classnames'
 
 // @ts-ignore
@@ -35,13 +40,13 @@ interface Props {
 function AlertBoxIcon(props: Props) {
   switch (props.variant) {
     case 'info':
-      return <InformationColored />
+      return <InformationSquareFillIcon />
     case 'success':
-      return <SuccessColored />
+      return <CheckmarkCircleFillIcon />
     case 'warning':
-      return <WarningColored />
+      return <ExclamationmarkTriangleFillIcon />
     case 'error':
-      return <ErrorColored />
+      return <XMarkOctagonFillIcon />
     default:
       return <></>
   }
