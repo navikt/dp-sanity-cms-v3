@@ -82,15 +82,36 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
         ),
 
       S.listItem()
-        .title('Rapportering')
+        .title('Meldekort')
         .child(
           S.list()
-            .title('Rapportering')
+            .title('Meldekort')
             .items([
-              createListItem(S, rapporteringAppText.name),
-              createListItem(S, rapporteringRichText.name),
-              createListItem(S, rapporteringLink.name),
-              createListItem(S, rapporteringMessage.name),
+              S.listItem()
+                .title('Brukerflate')
+                .child(
+                  S.list()
+                    .title('Brukerflate')
+                    .items([
+                      createListItem(S, rapporteringAppText.name),
+                      createListItem(S, rapporteringRichText.name),
+                      createListItem(S, rapporteringLink.name),
+                      createListItem(S, rapporteringMessage.name),
+                    ]),
+                ),
+              S.listItem()
+                .title('Saksbehandlerflate')
+                .child(
+                  S.list()
+                    .title('Saksbehandlerflate')
+                    .items([
+                      S.listItem().title('Sider').child(S.list().title('Sider').items([])),
+                      S.listItem().title('Modaler').child(S.list().title('Modaler').items([])),
+                      S.listItem()
+                        .title('Felles komponenter')
+                        .child(S.list().title('Felles komponenter').items([])),
+                    ]),
+                ),
             ]),
         ),
 
