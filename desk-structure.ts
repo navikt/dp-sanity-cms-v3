@@ -1,5 +1,6 @@
 // note: context includes `currentUser` and the client
 
+import React from 'react'
 import { seksjon } from './schema/soknad/seksjon'
 import { faktum } from './schema/soknad/faktum'
 import { svaralternativ } from './schema/soknad/svaralternativ'
@@ -38,6 +39,7 @@ import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'san
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
 import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
 import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
+import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/forside'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -80,17 +82,31 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, mineDagpengerSetting.name),
             ]),
         ),
-
       S.listItem()
-        .title('Rapportering')
+        .title('Meldekort')
         .child(
           S.list()
-            .title('Rapportering')
+            .title('Meldekort')
             .items([
-              createListItem(S, rapporteringAppText.name),
-              createListItem(S, rapporteringRichText.name),
-              createListItem(S, rapporteringLink.name),
-              createListItem(S, rapporteringMessage.name),
+              S.listItem()
+                .title('Brukerflate')
+                .child(
+                  S.list()
+                    .title('Brukerflate')
+                    .items([
+                      createListItem(S, rapporteringAppText.name),
+                      createListItem(S, rapporteringRichText.name),
+                      createListItem(S, rapporteringLink.name),
+                      createListItem(S, rapporteringMessage.name),
+                    ]),
+                ),
+              S.listItem()
+                .title('Saksbehandlerflate')
+                .child(
+                  S.list()
+                    .title('Saksbehandlerflate')
+                    .items([createSingletonListItem(S, meldekortForside.name, 'Forside')]),
+                ),
             ]),
         ),
 
@@ -194,6 +210,23 @@ function createListItemProduktside(
   This is a known caveat for singleton documents that uses document-interalization plugin
   READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
 */
+function createSingletonListItem(
+  S: StructureBuilder,
+  schemaName: string,
+  title?: string,
+  previewComponent?: React.ComponentType,
+): ListItemBuilder {
+  const capitalizedTitle = camelCaseToSentenceCase(schemaName)
+  const views = previewComponent
+    ? [S.view.form(), S.view.component(previewComponent).title('Preview')]
+    : [S.view.form()]
+
+  return S.listItem()
+    .title(title ?? capitalizedTitle)
+    .schemaType(schemaName)
+    .child(S.document().schemaType(schemaName).documentId(schemaName).views(views))
+}
+
 function createSingletonListItemProduktside(
   S: StructureBuilder,
   schemaName: string,
