@@ -40,6 +40,7 @@ import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysn
 import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
 import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
 import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/forside'
+import { meldekortHovedside } from './schema/meldekort/saksbehandlerflate/sider/hovedside'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -106,17 +107,11 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                   S.list()
                     .title('Saksbehandlerflate')
                     .items([
-                      S.listItem()
-                        .title('Sider')
-                        .child(
-                          S.list()
-                            .title('Sider')
-                            .items([createSingletonListItem(S, meldekortForside.name, 'Forside')]),
-                        ),
-                      S.listItem().title('Modaler').child(S.list().title('Modaler').items([])),
-                      S.listItem()
-                        .title('Felles komponenter')
-                        .child(S.list().title('Felles komponenter').items([])),
+                      S.divider().title('Sider'),
+                      createSingletonListItem(S, meldekortForside.name, 'Forside (Demo)'),
+                      createSingletonListItem(S, meldekortHovedside.name, 'Hovedside'),
+                      S.divider().title('Modaler'),
+                      S.divider().title('Felles komponenter'),
                     ]),
                 ),
             ]),
@@ -218,10 +213,6 @@ function createListItemProduktside(
     )
 }
 
-/*
-  This is a known caveat for singleton documents that uses document-interalization plugin
-  READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
-*/
 function createSingletonListItem(
   S: StructureBuilder,
   schemaName: string,
@@ -239,6 +230,10 @@ function createSingletonListItem(
     .child(S.document().schemaType(schemaName).documentId(schemaName).views(views))
 }
 
+/*
+  This is a known caveat for singleton documents that uses document-interalization plugin
+  READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
+*/
 function createSingletonListItemProduktside(
   S: StructureBuilder,
   schemaName: string,
