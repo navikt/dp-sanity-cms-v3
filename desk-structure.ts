@@ -1,5 +1,6 @@
 // note: context includes `currentUser` and the client
 
+import React from 'react'
 import { seksjon } from './schema/soknad/seksjon'
 import { faktum } from './schema/soknad/faktum'
 import { svaralternativ } from './schema/soknad/svaralternativ'
@@ -27,17 +28,18 @@ import {
   produktsideSettings,
   produktsideTopContent,
 } from './schema/produktside/schema'
-import { rapporteringAppText } from './schema/rapportering/rapporteringAppText'
-import { rapporteringRichText } from './schema/rapportering/rapporteringRichText'
+import { rapporteringAppText } from './schema/meldekort/brukerflate/rapporteringAppText'
+import { rapporteringRichText } from './schema/meldekort/brukerflate/rapporteringRichText'
 import { saksbehandlingAppText } from './schema/saksbehandling/saksbehandlingAppText'
 import { saksbehandlingInfoSide } from './schema/saksbehandling/saksbehandlingInfoSide'
-import { rapporteringLink } from './schema/rapportering/rapporteringLink'
+import { rapporteringLink } from './schema/meldekort/brukerflate/rapporteringLink'
 import { brevBlokk } from './schema/saksbehandling/brev-blokk'
 import { brevMal } from './schema/saksbehandling/brev-mal'
 import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
-import { rapporteringMessage } from './schema/rapportering/rapporteringMessage'
+import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
 import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
+import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/forside'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -80,7 +82,6 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, mineDagpengerSetting.name),
             ]),
         ),
-
       S.listItem()
         .title('Meldekort')
         .child(
@@ -105,7 +106,13 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                   S.list()
                     .title('Saksbehandlerflate')
                     .items([
-                      S.listItem().title('Sider').child(S.list().title('Sider').items([])),
+                      S.listItem()
+                        .title('Sider')
+                        .child(
+                          S.list()
+                            .title('Sider')
+                            .items([createSingletonListItem(S, meldekortForside.name, 'Forside')]),
+                        ),
                       S.listItem().title('Modaler').child(S.list().title('Modaler').items([])),
                       S.listItem()
                         .title('Felles komponenter')
@@ -215,6 +222,23 @@ function createListItemProduktside(
   This is a known caveat for singleton documents that uses document-interalization plugin
   READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
 */
+function createSingletonListItem(
+  S: StructureBuilder,
+  schemaName: string,
+  title?: string,
+  previewComponent?: React.ComponentType,
+): ListItemBuilder {
+  const capitalizedTitle = camelCaseToSentenceCase(schemaName)
+  const views = previewComponent
+    ? [S.view.form(), S.view.component(previewComponent).title('Preview')]
+    : [S.view.form()]
+
+  return S.listItem()
+    .title(title ?? capitalizedTitle)
+    .schemaType(schemaName)
+    .child(S.document().schemaType(schemaName).documentId(schemaName).views(views))
+}
+
 function createSingletonListItemProduktside(
   S: StructureBuilder,
   schemaName: string,

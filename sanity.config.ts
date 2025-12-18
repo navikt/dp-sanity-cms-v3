@@ -6,6 +6,7 @@ import { structureTool } from 'sanity/structure'
 import { documentInternationalization } from '@sanity/document-internationalization'
 import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
+import { meldekortSingletonTypes } from './schema/meldekort/meldekortSingletons'
 
 function getAuthConfig(dataset: 'development' | 'production' | 'kopi-av-prod'): AuthStoreOptions {
   return {
@@ -51,7 +52,10 @@ const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema'> = 
 
     templates: (templates) =>
       templates
-        .filter(({ schemaType }) => !produktsideSingletonTypes.has(schemaType))
+        .filter(
+          ({ schemaType }) =>
+            !produktsideSingletonTypes.has(schemaType) && !meldekortSingletonTypes.has(schemaType),
+        )
         // This will remove all the language templates and only keep the base template when creating a new document.
         .filter((template) => schemaTypes.map((schema) => schema.name).includes(template.id)),
   },
