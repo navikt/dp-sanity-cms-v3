@@ -14,7 +14,8 @@ export const meldekortFyllUtTabell = defineType({
       name: 'fieldsetLegend',
       title: 'Overskrift for tabellen',
       type: 'string',
-      description: 'Tekst som vises over tabellen. F.eks. "Før opp aktiviteter"',
+      description:
+        'Overskrift som vises over tabellen i utfyllingsskjemaet. F.eks. "Før opp aktiviteter"',
       validation: (Rule) => Rule.required(),
       group: 'tabell',
     }),
