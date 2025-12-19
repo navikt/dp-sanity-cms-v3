@@ -1,6 +1,5 @@
 import { defineField, defineType } from 'sanity'
 
-// Fyll ut meldekort side
 export const meldekortFyllUt = defineType({
   name: 'meldekortFyllUt',
   title: 'Fyll ut meldekort',
@@ -8,7 +7,6 @@ export const meldekortFyllUt = defineType({
   groups: [
     { name: 'generelt', title: 'Generelt', default: true },
     { name: 'utfyllingsskjema', title: 'Utfyllingsskjema' },
-    { name: 'statusmeldinger', title: 'Statusmeldinger' },
   ],
   fields: [
     defineField({
@@ -29,30 +27,31 @@ export const meldekortFyllUt = defineType({
       group: 'generelt',
     }),
     defineField({
-      name: 'varsler',
-      title: 'Varselmeldinger',
+      name: 'infovarsler',
+      title: 'Informasjonsvarsler',
       type: 'object',
-      description: 'Varsler som vises øverst på siden i spesielle tilfeller.',
+      description: 'Informasjon som vises om meldekortet som fylles ut.',
       validation: (Rule) => Rule.required(),
       group: 'generelt',
       fields: [
         defineField({
           name: 'arenaVarsel',
-          title: 'Varsel for Arena-meldekort',
+          title: 'Arena-info',
           type: 'string',
-          description: 'Vises når meldekortet kommer fra Arena.',
+          description:
+            'Informasjon som vises når meldekortet kommer fra Arena. F.eks. "Dette meldekortet er fra Arena og har derfor ikke svar på spørsmål om arbeidssøkerregistrering."',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'etterregistrertVarsel',
-          title: 'Varsel for etterregistrering',
+          title: 'Etterregistrert-info',
           type: 'string',
-          description: 'Vises når meldekortet er etterregistrert.',
+          description:
+            'Informasjon som vises når meldekortet er etterregistrert. F.eks. "Dette meldekortet er av typen Etterregistrert"',
           validation: (Rule) => Rule.required(),
         }),
       ],
     }),
-
     defineField({
       name: 'utfyllingsskjema',
       title: 'Utfyllingsskjema',
@@ -160,46 +159,6 @@ export const meldekortFyllUt = defineType({
           title: 'Send inn-knapp',
           type: 'string',
           description: 'F.eks. "Send inn meldekort"',
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
-    }),
-
-    defineField({
-      name: 'skjermleserStatus',
-      title: 'Statusmeldinger for skjermlesere',
-      type: 'object',
-      description:
-        'Tekster som leses opp for brukere med skjermleser når de sender inn meldekortet. Disse er ikke synlige visuelt.',
-      validation: (Rule) => Rule.required(),
-      group: 'statusmeldinger',
-      fields: [
-        defineField({
-          name: 'senderInn',
-          title: 'Tekst under innsending',
-          type: 'string',
-          description: 'F.eks. "Sender inn meldekort..."',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'behandler',
-          title: 'Tekst mens vi venter på svar',
-          type: 'string',
-          description: 'F.eks. "Meldekortet behandles, vennligst vent"',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'feilet',
-          title: 'Tekst ved feil',
-          type: 'string',
-          description: 'F.eks. "Innsending feilet. Prøv igjen senere."',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'suksess',
-          title: 'Tekst ved suksess',
-          type: 'string',
-          description: 'F.eks. "Meldekortet er sendt inn"',
           validation: (Rule) => Rule.required(),
         }),
       ],
