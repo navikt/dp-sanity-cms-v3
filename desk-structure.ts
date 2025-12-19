@@ -41,6 +41,8 @@ import { rapporteringMessage } from './schema/meldekort/brukerflate/rapportering
 import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
 import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/forside'
 import { meldekortHovedside } from './schema/meldekort/saksbehandlerflate/sider/hovedside'
+import { meldekortFyllUt } from './schema/meldekort/saksbehandlerflate/sider/fyllUt'
+import { meldekortKorriger } from './schema/meldekort/saksbehandlerflate/sider/korriger'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -110,6 +112,8 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                       S.divider().title('Sider'),
                       createSingletonListItem(S, meldekortForside.name, 'Forside (Demo)'),
                       createSingletonListItem(S, meldekortHovedside.name, 'Hovedside'),
+                      createSingletonListItem(S, meldekortFyllUt.name, 'Fyll ut meldekort'),
+                      createSingletonListItem(S, meldekortKorriger.name, 'Korriger meldekort'),
                       S.divider().title('Modaler'),
                       S.divider().title('Felles komponenter'),
                     ]),
