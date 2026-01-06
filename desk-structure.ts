@@ -43,6 +43,8 @@ import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/fo
 import { meldekortHovedside } from './schema/meldekort/saksbehandlerflate/sider/hovedside'
 import { meldekortFyllUt } from './schema/meldekort/saksbehandlerflate/sider/fyllUt'
 import { meldekortKorriger } from './schema/meldekort/saksbehandlerflate/sider/korriger'
+import { meldekortBekreftModal } from './schema/meldekort/saksbehandlerflate/modaler/bekreftModal'
+import { meldekortHistorikkModal } from './schema/meldekort/saksbehandlerflate/modaler/historikkModal'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -115,6 +117,8 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                       createSingletonListItem(S, meldekortFyllUt.name, 'Fyll ut meldekort'),
                       createSingletonListItem(S, meldekortKorriger.name, 'Korriger meldekort'),
                       S.divider().title('Modaler'),
+                      createSingletonListItem(S, meldekortBekreftModal.name, 'Bekreft-modal'),
+                      createSingletonListItem(S, meldekortHistorikkModal.name, 'Historikk-modal'),
                       S.divider().title('Felles komponenter'),
                     ]),
                 ),
