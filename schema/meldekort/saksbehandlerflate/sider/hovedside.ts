@@ -11,7 +11,6 @@ export const meldekortHovedside = defineType({
     { name: 'varsler', title: 'Varsler' },
   ],
   fields: [
-    // === SIDEOVERSKRIFT ===
     defineField({
       name: 'overskrift',
       title: 'Sidetittel',
@@ -29,7 +28,6 @@ export const meldekortHovedside = defineType({
       group: 'sideoverskrift',
     }),
 
-    // === MELDEKORTLISTE ===
     defineField({
       name: 'tabellKolonner',
       title: 'Kolonnenavn i tabellen',
@@ -83,7 +81,6 @@ export const meldekortHovedside = defineType({
       ],
     }),
 
-    // === UTVIDET VISNING ===
     defineField({
       name: 'utvidetVisning',
       title: 'Utvidet visning',
@@ -100,10 +97,24 @@ export const meldekortHovedside = defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
+          name: 'emptyCardMessage',
+          title: 'Tom meldekort-melding',
+          type: 'string',
+          description: 'Vises når meldekortet ikke er fylt ut enda.',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
           name: 'aktiviteterTittel',
           title: 'Tittel for aktiviteter',
           type: 'string',
           description: 'F.eks. "Aktiviteter"',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'noActivitiesText',
+          title: 'Ingen aktiviteter-tekst',
+          type: 'string',
+          description: 'Vises når ingen aktiviteter er registrert for meldekortet.',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -163,9 +174,34 @@ export const meldekortHovedside = defineType({
             defineField({
               name: 'begrunnelse',
               title: 'Begrunnelse',
-              type: 'string',
-              description: 'F.eks. "Begrunnelse"',
+              type: 'object',
+              description: 'Label og tekster for begrunnelsesfeltet.',
               validation: (Rule) => Rule.required(),
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Label',
+                  type: 'string',
+                  description: 'F.eks. "Begrunnelse"',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'visMer',
+                  title: 'Vis mer',
+                  type: 'string',
+                  description:
+                    'Tekst for "Vis mer"-lenken når begrunnelsen er lang. F.eks. "Vis mer"',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'visMindre',
+                  title: 'Vis mindre',
+                  type: 'string',
+                  description:
+                    'Tekst for "Vis mindre"-lenken når begrunnelsen er utvidet. F.eks. "Vis mindre"',
+                  validation: (Rule) => Rule.required(),
+                }),
+              ],
             }),
             defineField({
               name: 'svarPaaArbeidssoekerregistrering',
@@ -193,7 +229,6 @@ export const meldekortHovedside = defineType({
       ],
     }),
 
-    // === KNAPPER ===
     defineField({
       name: 'knapper',
       title: 'Knapper',
@@ -223,7 +258,6 @@ export const meldekortHovedside = defineType({
       ],
     }),
 
-    // === VARSLER ===
     defineField({
       name: 'varsler',
       title: 'Varselmeldinger',
