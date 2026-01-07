@@ -18,7 +18,7 @@ export const settingValueField = defineField({
 export const mineDagpengerSetting = defineType({
   type: 'document',
   name: 'mineDagpengerSetting',
-  title: 'Mine dagpenger settings',
+  title: 'Mine dagpenger innstillinger',
   initialValue: {
     language: 'nb',
   },
