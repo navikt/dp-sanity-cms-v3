@@ -38,10 +38,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - run: npm run build
-        uses: nais/deploy/actions/spa-deploy/v2@master
+      - uses: nais/deploy/actions/cdn-upload/v2@master
         with:
           destination: dp-sanity-cms-v3/
           ingress: https://dagpenger.ansatt.nav.no
+          environment: dev
           team: teamdagpenger
           source: ./dist
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
