@@ -1,23 +1,16 @@
-name: Build, push, and deploy
+name: Build and deploy
 
 on:
   push:
     branches:
       - main
-env:
-  IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
 
 jobs:
-  build-and-deploy:
+  sanity-deploy:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-
+    name: Deploy
     steps:
       - uses: actions/checkout@v4
-
       - name: Cache node_modules
         uses: actions/cache@v4
         id: node_modules
@@ -37,13 +30,16 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
-      - run: npm run build
-      - uses: nais/deploy/actions/cdn-upload/v2@master
-        with:
-          destination: dp-sanity-cms-v3/
-          ingress: https://dagpenger.ansatt.nav.no
-          environment: dev
-          team: teamdagpenger
-          source: ./dist
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+      - name: Install Sanity CLI
+        run: npm install -g @sanity/cli
+
+      - name: Install Sanity
+        run: sanity install
+
+      - name: Build project
+        run: sanity build
+
+      - name: Deploy Sanity
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+        run: sanity deploy
