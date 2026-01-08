@@ -5,4 +5,5 @@ export default defineCliConfig({
     projectId: 'rt6o382n',
     dataset: 'production',
   },
+  studioHost: 'dagpenger-sanity',
 })
