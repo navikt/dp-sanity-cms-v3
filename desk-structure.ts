@@ -75,7 +75,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
         ),
 
       S.listItem()
-        .title('Brukerdialog - dagpenger')
+        .title('Brukerdialog')
         .child(
           S.list()
             .title('Innhold')
