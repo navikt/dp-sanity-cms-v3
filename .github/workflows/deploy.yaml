@@ -1,23 +1,16 @@
-name: Build, push, and deploy
+name: Build and deploy
 
 on:
   push:
     branches:
       - main
-env:
-  IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
 
 jobs:
-  build-and-deploy:
+  sanity-deploy:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-
+    name: Build and deploy
     steps:
       - uses: actions/checkout@v4
-
       - name: Cache node_modules
         uses: actions/cache@v4
         id: node_modules
@@ -28,27 +21,25 @@ jobs:
       - uses: actions/setup-node@v4
         if: steps.node_modules.outputs.cache-hit != 'true'
         with:
-          node-version: "20.x"
-          cache: "npm"
-          registry-url: "https://npm.pkg.github.com"
+          node-version: '24.x'
+          cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
 
-      - run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
-
-
-      - run: npm ci
+      - run: npm ci --ignore-scripts
         if: steps.node_modules.outputs.cache-hit != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
-      - run: npm run build
-      - uses: nais/deploy/actions/spa-deploy/v2@master
-        with:
-          app: dp-sanity-cms-v3
-          team: teamdagpenger
-          source: ./dist
-          ingress: https://dagpenger.ansatt.nav.no
-          environment: dev
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+      - name: Install Sanity CLI
+        run: npm install -g @sanity/cli
+
+      - name: Install Sanity
+        run: sanity install
+
+      - name: Build project
+        run: sanity build
+
+      - name: Deploy Sanity
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+        run: sanity deploy
