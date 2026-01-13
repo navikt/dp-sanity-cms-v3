@@ -151,7 +151,9 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, brevMal.name),
               createListItem(S, brevBlokk.name),
               createListItem(S, behandlingOpplysning.name),
-              createListItem(S, regelmotorOpplysning.name),
+              S.listItem()
+                .title(camelCaseToSentenceCase(regelmotorOpplysning.name))
+                .child(S.documentTypeList(regelmotorOpplysning.name)),
             ]),
         ),
 
