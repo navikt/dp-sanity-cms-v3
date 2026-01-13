@@ -20,8 +20,7 @@
     "backup": "sanity dataset export production production.tar.gz --overwrite",
     "clearDevelopmentDataset": "sanity dataset delete development && sanity dataset create development --visibility public",
     "copyProdDataToDevelopment": "npm run backup && npm run clearDevelopmentDataset && sanity dataset import production.tar.gz development --replace",
-    "check-updates": "ncu -i --format group",
-    "generate-openapi-types": "npx openapi-typescript"
+    "check-updates": "ncu -i --format group"
   },
   "keywords": [
     "sanity"
@@ -42,7 +41,6 @@
     "@portabletext/react": "6.0.2",
     "@sanity/document-internationalization": "4.1.1",
     "@sanity/vision": "5.2.0",
-    "openapi-fetch": "^0.15.0",
     "react": "19.2.3",
     "react-animate-height": "3.2.3",
     "react-dom": "19.2.3",
