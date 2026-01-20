@@ -3,6 +3,7 @@ import { textIdField, titleTextField } from '../soknad/common-fields'
 import { behandlingOpplysning } from './behandling-opplysning'
 import { BulbOutlineIcon } from '@sanity/icons'
 import { languageField } from '../common-fields'
+import { regelmotorOpplysning } from './regelmotor-opplysning'
 
 export const brevBlokk = defineType({
   type: 'document',
@@ -29,6 +30,13 @@ export const brevBlokk = defineType({
         {
           type: 'block',
           of: [
+            defineField({
+              name: 'regelmotorOpplysningReference',
+              type: 'reference',
+              to: [{ type: regelmotorOpplysning.name }],
+              icon: BulbOutlineIcon,
+              title: 'Reglemotor opplysning',
+            }),
             defineField({
               name: 'opplysningReference',
               type: 'reference',
