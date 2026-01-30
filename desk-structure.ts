@@ -50,7 +50,7 @@ import { meldekortHeader } from './schema/meldekort/saksbehandlerflate/fellesKom
 import { meldekortPersonlinje } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/personlinje'
 import { meldekortAktiviteter } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktiviteter'
 import { meldekortStatuser } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/statuser'
-import { meldekortFyllUtTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/fyllUtTabell'
+import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
 import { meldekortKalender } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/kalender'
 import { meldekortVarsler } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/varsler'
 
@@ -132,7 +132,11 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                       createSingletonListItem(S, meldekortPersonlinje.name, 'Personlinje'),
                       createSingletonListItem(S, meldekortAktiviteter.name, 'Aktiviteter'),
                       createSingletonListItem(S, meldekortStatuser.name, 'Statuser'),
-                      createSingletonListItem(S, meldekortFyllUtTabell.name, 'Fyll ut tabell'),
+                      createSingletonListItem(
+                        S,
+                        meldekortAktivitetsTabell.name,
+                        'Aktivitetstabell',
+                      ),
                       createSingletonListItem(S, meldekortKalender.name, 'Kalender'),
                       createSingletonListItem(S, meldekortVarsler.name, 'Varsler og feilmeldinger'),
                     ]),

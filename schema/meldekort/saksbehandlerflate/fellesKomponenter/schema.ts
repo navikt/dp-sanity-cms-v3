@@ -2,7 +2,7 @@ import { meldekortHeader } from './header'
 import { meldekortPersonlinje } from './personlinje'
 import { meldekortAktiviteter } from './aktiviteter'
 import { meldekortStatuser } from './statuser'
-import { meldekortFyllUtTabell } from './fyllUtTabell'
+import { meldekortAktivitetsTabell } from './aktivitetsTabell'
 import { meldekortKalender } from './kalender'
 import { meldekortVarsler } from './varsler'
 
@@ -11,7 +11,7 @@ export const fellesSchemas = [
   meldekortPersonlinje,
   meldekortAktiviteter,
   meldekortStatuser,
-  meldekortFyllUtTabell,
+  meldekortAktivitetsTabell,
   meldekortKalender,
   meldekortVarsler,
 ]
