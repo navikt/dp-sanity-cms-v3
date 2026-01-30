@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
-export const meldekortFyllUtTabell = defineType({
-  name: 'meldekortFyllUtTabell',
-  title: 'Fyll ut tabell',
+export const meldekortAktivitetsTabell = defineType({
+  name: 'meldekortAktivitetsTabell',
+  title: 'Aktivitetstabell',
   type: 'document',
   groups: [
     { name: 'tabell', title: 'Tabell', default: true },
@@ -136,7 +136,7 @@ export const meldekortFyllUtTabell = defineType({
   preview: {
     prepare() {
       return {
-        title: 'Fyll ut tabell',
+        title: 'Aktivitetstabell',
       }
     },
   },
