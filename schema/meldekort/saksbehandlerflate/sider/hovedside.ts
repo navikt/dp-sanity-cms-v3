@@ -282,6 +282,13 @@ export const meldekortHovedside = defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
+          name: 'korrigeringAvArenaMeldekort',
+          title: 'En korrigering av meldekort fra Arena',
+          type: 'string',
+          description: 'Vises når meldekortet er en korrigering av et meldekort fra Arena.',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
           name: 'etterregistrert',
           title: 'Etterregistrert',
           type: 'string',
