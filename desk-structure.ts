@@ -53,6 +53,7 @@ import { meldekortStatuser } from './schema/meldekort/saksbehandlerflate/fellesK
 import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
 import { meldekortKalender } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/kalender'
 import { meldekortVarsler } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/varsler'
+import { meldekortLandingsside } from './schema/meldekort/landingsside/landingsside'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -101,6 +102,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
           S.list()
             .title('Meldekort')
             .items([
+              createSingletonListItem(S, meldekortLandingsside.name, 'Landingsside'),
               S.listItem()
                 .title('Brukerflate')
                 .child(
