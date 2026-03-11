@@ -8,6 +8,7 @@ export const meldekortLandingsside = defineType({
     { name: 'innhold', title: 'Innhold', default: true },
     { name: 'linkForASe', title: 'Link for å se' },
     { name: 'linkForASende', title: 'Link for å sende' },
+    { name: 'linkForAFylleUt', title: 'Link for å fylle ut' },
   ],
   fields: [
     defineField({
@@ -19,7 +20,18 @@ export const meldekortLandingsside = defineType({
       group: 'innhold',
     }),
     defineField({
-      name: 'body',
+      name: 'emptyStateTekst',
+      title: 'Tekst for tomt state',
+      type: 'internationalizedArrayBlockContent',
+      description: 'Tekst som vises når det ikke finnes innhold på landingssiden',
+      validation: (Rule) => Rule.required(),
+      options: {
+        editModal: 'popover',
+      },
+      group: 'innhold',
+    }),
+    defineField({
+      name: 'bunntekst',
       title: 'Bunntekst',
       type: 'internationalizedArrayBlockContent',
       description: 'Bunntekst på landingssiden (vises under lenkekortene)',
