@@ -8,6 +8,7 @@ export const meldekortLandingsside = defineType({
     { name: 'innhold', title: 'Innhold', default: true },
     { name: 'linkForASe', title: 'Link for å se' },
     { name: 'linkForASende', title: 'Link for å sende' },
+    { name: 'linkForAFylleUt', title: 'Link for å fylle ut' },
   ],
   fields: [
     defineField({
