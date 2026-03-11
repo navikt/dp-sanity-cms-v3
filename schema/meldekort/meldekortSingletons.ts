@@ -9,12 +9,14 @@ import { meldekortStatuser } from './saksbehandlerflate/fellesKomponenter/status
 import { meldekortAktivitetsTabell } from './saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
 import { meldekortKalender } from './saksbehandlerflate/fellesKomponenter/kalender'
 import { meldekortVarsler } from './saksbehandlerflate/fellesKomponenter/varsler'
+import { meldekortLandingsside } from './landingsside/landingsside'
 
 export const meldekortSingletonActions = new Set(['publish', 'restore', 'discardChanges'])
 
 export const meldekortSingletonTypes: Set<string> = new Set([
   meldekortForside.name,
   meldekortHovedside.name,
+  meldekortLandingsside.name,
   meldekortBekreftModal.name,
   meldekortHistorikkModal.name,
   meldekortHeader.name,
