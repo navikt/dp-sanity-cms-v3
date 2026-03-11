@@ -3,6 +3,7 @@ import { saksbehandlingInfoSide } from './saksbehandlingInfoSide'
 import { brevBlokk } from './brev-blokk'
 import { brevMal } from './brev-mal'
 import { behandlingOpplysning } from './behandling-opplysning'
+import { regelmotorOpplysning } from './regelmotor-opplysning'
 
 export const saksbehandlingSchemas = [
   saksbehandlingAppText,
@@ -10,4 +11,5 @@ export const saksbehandlingSchemas = [
   brevBlokk,
   brevMal,
   behandlingOpplysning,
+  regelmotorOpplysning,
 ]

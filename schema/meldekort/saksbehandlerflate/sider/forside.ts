@@ -34,7 +34,7 @@ export const meldekortForside = defineType({
   preview: {
     prepare() {
       return {
-        title: 'Forside',
+        title: 'Forside (Demo)',
       }
     },
   },

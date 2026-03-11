@@ -37,9 +37,22 @@ import { brevBlokk } from './schema/saksbehandling/brev-blokk'
 import { brevMal } from './schema/saksbehandling/brev-mal'
 import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
+import { regelmotorOpplysning } from './schema/saksbehandling/regelmotor-opplysning'
 import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
 import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
 import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/forside'
+import { meldekortHovedside } from './schema/meldekort/saksbehandlerflate/sider/hovedside'
+import { meldekortFyllUt } from './schema/meldekort/saksbehandlerflate/sider/fyllUt'
+import { meldekortKorriger } from './schema/meldekort/saksbehandlerflate/sider/korriger'
+import { meldekortBekreftModal } from './schema/meldekort/saksbehandlerflate/modaler/bekreftModal'
+import { meldekortHistorikkModal } from './schema/meldekort/saksbehandlerflate/modaler/historikkModal'
+import { meldekortHeader } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/header'
+import { meldekortPersonlinje } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/personlinje'
+import { meldekortAktiviteter } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktiviteter'
+import { meldekortStatuser } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/statuser'
+import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
+import { meldekortKalender } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/kalender'
+import { meldekortVarsler } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/varsler'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -79,7 +92,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, mineDagpengerAppText.name),
               createListItem(S, mineDagpengerRichText.name),
               createListItem(S, mineDagpengerLink.name),
-              createListItem(S, mineDagpengerSetting.name),
+              createListItem(S, mineDagpengerSetting.title || mineDagpengerSetting.name),
             ]),
         ),
       S.listItem()
@@ -106,17 +119,26 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                   S.list()
                     .title('Saksbehandlerflate')
                     .items([
-                      S.listItem()
-                        .title('Sider')
-                        .child(
-                          S.list()
-                            .title('Sider')
-                            .items([createSingletonListItem(S, meldekortForside.name, 'Forside')]),
-                        ),
-                      S.listItem().title('Modaler').child(S.list().title('Modaler').items([])),
-                      S.listItem()
-                        .title('Felles komponenter')
-                        .child(S.list().title('Felles komponenter').items([])),
+                      S.divider().title('Sider'),
+                      createSingletonListItem(S, meldekortForside.name, 'Forside (Demo)'),
+                      createSingletonListItem(S, meldekortHovedside.name, 'Hovedside'),
+                      createSingletonListItem(S, meldekortFyllUt.name, 'Fyll ut meldekort'),
+                      createSingletonListItem(S, meldekortKorriger.name, 'Korriger meldekort'),
+                      S.divider().title('Modaler'),
+                      createSingletonListItem(S, meldekortBekreftModal.name, 'Bekreft-modal'),
+                      createSingletonListItem(S, meldekortHistorikkModal.name, 'Historikk-modal'),
+                      S.divider().title('Felles komponenter'),
+                      createSingletonListItem(S, meldekortHeader.name, 'Header'),
+                      createSingletonListItem(S, meldekortPersonlinje.name, 'Personlinje'),
+                      createSingletonListItem(S, meldekortAktiviteter.name, 'Aktiviteter'),
+                      createSingletonListItem(S, meldekortStatuser.name, 'Statuser'),
+                      createSingletonListItem(
+                        S,
+                        meldekortAktivitetsTabell.name,
+                        'Aktivitetstabell',
+                      ),
+                      createSingletonListItem(S, meldekortKalender.name, 'Kalender'),
+                      createSingletonListItem(S, meldekortVarsler.name, 'Varsler og feilmeldinger'),
                     ]),
                 ),
             ]),
@@ -133,6 +155,9 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, brevMal.name),
               createListItem(S, brevBlokk.name),
               createListItem(S, behandlingOpplysning.name),
+              S.listItem()
+                .title(camelCaseToSentenceCase(regelmotorOpplysning.name))
+                .child(S.documentTypeList(regelmotorOpplysning.name)),
             ]),
         ),
 
@@ -218,10 +243,6 @@ function createListItemProduktside(
     )
 }
 
-/*
-  This is a known caveat for singleton documents that uses document-interalization plugin
-  READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
-*/
 function createSingletonListItem(
   S: StructureBuilder,
   schemaName: string,
@@ -239,6 +260,10 @@ function createSingletonListItem(
     .child(S.document().schemaType(schemaName).documentId(schemaName).views(views))
 }
 
+/*
+  This is a known caveat for singleton documents that uses document-interalization plugin
+  READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
+*/
 function createSingletonListItemProduktside(
   S: StructureBuilder,
   schemaName: string,
