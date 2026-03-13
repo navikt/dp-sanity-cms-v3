@@ -72,8 +72,7 @@ export const meldekortLandingsside = defineType({
       name: 'linkForASende',
       title: 'Link for å sende',
       type: 'object',
-      description:
-        'Lenkekort for å sende meldekort. Bruk {{ytelse}} for ytelsesnavn og {{dato}} for dato-placeholder.',
+      description: 'Lenkekort for å sende meldekort. Bruk {{ytelse}} for ytelsesnavn.',
       validation: (Rule) => Rule.required(),
       group: 'linkForASende',
       fields: [
@@ -90,7 +89,15 @@ export const meldekortLandingsside = defineType({
           title: 'Beskrivelse',
           type: 'internationalizedArrayText',
           description:
-            'Beskrivende tekst under tittelen. Bruk {{ytelse}} for ytelsesnavn og {{dato}} for dato-placeholder (f.eks. "Send meldekort for perioden som slutter {{dato}}").',
+            'Beskrivende tekst under tittelen. Bruk {{ytelse}} for ytelsesnavn (f.eks. "Send meldekort for perioden").',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'fristTag',
+          title: 'Frist-tag',
+          type: 'internationalizedArrayString',
+          description:
+            'Tag som vises på lenkekortet med frist-dato. Bruk {{dato}} som placeholder for datoen (f.eks. "Fristen for å sende meldekortet er {{dato}}.").',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
