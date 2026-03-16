@@ -47,7 +47,7 @@ export const meldekortLandingsside = defineType({
       title: 'Ytelser',
       type: 'object',
       description:
-        'Navn på ytelser som brukes i lenkekorttekster. Disse erstatter {{ytelse}} placeholder.',
+        'Navn på ytelser som brukes i lenkekorttekster. Disse erstatter placeholderen {{ytelse}}.',
       validation: (Rule) => Rule.required(),
       group: 'ytelserGruppe',
       fields: [
