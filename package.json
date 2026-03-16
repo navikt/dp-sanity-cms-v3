@@ -6,8 +6,7 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "engines": {
-    "node": ">=24.0.0",
-    "npm": ">=10.0.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "dev": "sanity dev",
@@ -19,7 +18,7 @@
     "type-check": "tsc",
     "backup": "sanity dataset export production production.tar.gz --overwrite",
     "clearDevelopmentDataset": "sanity dataset delete development && sanity dataset create development --visibility public",
-    "copyProdDataToDevelopment": "npm run backup && npm run clearDevelopmentDataset && sanity dataset import production.tar.gz development --replace",
+    "copyProdDataToDevelopment": "pnpm run backup && pnpm run clearDevelopmentDataset && sanity dataset import production.tar.gz development --replace",
     "check-updates": "ncu -i --format group"
   },
   "keywords": [
