@@ -6,6 +6,7 @@ export const meldekortLandingsside = defineType({
   type: 'document',
   groups: [
     { name: 'innhold', title: 'Innhold', default: true },
+    { name: 'ytelserGruppe', title: 'Ytelser' },
     { name: 'linkForASe', title: 'Link for å se' },
     { name: 'linkForASende', title: 'Link for å sende' },
     { name: 'linkForAFylleUt', title: 'Link for å fylle ut' },
@@ -40,6 +41,40 @@ export const meldekortLandingsside = defineType({
         editModal: 'popover',
       },
       group: 'innhold',
+    }),
+    defineField({
+      name: 'ytelser',
+      title: 'Ytelser',
+      type: 'object',
+      description:
+        'Navn på ytelser som brukes i lenkekorttekster. Disse erstatter placeholderen {{ytelse}}.',
+      validation: (Rule) => Rule.required(),
+      group: 'ytelserGruppe',
+      fields: [
+        defineField({
+          name: 'dagpenger',
+          title: 'Dagpenger',
+          type: 'internationalizedArrayString',
+          description:
+            'Navn på ytelsen "dagpenger" (f.eks. nb: "dagpenger", en: "unemployment benefits").',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'aap',
+          title: 'AAP',
+          type: 'internationalizedArrayString',
+          description: 'Navn på ytelsen "AAP" (f.eks. nb: "AAP", en: "AAP").',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'tiltakspenger',
+          title: 'Tiltakspenger',
+          type: 'internationalizedArrayString',
+          description:
+            'Navn på ytelsen "tiltakspenger" (f.eks. nb: "tiltakspenger", en: "participation allowance").',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
     }),
     defineField({
       name: 'linkForASe',
