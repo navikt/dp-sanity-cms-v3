@@ -170,6 +170,14 @@ export const meldekortLandingsside = defineType({
             'Beskrivende tekst under tittelen. Bruk {{ytelse}} for ytelsesnavn og {{dato}} for dato-placeholder (f.eks. "Her finner du oversikt over dine {{ytelse}}-meldekort").',
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'kanSendesFraTag',
+          title: 'Kan sendes fra-tag',
+          type: 'internationalizedArrayString',
+          description:
+            'Tag som vises på lenkekortet med datoen fra når meldekortet kan sendes. Bruk {{dato}} som placeholder for datoen (f.eks. "Meldekortet kan sendes fra {{dato}}.").',
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
   ],
