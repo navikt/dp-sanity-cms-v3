@@ -21,7 +21,7 @@ jobs:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
         run: npx sanity dataset export production backups/backup.tar.gz
       - name: Upload backup.tar.gz
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: backup-tarball
           path: backups/backup.tar.gz
