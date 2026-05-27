@@ -43,6 +43,12 @@ export const meldekortPersonlinje = defineType({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'createReportCardButton',
+      title: 'Opprett meldekort-knapp',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     prepare() {
