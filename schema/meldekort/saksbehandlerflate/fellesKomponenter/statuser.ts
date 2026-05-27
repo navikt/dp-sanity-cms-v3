@@ -27,6 +27,13 @@ export const meldekortStatuser = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'meldekortOpprettetManuelt',
+      title: 'Meldekort opprettet manuelt',
+      type: 'string',
+      description: 'Tekst som vises når meldekortet nettopp er opprettet manuelt.',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'korrigering',
       title: 'Under korrigering',
       type: 'string',
