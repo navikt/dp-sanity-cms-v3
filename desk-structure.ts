@@ -54,6 +54,7 @@ import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate
 import { meldekortKalender } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/kalender'
 import { meldekortVarsler } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/varsler'
 import { meldekortLandingsside } from './schema/meldekort/landingsside/landingsside'
+import { opprettMeldekortModal } from './schema/meldekort/saksbehandlerflate/modaler/opprettMeldekortModal'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
@@ -129,6 +130,11 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                       S.divider().title('Modaler'),
                       createSingletonListItem(S, meldekortBekreftModal.name, 'Bekreft-modal'),
                       createSingletonListItem(S, meldekortHistorikkModal.name, 'Historikk-modal'),
+                      createSingletonListItem(
+                        S,
+                        opprettMeldekortModal.name,
+                        'Opprett meldekort-modal',
+                      ),
                       S.divider().title('Felles komponenter'),
                       createSingletonListItem(S, meldekortHeader.name, 'Header'),
                       createSingletonListItem(S, meldekortPersonlinje.name, 'Personlinje'),

@@ -9,6 +9,8 @@ export const meldekortBekreftModal = defineType({
     { name: 'fullfoerUtfylling', title: 'Fullfør utfylling' },
     { name: 'avbrytKorrigering', title: 'Avbryt korrigering' },
     { name: 'fullfoerKorrigering', title: 'Fullfør korrigering' },
+    { name: 'opprettMeldekort', title: 'Opprett meldekort' },
+    { name: 'slettMeldekort', title: 'Slett meldekort' },
   ],
   fields: [
     defineField({
@@ -156,6 +158,84 @@ export const meldekortBekreftModal = defineType({
           title: 'Bekreft-knapp',
           type: 'string',
           description: 'F.eks. "Ja, fullfør"',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'avbrytKnapp',
+          title: 'Avbryt-knapp',
+          type: 'string',
+          description: 'F.eks. "Nei, avbryt"',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'opprettMeldekort',
+      title: 'Opprett meldekort',
+      type: 'object',
+      description: 'Vises når bruker vil opprette nye meldekort.',
+      validation: (Rule) => Rule.required(),
+      group: 'opprettMeldekort',
+      fields: [
+        defineField({
+          name: 'overskrift',
+          title: 'Overskrift',
+          type: 'string',
+          description: 'F.eks. "Vil du opprette nye meldekort?"',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'innhold',
+          title: 'Innhold',
+          type: 'string',
+          description: 'F.eks. "Ved å trykke "Ja" vil nye meldekort opprettes."',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'bekreftKnapp',
+          title: 'Bekreft-knapp',
+          type: 'string',
+          description: 'F.eks. "Ja, opprett"',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'avbrytKnapp',
+          title: 'Avbryt-knapp',
+          type: 'string',
+          description: 'F.eks. "Nei, avbryt"',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'slettMeldekort',
+      title: 'Slett meldekort',
+      type: 'object',
+      description: 'Vises når bruker vil slette et meldekort.',
+      validation: (Rule) => Rule.required(),
+      group: 'slettMeldekort',
+      fields: [
+        defineField({
+          name: 'overskrift',
+          title: 'Overskrift',
+          type: 'string',
+          description: 'F.eks. "Er du sikker på at du vil slette meldekortet?"',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'innhold',
+          title: 'Innhold',
+          type: 'string',
+          description: 'F.eks. "Dette kan ikke angres."',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'bekreftKnapp',
+          title: 'Bekreft-knapp',
+          type: 'string',
+          description: 'F.eks. "Ja, slett"',
           validation: (Rule) => Rule.required(),
         }),
         defineField({

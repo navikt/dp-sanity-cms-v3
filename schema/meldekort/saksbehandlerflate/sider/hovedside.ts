@@ -255,6 +255,13 @@ export const meldekortHovedside = defineType({
           description: 'F.eks. "Fyll ut meldekort"',
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'slettMeldekort',
+          title: 'Slett meldekort-knapp',
+          type: 'string',
+          description: 'F.eks. "Slett meldekort"',
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
 
