@@ -32,7 +32,7 @@ Dette er et sentralisert CMS som håndterer innhold for:
 ### Installasjon
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Login
@@ -48,7 +48,7 @@ npx sanity login --sso navikt
 Start lokal utviklingsserver:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Studio åpnes på `http://localhost:3333`
@@ -94,22 +94,22 @@ Alle schemas er organisert i mapper etter applikasjonsdomene. Hvert schema har:
 
 ```bash
 # Utvikling
-npm run dev              # Start lokal utviklingsserver
-npm start                # Alias for dev
+pnpm run dev              # Start lokal utviklingsserver
+pnpm start                # Alias for dev
 
 # Bygg og deploy
-npm run build            # Bygg produksjonsstudio
-npm run deploy           # Deploy til Sanity hosted studio
+pnpm run build            # Bygg produksjonsstudio
+pnpm run deploy           # Deploy til Sanity hosted studio
 
 # Validering
-npm run type-check       # TypeScript validering
+pnpm run type-check       # TypeScript validering
 
 # Data-håndtering
-npm run backup                        # Eksporter produksjonsdata
-npm run copyProdDataToDevelopment    # Kopier prod til dev dataset
+pnpm run backup                        # Eksporter produksjonsdata
+pnpm run copyProdDataToDevelopment    # Kopier prod til dev dataset
 
 # GraphQL
-npm run deploy-graphql   # Deploy GraphQL API
+pnpm run deploy-graphql   # Deploy GraphQL API
 ```
 
 ## Flerspråklig innhold
@@ -149,7 +149,7 @@ auth: {
 #### Deploy (`.github/workflows/deploy.yaml`)
 
 - Trigger: Push til `main`-branch
-- Bygger studio med `npm run build`
+- Bygger studio med `pnpm run build`
 - Laster opp til NAIS CDN (`dp-sanity-cms-v3/dev`)
 - Bruker NAIS workload identity for autentisering
 
@@ -221,7 +221,7 @@ Prosjektet bruker strict TypeScript-konfigurasjon for bedre type-sikkerhet.
 
 - **Automatisk backup**: Hver 16. dag via GitHub Actions
 - **Cloud backup**: Manuell trigger tilgjengelig
-- **Dataset-eksport**: Via npm script (`npm run backup`)
+- **Dataset-eksport**: Via npm script (`pnpm run backup`)
 - **Artifacts**: Lagres i GitHub Actions (90 dagers retention)
 
 ## Hjelp og support
