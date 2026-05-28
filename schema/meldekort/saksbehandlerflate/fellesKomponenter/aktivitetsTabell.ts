@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
-export const meldekortFyllUtTabell = defineType({
-  name: 'meldekortFyllUtTabell',
-  title: 'Fyll ut tabell',
+export const meldekortAktivitetsTabell = defineType({
+  name: 'meldekortAktivitetsTabell',
+  title: 'Aktivitetstabell',
   type: 'document',
   groups: [
     { name: 'tabell', title: 'Tabell', default: true },
@@ -100,43 +100,11 @@ export const meldekortFyllUtTabell = defineType({
         }),
       ],
     }),
-    defineField({
-      name: 'numberInput',
-      title: 'Tallfelter (er muligens overflødig og kan fjernes)',
-      type: 'object',
-      description:
-        'Hjelpetekster for skjermlesere når man bruker pluss/minus-knapper i tallfelter.',
-      validation: (Rule) => Rule.required(),
-      group: 'numberInput',
-      fields: [
-        defineField({
-          name: 'adjustValueAriaLabel',
-          title: 'Beskrivelse av tallfelt (skjermleser)',
-          type: 'string',
-          description: 'Hjelpetekst for skjermlesere. F.eks. "Juster verdi"',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'increaseAriaLabel',
-          title: 'Beskrivelse av pluss-knapp (skjermleser)',
-          type: 'string',
-          description: 'Hjelpetekst for pluss-knappen. F.eks. "Øk"',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'decreaseAriaLabel',
-          title: 'Beskrivelse av minus-knapp (skjermleser)',
-          type: 'string',
-          description: 'Hjelpetekst for minus-knappen. F.eks. "Reduser"',
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
-    }),
   ],
   preview: {
     prepare() {
       return {
-        title: 'Fyll ut tabell',
+        title: 'Aktivitetstabell',
       }
     },
   },

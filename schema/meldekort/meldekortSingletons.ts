@@ -6,22 +6,24 @@ import { meldekortHeader } from './saksbehandlerflate/fellesKomponenter/header'
 import { meldekortPersonlinje } from './saksbehandlerflate/fellesKomponenter/personlinje'
 import { meldekortAktiviteter } from './saksbehandlerflate/fellesKomponenter/aktiviteter'
 import { meldekortStatuser } from './saksbehandlerflate/fellesKomponenter/statuser'
-import { meldekortFyllUtTabell } from './saksbehandlerflate/fellesKomponenter/fyllUtTabell'
+import { meldekortAktivitetsTabell } from './saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
 import { meldekortKalender } from './saksbehandlerflate/fellesKomponenter/kalender'
 import { meldekortVarsler } from './saksbehandlerflate/fellesKomponenter/varsler'
+import { meldekortLandingsside } from './landingsside/landingsside'
 
 export const meldekortSingletonActions = new Set(['publish', 'restore', 'discardChanges'])
 
 export const meldekortSingletonTypes: Set<string> = new Set([
   meldekortForside.name,
   meldekortHovedside.name,
+  meldekortLandingsside.name,
   meldekortBekreftModal.name,
   meldekortHistorikkModal.name,
   meldekortHeader.name,
   meldekortPersonlinje.name,
   meldekortAktiviteter.name,
   meldekortStatuser.name,
-  meldekortFyllUtTabell.name,
+  meldekortAktivitetsTabell.name,
   meldekortKalender.name,
   meldekortVarsler.name,
 ])

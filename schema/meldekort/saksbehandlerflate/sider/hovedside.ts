@@ -255,6 +255,13 @@ export const meldekortHovedside = defineType({
           description: 'F.eks. "Fyll ut meldekort"',
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'slettMeldekort',
+          title: 'Slett meldekort-knapp',
+          type: 'string',
+          description: 'F.eks. "Slett meldekort"',
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
 
@@ -279,6 +286,13 @@ export const meldekortHovedside = defineType({
           title: 'Fra Arena',
           type: 'string',
           description: 'Vises når meldekortet kommer fra Arena.',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'korrigeringAvArenaMeldekort',
+          title: 'En korrigering av meldekort fra Arena',
+          type: 'string',
+          description: 'Vises når meldekortet er en korrigering av et meldekort fra Arena.',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
