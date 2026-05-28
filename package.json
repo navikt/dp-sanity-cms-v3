@@ -1,7 +1,7 @@
 {
   "name": "dp-sanity-cms",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "main": "package.json",
   "license": "UNLICENSED",
