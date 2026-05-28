@@ -1,9 +1,16 @@
-import { AuthStoreOptions, createAuthStore, defineConfig, SingleWorkspace } from 'sanity'
+import {
+  AuthStoreOptions,
+  createAuthStore,
+  defineConfig,
+  defineField,
+  SingleWorkspace,
+} from 'sanity'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schema/schema'
 import { buildStructure } from './desk-structure'
 import { structureTool } from 'sanity/structure'
 import { documentInternationalization } from '@sanity/document-internationalization'
+import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
 import { meldekortSingletonTypes } from './schema/meldekort/meldekortSingletons'
 
@@ -31,9 +38,30 @@ const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema'> = 
       supportedLanguages: [
         { title: 'Engelsk', id: 'en' },
         { title: 'Bokmål', id: 'nb' },
-        { title: 'Nynorsk', id: 'nn' },
       ],
       schemaTypes: schemaTypes.map((schema) => schema.name),
+    }),
+    internationalizedArray({
+      languages: [
+        { id: 'nb', title: 'Bokmål' },
+        { id: 'en', title: 'Engelsk' },
+      ],
+      defaultLanguages: ['nb', 'en'],
+      fieldTypes: [
+        'string',
+        'text',
+        defineField({
+          name: 'blockContent',
+          type: 'array',
+          of: [
+            {
+              type: 'block',
+              styles: [{ title: 'Normal', value: 'normal' }],
+              lists: [],
+            },
+          ],
+        }),
+      ],
     }),
   ],
 
