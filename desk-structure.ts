@@ -35,7 +35,7 @@ import { saksbehandlingInfoSide } from './schema/saksbehandling/saksbehandlingIn
 import { rapporteringLink } from './schema/meldekort/brukerflate/rapporteringLink'
 import { brevBlokk } from './schema/saksbehandling/brev-blokk'
 import { brevMal } from './schema/saksbehandling/brev-mal'
-import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/lib/structure'
+import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/structure'
 import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
 import { regelmotorOpplysning } from './schema/saksbehandling/regelmotor-opplysning'
 import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
