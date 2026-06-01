@@ -94,7 +94,7 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
               createListItem(S, mineDagpengerAppText.name),
               createListItem(S, mineDagpengerRichText.name),
               createListItem(S, mineDagpengerLink.name),
-              createListItem(S, mineDagpengerSetting.title || mineDagpengerSetting.name),
+              createListItem(S, mineDagpengerSetting.name),
             ]),
         ),
       S.listItem()
