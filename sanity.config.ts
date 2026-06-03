@@ -1,5 +1,5 @@
 import {
-  AuthStoreOptions,
+  CreateAuthStoreOptions,
   createAuthStore,
   defineConfig,
   defineField,
@@ -14,9 +14,9 @@ import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
 import { meldekortSingletonTypes } from './schema/meldekort/meldekortSingletons'
 
-function getAuthConfig(dataset: 'development' | 'production' | 'kopi-av-prod'): AuthStoreOptions {
+function getAuthConfig(): CreateAuthStoreOptions {
   return {
-    dataset,
+    dataset: 'production',
     projectId: 'rt6o382n',
     redirectOnSingle: true,
     providers: [
@@ -29,8 +29,9 @@ function getAuthConfig(dataset: 'development' | 'production' | 'kopi-av-prod'): 
   }
 }
 
-const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema'> = {
+const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema' | 'auth'> = {
   projectId: 'rt6o382n',
+  auth: createAuthStore(getAuthConfig()),
   plugins: [
     structureTool({ structure: buildStructure }),
     visionTool(),
@@ -82,7 +83,6 @@ const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema'> = 
 export default defineConfig([
   {
     ...sharedConfig,
-    auth: createAuthStore(getAuthConfig('production')),
     name: 'production',
     title: 'Produksjon',
     dataset: 'production',
@@ -91,7 +91,6 @@ export default defineConfig([
   },
   {
     ...sharedConfig,
-    auth: createAuthStore(getAuthConfig('development')),
     name: 'development',
     title: 'Dev',
     dataset: 'development',

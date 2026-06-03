@@ -27,7 +27,7 @@ export const meldekortLandingsside = defineType({
       description: 'Tekst som vises når det ikke finnes innhold på landingssiden',
       validation: (Rule) => Rule.required(),
       options: {
-        editModal: 'popover',
+        modal: 'popover',
       },
       group: 'innhold',
     }),
@@ -38,7 +38,7 @@ export const meldekortLandingsside = defineType({
       description: 'Bunntekst på landingssiden (vises under lenkekortene)',
       validation: (Rule) => Rule.required(),
       options: {
-        editModal: 'popover',
+        modal: 'popover',
       },
       group: 'innhold',
     }),
