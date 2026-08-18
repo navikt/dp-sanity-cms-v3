@@ -1,90 +1,39 @@
-// note: context includes `currentUser` and the client
-
 import React from 'react'
-import { seksjon } from './schema/soknad/seksjon'
-import { faktum } from './schema/soknad/faktum'
-import { svaralternativ } from './schema/soknad/svaralternativ'
-import { landgruppe } from './schema/soknad/landgruppe'
-import { appText } from './schema/soknad/appText'
-import { infopage } from './schema/soknad/infopage'
-import { dokumentkrav } from './schema/soknad/dokumentkrav'
-import { dokumentkravSvar } from './schema/soknad/dokumentkrav-svar'
-import { mineDagpengerAppText } from './schema/mine-dagpenger/mineDagpengerAppText'
-import { mineDagpengerRichText } from './schema/mine-dagpenger/mineDagpengerRichText'
-import { mineDagpengerLink } from './schema/mine-dagpenger/mineDagpengerLink'
-import { mineDagpengerSetting } from './schema/mine-dagpenger/mineDagpengerSetting'
-import { ProduktsidePreview } from './schema/produktside/produktside-preview/ProduktsidePreview'
-import {
-  produktsideCalculatorPage,
-  produktsideCalculatorSettings,
-  produktsideCalculatorText,
-  produktsideContactOptions,
-  produktsideFilterSection,
-  produktsideGeneralText,
-  produktsideHeader,
-  produktsideKortFortalt,
-  produktsideSection,
-  produktsideSEO,
-  produktsideSettings,
-  produktsideTopContent,
-} from './schema/produktside/schema'
-import { rapporteringAppText } from './schema/meldekort/brukerflate/rapporteringAppText'
-import { rapporteringRichText } from './schema/meldekort/brukerflate/rapporteringRichText'
-import { saksbehandlingAppText } from './schema/saksbehandling/saksbehandlingAppText'
-import { saksbehandlingInfoSide } from './schema/saksbehandling/saksbehandlingInfoSide'
-import { rapporteringLink } from './schema/meldekort/brukerflate/rapporteringLink'
-import { brevBlokk } from './schema/saksbehandling/brev-blokk'
-import { brevMal } from './schema/saksbehandling/brev-mal'
 import { ListItemBuilder, StructureBuilder, StructureResolverContext } from 'sanity/structure'
-import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
-import { regelmotorOpplysning } from './schema/saksbehandling/regelmotor-opplysning'
+import { rapporteringAppText } from './schema/meldekort/brukerflate/rapporteringAppText'
+import { rapporteringLink } from './schema/meldekort/brukerflate/rapporteringLink'
 import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
-import { brukerdialogInfoside } from './schema/brukerdialog/infopage'
-import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/forside'
-import { meldekortHovedside } from './schema/meldekort/saksbehandlerflate/sider/hovedside'
-import { meldekortFyllUt } from './schema/meldekort/saksbehandlerflate/sider/fyllUt'
-import { meldekortKorriger } from './schema/meldekort/saksbehandlerflate/sider/korriger'
+import { rapporteringRichText } from './schema/meldekort/brukerflate/rapporteringRichText'
+import { meldekortLandingsside } from './schema/meldekort/landingsside/landingsside'
+import { meldekortAktiviteter } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktiviteter'
+import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
+import { meldekortHeader } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/header'
+import { meldekortKalender } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/kalender'
+import { meldekortPersonlinje } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/personlinje'
+import { meldekortStatuser } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/statuser'
+import { meldekortVarsler } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/varsler'
 import { meldekortBekreftModal } from './schema/meldekort/saksbehandlerflate/modaler/bekreftModal'
 import { meldekortHistorikkModal } from './schema/meldekort/saksbehandlerflate/modaler/historikkModal'
-import { meldekortHeader } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/header'
-import { meldekortPersonlinje } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/personlinje'
-import { meldekortAktiviteter } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktiviteter'
-import { meldekortStatuser } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/statuser'
-import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
-import { meldekortKalender } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/kalender'
-import { meldekortVarsler } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/varsler'
-import { meldekortLandingsside } from './schema/meldekort/landingsside/landingsside'
 import { opprettMeldekortModal } from './schema/meldekort/saksbehandlerflate/modaler/opprettMeldekortModal'
+import { meldekortForside } from './schema/meldekort/saksbehandlerflate/sider/forside'
+import { meldekortFyllUt } from './schema/meldekort/saksbehandlerflate/sider/fyllUt'
+import { meldekortHovedside } from './schema/meldekort/saksbehandlerflate/sider/hovedside'
+import { meldekortKorriger } from './schema/meldekort/saksbehandlerflate/sider/korriger'
+import { mineDagpengerAppText } from './schema/mine-dagpenger/mineDagpengerAppText'
+import { mineDagpengerLink } from './schema/mine-dagpenger/mineDagpengerLink'
+import { mineDagpengerRichText } from './schema/mine-dagpenger/mineDagpengerRichText'
+import { mineDagpengerSetting } from './schema/mine-dagpenger/mineDagpengerSetting'
+import { behandlingOpplysning } from './schema/saksbehandling/behandling-opplysning'
+import { brevBlokk } from './schema/saksbehandling/brev-blokk'
+import { brevMal } from './schema/saksbehandling/brev-mal'
+import { regelmotorOpplysning } from './schema/saksbehandling/regelmotor-opplysning'
+import { saksbehandlingAppText } from './schema/saksbehandling/saksbehandlingAppText'
+import { saksbehandlingInfoSide } from './schema/saksbehandling/saksbehandlingInfoSide'
 
 export function buildStructure(S: StructureBuilder, context: StructureResolverContext) {
   return S.list()
     .title('Applikasjoner')
     .items([
-      S.listItem()
-        .title('Dagpengersøknad')
-        .child(
-          S.list()
-            .title('Dagpengersøknad')
-            .items([
-              createListItem(S, seksjon.name),
-              createListItem(S, faktum.name),
-              createListItem(S, svaralternativ.name),
-              createListItem(S, landgruppe.name),
-              createListItem(S, appText.name),
-              createListItem(S, infopage.name),
-              createListItem(S, dokumentkrav.name),
-              createListItem(S, dokumentkravSvar.name),
-            ]),
-        ),
-
-      S.listItem()
-        .title('Brukerdialog')
-        .child(
-          S.list()
-            .title('Innhold')
-            .items([createListItem(S, brukerdialogInfoside.name)]),
-        ),
-
       S.listItem()
         .title('Mine dagpenger')
         .child(
@@ -168,47 +117,6 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                 .child(S.documentTypeList(regelmotorOpplysning.name)),
             ]),
         ),
-
-      S.listItem()
-        .title('Produktside dagpenger')
-        .child(
-          S.list()
-            .title('Produktside dagpenger')
-            .items([
-              createSingletonListItemProduktside(S, produktsideTopContent.name, 'Øverste innhold'),
-              createSingletonListItemProduktside(S, produktsideHeader.name, 'Header'),
-              createSingletonListItemProduktside(S, produktsideSettings.name, 'Venstremeny'),
-              createSingletonListItemProduktside(S, produktsideKortFortalt.name, 'Kort fortalt'),
-              createSingletonListItemProduktside(
-                S,
-                produktsideFilterSection.name,
-                'Filter seksjon',
-              ),
-              createSingletonListItemProduktside(S, produktsideContactOptions.name, 'Kontakt oss'),
-              createSingletonListItemProduktside(S, produktsideSEO.name, 'Søkemotoroptimalisering'),
-              S.listItem()
-                .title('Kalkulator')
-                .child(
-                  S.list()
-                    .title('Kalkulator')
-                    .items([
-                      createSingletonListItemProduktside(
-                        S,
-                        produktsideCalculatorSettings.name,
-                        'Kalkulator',
-                      ),
-                      createListItemProduktside(
-                        S,
-                        produktsideCalculatorText.name,
-                        'Kalkulator tekst',
-                      ),
-                    ]),
-                ),
-              createListItemProduktside(S, produktsideCalculatorPage.name, 'Kalkulatorside'),
-              createListItemProduktside(S, produktsideSection.name, 'Innholdsseksjoner'),
-              createListItemProduktside(S, produktsideGeneralText.name, 'Generelle tekster'),
-            ]),
-        ),
     ])
 }
 
@@ -217,37 +125,12 @@ function createListItem(S: StructureBuilder, schemaName: string, title?: string)
   return S.listItem()
     .title(title ?? capitalizedTitle)
     .child(
-      // Only show the base language variant of each item in schema
       S.documentList()
         .apiVersion('v2022-03-07')
         .title(`${title ?? capitalizedTitle}`)
         .schemaType(schemaName)
         .filter(`_type == "${schemaName}" && language == $baseLanguage`)
         .params({ baseLanguage: `nb` }),
-    )
-}
-
-function createListItemProduktside(
-  S: StructureBuilder,
-  schemaName: string,
-  title?: string,
-): ListItemBuilder {
-  const capitalizedTitle = camelCaseToSentenceCase(schemaName)
-  return S.listItem()
-    .title(title ?? capitalizedTitle)
-    .child(
-      // Only show the base language variant of each item in schema
-      S.documentList()
-        .apiVersion('v2022-03-07')
-        .title(`${title ?? capitalizedTitle}`)
-        .schemaType(schemaName)
-        .filter(`_type == "${schemaName}" && language == $baseLanguage`)
-        .params({ baseLanguage: `nb` })
-        .child(
-          S.editor()
-            .schemaType(schemaName)
-            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')]),
-        ),
     )
 }
 
@@ -268,53 +151,11 @@ function createSingletonListItem(
     .child(S.document().schemaType(schemaName).documentId(schemaName).views(views))
 }
 
-/*
-  This is a known caveat for singleton documents that uses document-interalization plugin
-  READ MORE: https://github.com/sanity-io/document-internationalization/blob/main/docs/known-caveats.md
-*/
-function createSingletonListItemProduktside(
-  S: StructureBuilder,
-  schemaName: string,
-  title?: string,
-): ListItemBuilder {
-  const capitalizedTitle = camelCaseToSentenceCase(schemaName)
-  return S.listItem()
-    .title(title ?? capitalizedTitle)
-    .child(
-      S.documentList()
-        .apiVersion('v2022-03-07')
-        .title(title ?? capitalizedTitle)
-        .id(schemaName)
-        .schemaType(schemaName)
-        .filter(`_id == "${schemaName}" && _type == "${schemaName}"`)
-        .menuItems([
-          {
-            title: 'Create new singleton',
-            intent: {
-              type: 'create',
-              params: {
-                id: schemaName,
-                type: schemaName,
-              },
-            },
-          },
-        ])
-        .child(
-          S.editor()
-            .schemaType(schemaName)
-            .views([S.view.form(), S.view.component(ProduktsidePreview).title('Preview')]),
-        ),
-    )
-}
-
 function camelCaseToSentenceCase(camelCaseString: string) {
-  // Look for capital letters and add a space before them
   let sentenceCaseString = camelCaseString.replace(/([A-Z])/g, ' $1')
 
-  // Make entire string lower case
   sentenceCaseString.toLowerCase()
 
-  // Capitalize the first character of the string
   sentenceCaseString = sentenceCaseString.replace(/^./, function (str) {
     return str.toUpperCase()
   })
