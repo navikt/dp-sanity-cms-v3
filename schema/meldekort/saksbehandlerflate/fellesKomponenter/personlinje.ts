@@ -46,7 +46,21 @@ export const meldekortPersonlinje = defineType({
     defineField({
       name: 'createReportCardButton',
       title: 'Opprett meldekort-knapp',
-      type: 'string',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'label',
+          title: 'Label',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'description',
+          title: 'Beskrivelse',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
       validation: (Rule) => Rule.required(),
     }),
   ],
