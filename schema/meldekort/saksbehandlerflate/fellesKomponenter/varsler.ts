@@ -9,6 +9,7 @@ export const meldekortVarsler = defineType({
     { name: 'suksess', title: 'Suksessmeldinger' },
     { name: 'feil', title: 'Feilmeldinger' },
     { name: 'errorBoundary', title: 'Feilside' },
+    { name: 'tomTilstand', title: 'Tomme tilstander' },
   ],
   fields: [
     defineField({
@@ -140,6 +141,28 @@ export const meldekortVarsler = defineType({
           title: 'Innhold i feilbeskrivelse',
           type: 'string',
           description: 'Tekst med feil-ID. Bruk {{id}} for feil-ID.',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: 'ingenMeldekort',
+      title: 'Ingen meldekort',
+      type: 'object',
+      description: 'Brukes når en person mangler meldekort på perioder-siden.',
+      validation: (Rule) => Rule.required(),
+      group: 'tomTilstand',
+      fields: [
+        defineField({
+          name: 'tittel',
+          title: 'Tittel',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'tekst',
+          title: 'Tekst',
+          type: 'string',
           validation: (Rule) => Rule.required(),
         }),
       ],
