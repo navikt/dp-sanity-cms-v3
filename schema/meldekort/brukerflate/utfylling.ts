@@ -92,21 +92,18 @@ export const meldekortBrukerflateUtfylling = defineType({
       name: 'arbeidssokerstatusSporsmaal',
       title: 'Steg: Vil du fortsatt være registrert som arbeidssøker?',
       type: 'object',
-      description:
-        'Innholdet som vises på steget: sidetittel, brødtekst og spørsmålet om brukeren vil være registrert som arbeidssøker.',
+      description: 'Spørsmål og svaralternativer for arbeidssøkerstatus.',
       validation: (Rule) => Rule.required(),
       group: 'arbeidssokerstatus',
       fields: [
-        stringField('tittel', 'Sidetittel for steget'),
-        stringField('beskrivelse', 'Brødtekst på steget'),
+        stringField('tittel', 'Spørsmål om arbeidssøkerstatus'),
         defineField({
           name: 'alternativer',
-          title: 'Radioknappgruppe',
-          description: 'Spørsmål og svaralternativer som vises som en radioknappgruppe.',
+          title: 'Svaralternativer',
+          description: 'Svaralternativer som vises som en radioknappgruppe.',
           type: 'object',
           validation: (Rule) => Rule.required(),
           fields: [
-            stringField('tittel', 'Spørsmål i radioknappgruppen'),
             stringField('ja', 'Svaralternativ: Ja'),
             stringField('nei', 'Svaralternativ: Nei'),
           ],
