@@ -19,7 +19,7 @@ export const meldekortBrukerflateAktiviteter = defineType({
     activityFields('jobb', 'Jobb'),
     activityFields('syk', 'Syk'),
     activityFields('ferie', 'Ferie'),
-    activityFields('kurs', 'Kurs'),
+    activityFields('utdanning', 'Utdanning'),
   ],
   preview: {
     prepare() {
