@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { richTextField, stringField } from './translated-fields'
+import { richTextField } from './translated-fields'
 
 export const meldekortBrukerflateArbeidssokerstatusBeskjeder = defineType({
   name: 'meldekortBrukerflateArbeidssokerstatusBeskjeder',
@@ -24,14 +24,11 @@ export const meldekortBrukerflateArbeidssokerstatusBeskjeder = defineType({
     ),
     defineField({
       name: 'duVilBliAvregistrert',
-      title: 'Beskjed til bruker som vil bli avregistrert',
+      title: 'Beskjeder til bruker som vil bli avregistrert',
       type: 'object',
       validation: (Rule) => Rule.required(),
       group: 'underUtfylling',
-      fields: [
-        stringField('tittel', 'Tittel på avregistreringsmelding'),
-        richTextField('beskrivelse', 'Beskrivelse ved avregistrering'),
-      ],
+      fields: [richTextField('kort', 'Kort beskjed'), richTextField('lang', 'Lang forklaring')],
     }),
     richTextField(
       'duSkalIkkeSvarePaSporsmaal',

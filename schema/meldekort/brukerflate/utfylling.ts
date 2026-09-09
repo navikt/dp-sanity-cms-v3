@@ -97,6 +97,7 @@ export const meldekortBrukerflateUtfylling = defineType({
       group: 'arbeidssokerstatus',
       fields: [
         stringField('tittel', 'Spørsmål om arbeidssøkerstatus'),
+        stringField('beskrivelse', 'Beskrivelse av spørsmålet om arbeidssøkerstatus'),
         defineField({
           name: 'alternativer',
           title: 'Svaralternativer',
@@ -145,7 +146,11 @@ export const meldekortBrukerflateUtfylling = defineType({
       group: 'seOver',
       fields: [
         stringField('ikkeSendtInnBeskjed', 'Beskjed når meldekortet ikke er sendt inn'),
-        stringField('jegHarSettOverBeskjed', 'Beskjed når brukeren har sett over meldekortet'),
+        stringField(
+          'jegHarSettOverBeskjed',
+          'Beskjed når brukeren vil bli avregistrert som arbeidssøker',
+          'Vises på «Se over»-steget når brukeren har valgt å bli avregistrert som arbeidssøker.',
+        ),
       ],
     }),
   ],
