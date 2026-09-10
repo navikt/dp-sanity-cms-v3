@@ -4,6 +4,16 @@ import { rapporteringAppText } from './schema/meldekort/brukerflate/rapportering
 import { rapporteringLink } from './schema/meldekort/brukerflate/rapporteringLink'
 import { rapporteringMessage } from './schema/meldekort/brukerflate/rapporteringMessage'
 import { rapporteringRichText } from './schema/meldekort/brukerflate/rapporteringRichText'
+import { meldekortBrukerflateGrunntekster } from './schema/meldekort/brukerflate/felles/grunntekster'
+import { meldekortBrukerflateKnapper } from './schema/meldekort/brukerflate/felles/knapper'
+import { meldekortBrukerflateArbeidssokerstatusBeskjeder } from './schema/meldekort/brukerflate/felles/arbeidssokerstatusBeskjeder'
+import { meldekortBrukerflateAktiviteter } from './schema/meldekort/brukerflate/felles/aktiviteter'
+import { meldekortBrukerflateVeileder } from './schema/meldekort/brukerflate/felles/veileder'
+import { meldekortBrukerflateMeldekortdetaljer } from './schema/meldekort/brukerflate/felles/meldekortdetaljer'
+import { meldekortBrukerflateVelkomstside } from './schema/meldekort/brukerflate/velkomstside'
+import { meldekortBrukerflateUtfylling } from './schema/meldekort/brukerflate/utfylling'
+import { meldekortBrukerflateKvittering } from './schema/meldekort/brukerflate/kvittering'
+import { meldekortBrukerflateOversikt } from './schema/meldekort/brukerflate/oversikt'
 import { meldekortLandingsside } from './schema/meldekort/landingsside/landingsside'
 import { meldekortAktiviteter } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktiviteter'
 import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
@@ -59,6 +69,61 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                   S.list()
                     .title('Brukerflate')
                     .items([
+                      S.listItem()
+                        .title('Felles')
+                        .child(
+                          S.list()
+                            .title('Felles')
+                            .items([
+                              createSingletonListItem(
+                                S,
+                                meldekortBrukerflateGrunntekster.name,
+                                'Grunntekster',
+                              ),
+                              createSingletonListItem(
+                                S,
+                                meldekortBrukerflateKnapper.name,
+                                'Knapper',
+                              ),
+                              createSingletonListItem(
+                                S,
+                                meldekortBrukerflateArbeidssokerstatusBeskjeder.name,
+                                'Beskjeder om arbeidssøkerstatus',
+                              ),
+                              createSingletonListItem(
+                                S,
+                                meldekortBrukerflateAktiviteter.name,
+                                'Aktiviteter',
+                              ),
+                              createSingletonListItem(
+                                S,
+                                meldekortBrukerflateVeileder.name,
+                                'Veileder',
+                              ),
+                              createSingletonListItem(
+                                S,
+                                meldekortBrukerflateMeldekortdetaljer.name,
+                                'Meldekortdetaljer',
+                              ),
+                            ]),
+                        ),
+                      createSingletonListItem(
+                        S,
+                        meldekortBrukerflateVelkomstside.name,
+                        'Velkomstside',
+                      ),
+                      createSingletonListItem(
+                        S,
+                        meldekortBrukerflateUtfylling.name,
+                        'Utfylling av meldekort',
+                      ),
+                      createSingletonListItem(S, meldekortBrukerflateKvittering.name, 'Kvittering'),
+                      createSingletonListItem(
+                        S,
+                        meldekortBrukerflateOversikt.name,
+                        'Oversikt over innsendte meldekort',
+                      ),
+                      S.divider().title('Gammel struktur av innhold'),
                       createListItem(S, rapporteringAppText.name),
                       createListItem(S, rapporteringRichText.name),
                       createListItem(S, rapporteringLink.name),

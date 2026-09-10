@@ -53,6 +53,7 @@ const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema' | '
         'text',
         defineField({
           name: 'blockContent',
+          title: 'Innhold',
           type: 'array',
           of: [
             {
