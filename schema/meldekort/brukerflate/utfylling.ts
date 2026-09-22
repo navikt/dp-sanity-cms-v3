@@ -109,6 +109,7 @@ export const meldekortBrukerflateUtfylling = defineType({
             stringField('nei', 'Svaralternativ: Nei'),
           ],
         }),
+        stringField('svarPrefiks', 'Du svarte:'),
       ],
     }),
     defineField({
@@ -134,7 +135,32 @@ export const meldekortBrukerflateUtfylling = defineType({
       fields: [
         stringField('tittel', 'Sidetittel for steget'),
         stringField('beskrivelse', 'Brødtekst på steget'),
-        stringField('alternativer', 'Svaralternativer for begrunnelsen'),
+        defineField({
+          name: 'alternativer',
+          title: 'Svaralternativer for begrunnelsen',
+          type: 'array',
+          description: 'Legg inn opptil seks svaralternativer i ønsket rekkefølge.',
+          validation: (Rule) => Rule.required().min(1).max(6),
+          of: [
+            defineField({
+              name: 'alternativ',
+              title: 'Svaralternativ',
+              type: 'object',
+              fields: [stringField('tekst', 'Tekst på svaralternativet')],
+              preview: {
+                select: {
+                  tekst: 'tekst',
+                },
+                prepare({ tekst }) {
+                  const norskTekst = tekst?.find(
+                    (item: { _key?: string }) => item._key === 'nb',
+                  )?.value
+                  return { title: norskTekst ?? tekst?.[0]?.value ?? 'Svaralternativ' }
+                },
+              },
+            }),
+          ],
+        }),
       ],
     }),
     defineField({
@@ -145,11 +171,11 @@ export const meldekortBrukerflateUtfylling = defineType({
       validation: (Rule) => Rule.required(),
       group: 'seOver',
       fields: [
-        stringField('ikkeSendtInnBeskjed', 'Beskjed når meldekortet ikke er sendt inn'),
+        stringField('sidetittel', 'Sidetittel for "Se over"-steget'),
+        richTextField('beskrivelse', 'Beskrivelse for "Se over"-steget'),
         stringField(
           'jegHarSettOverBeskjed',
-          'Beskjed når brukeren vil bli avregistrert som arbeidssøker',
-          'Vises på «Se over»-steget når brukeren har valgt å bli avregistrert som arbeidssøker.',
+          'Beskjed som bekrefter at brukeren har sett over meldekortet',
         ),
       ],
     }),

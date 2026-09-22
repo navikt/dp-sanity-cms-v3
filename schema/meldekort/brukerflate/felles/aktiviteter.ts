@@ -23,7 +23,7 @@ export const meldekortBrukerflateAktiviteter = defineType({
   ],
   preview: {
     prepare() {
-      return { title: 'Meldekort brukerflate - aktiviteter' }
+      return { title: 'Aktiviteter' }
     },
   },
 })

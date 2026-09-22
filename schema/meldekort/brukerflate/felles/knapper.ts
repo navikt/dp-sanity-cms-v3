@@ -18,7 +18,7 @@ export const meldekortBrukerflateKnapper = defineType({
   ],
   preview: {
     prepare() {
-      return { title: 'Meldekort brukerflate - knapper' }
+      return { title: 'Knapper' }
     },
   },
 })

@@ -56,12 +56,12 @@ export const meldekortBrukerflateVelkomstside = defineType({
           'Meldekort kan sendes inn',
           'Vises når brukeren har et meldekort som er klart til utfylling og innsending.',
         ),
-        messageFields(
+        stringField(
           'ingenMeldekort',
           'Ingen meldekort å sende inn',
           'Vises når brukeren ikke har et meldekort som kan fylles ut nå.',
         ),
-        messageFields(
+        stringField(
           'forTidlig',
           'For tidlig å sende inn meldekort',
           'Vises når brukeren må vente før neste meldekort kan fylles ut.',
