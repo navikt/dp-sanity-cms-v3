@@ -19,6 +19,7 @@ export const meldekortBrukerflateOversikt = defineType({
       group: 'oversikt',
     }),
     richTextField('tekst', 'Tekst på siden', 'oversikt'),
+    stringField('ingenInnsendteMeldekort', 'Ingen innsendte meldekort', 'oversikt'),
     defineField({
       name: 'meldekortstatus',
       title: 'Meldekortstatus',
@@ -26,7 +27,9 @@ export const meldekortBrukerflateOversikt = defineType({
       validation: (Rule) => Rule.required(),
       group: 'meldekortstatus',
       fields: [
+        stringField('tilUtfylling', 'Til utfylling'),
         stringField('innsendt', 'Innsendt'),
+        stringField('endret', 'Endret'),
         stringField('ferdigBehandlet', 'Ferdig behandlet'),
         stringField('feilVedBehandling', 'Feil ved behandling'),
       ],

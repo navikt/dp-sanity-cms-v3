@@ -16,10 +16,12 @@ import { meldekortBrukerflateArbeidssokerstatusBeskjeder } from './brukerflate/f
 import { meldekortBrukerflateAktiviteter } from './brukerflate/felles/aktiviteter'
 import { meldekortBrukerflateVeileder } from './brukerflate/felles/veileder'
 import { meldekortBrukerflateMeldekortdetaljer } from './brukerflate/felles/meldekortdetaljer'
+import { MeldekortInnsendingsstatusBeskjed } from './brukerflate/felles/meldekortSendestatusBeskjed'
 import { meldekortBrukerflateVelkomstside } from './brukerflate/velkomstside'
 import { meldekortBrukerflateUtfylling } from './brukerflate/utfylling'
 import { meldekortBrukerflateKvittering } from './brukerflate/kvittering'
 import { meldekortBrukerflateOversikt } from './brukerflate/oversikt'
+import { meldekortBrukerflateFeilmeldinger } from './brukerflate/felles/feilmeldinger'
 
 export const meldekortSingletonActions = new Set(['publish', 'restore', 'discardChanges'])
 
@@ -33,10 +35,12 @@ export const meldekortSingletonTypes: Set<string> = new Set([
   meldekortBrukerflateAktiviteter.name,
   meldekortBrukerflateVeileder.name,
   meldekortBrukerflateMeldekortdetaljer.name,
+  MeldekortInnsendingsstatusBeskjed.name,
   meldekortBrukerflateVelkomstside.name,
   meldekortBrukerflateUtfylling.name,
   meldekortBrukerflateKvittering.name,
   meldekortBrukerflateOversikt.name,
+  meldekortBrukerflateFeilmeldinger.name,
   meldekortBekreftModal.name,
   meldekortHistorikkModal.name,
   meldekortHeader.name,

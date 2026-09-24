@@ -7,13 +7,14 @@ import { rapporteringRichText } from './schema/meldekort/brukerflate/rapporterin
 import { meldekortBrukerflateGrunntekster } from './schema/meldekort/brukerflate/felles/grunntekster'
 import { meldekortBrukerflateKnapper } from './schema/meldekort/brukerflate/felles/knapper'
 import { meldekortBrukerflateArbeidssokerstatusBeskjeder } from './schema/meldekort/brukerflate/felles/arbeidssokerstatusBeskjeder'
-import { meldekortBrukerflateAktiviteter } from './schema/meldekort/brukerflate/felles/aktiviteter'
 import { meldekortBrukerflateVeileder } from './schema/meldekort/brukerflate/felles/veileder'
 import { meldekortBrukerflateMeldekortdetaljer } from './schema/meldekort/brukerflate/felles/meldekortdetaljer'
+import { MeldekortInnsendingsstatusBeskjed } from './schema/meldekort/brukerflate/felles/meldekortSendestatusBeskjed'
 import { meldekortBrukerflateVelkomstside } from './schema/meldekort/brukerflate/velkomstside'
 import { meldekortBrukerflateUtfylling } from './schema/meldekort/brukerflate/utfylling'
 import { meldekortBrukerflateKvittering } from './schema/meldekort/brukerflate/kvittering'
 import { meldekortBrukerflateOversikt } from './schema/meldekort/brukerflate/oversikt'
+import { meldekortBrukerflateFeilmeldinger } from './schema/meldekort/brukerflate/felles/feilmeldinger'
 import { meldekortLandingsside } from './schema/meldekort/landingsside/landingsside'
 import { meldekortAktiviteter } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktiviteter'
 import { meldekortAktivitetsTabell } from './schema/meldekort/saksbehandlerflate/fellesKomponenter/aktivitetsTabell'
@@ -92,11 +93,6 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                               ),
                               createSingletonListItem(
                                 S,
-                                meldekortBrukerflateAktiviteter.name,
-                                'Aktiviteter',
-                              ),
-                              createSingletonListItem(
-                                S,
                                 meldekortBrukerflateVeileder.name,
                                 'Veileder',
                               ),
@@ -104,6 +100,16 @@ export function buildStructure(S: StructureBuilder, context: StructureResolverCo
                                 S,
                                 meldekortBrukerflateMeldekortdetaljer.name,
                                 'Meldekortdetaljer',
+                              ),
+                              createSingletonListItem(
+                                S,
+                                MeldekortInnsendingsstatusBeskjed.name,
+                                'Sendestatus for meldekort',
+                              ),
+                              createSingletonListItem(
+                                S,
+                                meldekortBrukerflateFeilmeldinger.name,
+                                'Feilmeldinger',
                               ),
                             ]),
                         ),

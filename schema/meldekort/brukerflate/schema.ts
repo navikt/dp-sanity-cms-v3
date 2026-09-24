@@ -9,10 +9,12 @@ import { meldekortBrukerflateArbeidssokerstatusBeskjeder } from './felles/arbeid
 import { meldekortBrukerflateAktiviteter } from './felles/aktiviteter'
 import { meldekortBrukerflateVeileder } from './felles/veileder'
 import { meldekortBrukerflateMeldekortdetaljer } from './felles/meldekortdetaljer'
+import { MeldekortInnsendingsstatusBeskjed } from './felles/meldekortSendestatusBeskjed'
 import { meldekortBrukerflateVelkomstside } from './velkomstside'
 import { meldekortBrukerflateUtfylling } from './utfylling'
 import { meldekortBrukerflateKvittering } from './kvittering'
 import { meldekortBrukerflateOversikt } from './oversikt'
+import { meldekortBrukerflateFeilmeldinger } from './felles/feilmeldinger'
 
 export const brukerflateSchemas = [
   rapporteringAppText,
@@ -26,8 +28,10 @@ export const brukerflateSchemas = [
   meldekortBrukerflateAktiviteter,
   meldekortBrukerflateVeileder,
   meldekortBrukerflateMeldekortdetaljer,
+  MeldekortInnsendingsstatusBeskjed,
   meldekortBrukerflateVelkomstside,
   meldekortBrukerflateUtfylling,
   meldekortBrukerflateKvittering,
   meldekortBrukerflateOversikt,
+  meldekortBrukerflateFeilmeldinger,
 ]

@@ -33,7 +33,7 @@ export const meldekortBrukerflateVeileder = defineType({
   ],
   preview: {
     prepare() {
-      return { title: 'Meldekort brukerflate - veileder' }
+      return { title: 'Veileder' }
     },
   },
 })
