@@ -98,7 +98,12 @@ export const meldekortBrukerflateMeldekortdetaljer = defineType({
       type: 'object',
       validation: (Rule) => Rule.required(),
       group: 'tidsverdi',
-      fields: [stringField('timer', 'Timer'), stringField('dager', 'Dager')],
+      fields: [
+        stringField('timerSingular', 'Timer (entall)'),
+        stringField('timerPlural', 'Timer (flertall)'),
+        stringField('dagerSingular', 'Dager (entall)'),
+        stringField('dagerPlural', 'Dager (flertall)'),
+      ],
     }),
   ],
   preview: {
