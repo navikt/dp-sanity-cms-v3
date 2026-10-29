@@ -1,10 +1,4 @@
-import {
-  CreateAuthStoreOptions,
-  createAuthStore,
-  defineConfig,
-  defineField,
-  SingleWorkspace,
-} from 'sanity'
+import { defineConfig, defineField, SingleWorkspace } from 'sanity'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schema/schema'
 import { buildStructure } from './desk-structure'
@@ -14,10 +8,9 @@ import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
 import { meldekortSingletonTypes } from './schema/meldekort/meldekortSingletons'
 
-function getAuthConfig(): CreateAuthStoreOptions {
-  return {
-    dataset: 'production',
-    projectId: 'rt6o382n',
+const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema' | 'auth'> = {
+  projectId: 'rt6o382n',
+  auth: {
     redirectOnSingle: true,
     providers: [
       {
@@ -26,12 +19,7 @@ function getAuthConfig(): CreateAuthStoreOptions {
         url: 'https://api.sanity.io/v2021-10-01/auth/saml/login/f3270b37',
       },
     ],
-  }
-}
-
-const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema' | 'auth'> = {
-  projectId: 'rt6o382n',
-  auth: createAuthStore(getAuthConfig()),
+  },
   plugins: [
     structureTool({ structure: buildStructure }),
     visionTool(),
