@@ -14,9 +14,9 @@ import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 import { produktsideSingletonTypes } from './schema/produktside/produktsideConfig'
 import { meldekortSingletonTypes } from './schema/meldekort/meldekortSingletons'
 
-function getAuthConfig(): CreateAuthStoreOptions {
+function getAuthConfig(dataset: string): CreateAuthStoreOptions {
   return {
-    dataset: 'production',
+    dataset,
     projectId: 'rt6o382n',
     redirectOnSingle: true,
     providers: [
@@ -29,9 +29,8 @@ function getAuthConfig(): CreateAuthStoreOptions {
   }
 }
 
-const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema' | 'auth'> = {
+const sharedConfig: Pick<SingleWorkspace, 'projectId' | 'plugins' | 'schema'> = {
   projectId: 'rt6o382n',
-  auth: createAuthStore(getAuthConfig()),
   plugins: [
     structureTool({ structure: buildStructure }),
     visionTool(),
@@ -87,6 +86,7 @@ export default defineConfig([
     name: 'production',
     title: 'Produksjon',
     dataset: 'production',
+    auth: createAuthStore(getAuthConfig('production')),
     basePath: '/sanity/prod',
     default: true,
   },
@@ -95,6 +95,7 @@ export default defineConfig([
     name: 'development',
     title: 'Dev',
     dataset: 'development',
+    auth: createAuthStore(getAuthConfig('development')),
     basePath: '/sanity/dev',
   },
 ])
